@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import { templates, getTemplateBySlug } from "@/lib/templates";
 import type { Metadata } from "next";
 
@@ -24,7 +25,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 const categoryLabels: Record<string, string> = {
   startup: "Startup",
   career: "Career",
-  finance: "Finance",
+  student: "Student",
   society: "Society",
 };
 
@@ -48,11 +49,38 @@ export default async function TemplateDetailPage({ params }: Props) {
         <div className="grid lg:grid-cols-5 gap-12 lg:gap-16">
           {/* Left: Preview */}
           <div className="lg:col-span-3">
-            <div className="aspect-[4/3] rounded-xl bg-bg-warm border border-border-light flex items-center justify-center">
-              <span className="font-serif text-2xl text-text-tertiary">
-                {template.title}
-              </span>
+            <div className="relative aspect-[4/3] rounded-xl bg-bg-warm border border-border-light overflow-hidden">
+              <Image
+                src={template.previewImage}
+                alt={template.title}
+                fill
+                className="object-cover object-top"
+                sizes="(max-width: 1024px) 100vw, 60vw"
+                priority
+              />
             </div>
+
+            {/* Colour variants */}
+            {template.colorVariants.length > 0 && (
+              <div className="mt-6 flex items-center gap-4">
+                <span className="text-xs font-medium uppercase tracking-wider text-text-tertiary">
+                  Colour themes included
+                </span>
+                <div className="flex items-center gap-2">
+                  {template.colorVariants.map((v) => (
+                    <div key={v.name} className="flex items-center gap-1.5">
+                      <span
+                        className="w-5 h-5 rounded-full border border-border"
+                        style={{ backgroundColor: v.accent }}
+                      />
+                      <span className="text-xs text-text-secondary">
+                        {v.name}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
 
           {/* Right: Details (sticky) */}
@@ -77,11 +105,26 @@ export default async function TemplateDetailPage({ params }: Props) {
                 <span className="text-sm text-text-tertiary">EUR</span>
               </div>
 
+              {/* Buy button */}
               <a
                 href={template.lemonSqueezyUrl}
-                className="w-full inline-flex items-center justify-center px-7 py-4 bg-text text-white text-sm font-medium rounded-lg hover:bg-accent transition-colors duration-200 mb-4"
+                className="w-full inline-flex items-center justify-center px-7 py-4 bg-text text-white text-sm font-medium rounded-lg hover:bg-accent transition-colors duration-200 mb-3"
               >
                 Buy now
+              </a>
+
+              {/* Preview button */}
+              <a
+                href={template.downloadFile}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full inline-flex items-center justify-center px-7 py-3 bg-white text-text text-sm font-medium rounded-lg border border-border hover:border-text transition-colors duration-200"
+              >
+                <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                </svg>
+                Preview template
               </a>
 
               {/* What's included */}

@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>General CV Template — Scribed</title>
+<style>
+  :root {
+    --bg: #ffffff;
+    --bg-warm: #F7F8FB;
+    --text: #1A1A1A;
+    --text2: #4A4A4A;
+    --text3: #9B9B9B;
+    --accent: #2B4C7E;
+    --accent-light: rgba(43,76,126,0.06);
+    --green: #2D7A4F;
+    --green-light: rgba(45,122,79,0.06);
+    --warning: #B8860B;
+    --warning-light: rgba(184,134,11,0.06);
+    --border: #E0E3E8;
+    --border-light: #ECEEF2;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background: var(--bg-warm);
+    color: var(--text);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── Guide wrapper ─────────────────────────── */
+  .guide-wrapper {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 60px 24px 40px;
+  }
+
+  .guide-wrapper h1 {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 4px;
+  }
+
+  .guide-wrapper .subtitle {
+    font-size: 15px;
+    color: var(--text3);
+    margin-bottom: 36px;
+  }
+
+  .guide-wrapper h2 {
+    font-size: 19px;
+    font-weight: 700;
+    color: var(--text);
+    margin: 36px 0 14px;
+  }
+
+  .guide-wrapper h3 {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text2);
+    margin: 24px 0 10px;
+  }
+
+  .guide-wrapper p {
+    font-size: 15px;
+    color: var(--text2);
+    margin-bottom: 12px;
+    line-height: 1.7;
+  }
+
+  .guide-wrapper ul, .guide-wrapper ol {
+    margin: 0 0 16px 20px;
+    font-size: 15px;
+    color: var(--text2);
+    line-height: 1.7;
+  }
+
+  .guide-wrapper li { margin-bottom: 6px; }
+
+  /* ── Tip boxes ─────────────────────────────── */
+  .tip {
+    border-radius: 8px;
+    padding: 14px 18px;
+    margin: 16px 0;
+    font-size: 14px;
+    line-height: 1.65;
+  }
+
+  .tip strong { display: block; margin-bottom: 4px; font-size: 13px; text-transform: uppercase; letter-spacing: 0.4px; }
+
+  .tip-accent  { background: var(--accent-light); color: var(--accent); border: 1px solid rgba(43,76,126,0.10); }
+  .tip-green   { background: var(--green-light);  color: var(--green);  border: 1px solid rgba(45,122,79,0.10); }
+  .tip-warning { background: var(--warning-light); color: var(--warning); border: 1px solid rgba(184,134,11,0.10); }
+
+  /* ── Prompt boxes ──────────────────────────── */
+  .prompt {
+    background: var(--bg-warm);
+    border: none;
+    border-left: 3px solid var(--accent);
+    border-radius: 0 8px 8px 0;
+    padding: 12px 16px;
+    margin: 8px 0 12px;
+    font-size: 14px;
+    color: var(--text3);
+    font-style: italic;
+  }
+
+  /* ── Section divider ───────────────────────── */
+  .section-divider {
+    border: none;
+    border-top: 1px solid var(--border-light);
+    margin: 40px 0;
+  }
+
+  /* ── CV container ──────────────────────────── */
+  .cv-container {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 0 24px 60px;
+  }
+
+  .cv-label {
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text3);
+    margin-bottom: 16px;
+  }
+
+  .cv-page {
+    width: 100%;
+    max-width: 210mm;
+    min-height: 297mm;
+    margin: 0 auto;
+    background: #fff;
+    padding: 40px 44px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06), 0 8px 30px rgba(0,0,0,0.06);
+    border-radius: 2px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    color: #1a1a1a;
+    font-size: 10.5pt;
+    line-height: 1.5;
+  }
+
+  /* ── CV typography ─────────────────────────── */
+  .cv-page .cv-name {
+    font-size: 20pt;
+    font-weight: 700;
+    letter-spacing: -0.2px;
+    margin-bottom: 4px;
+    color: #111;
+  }
+
+  .cv-page .cv-contact {
+    font-size: 9pt;
+    color: #555;
+    margin-bottom: 22px;
+    line-height: 1.6;
+  }
+
+  .cv-page .cv-contact a {
+    color: #555;
+    text-decoration: none;
+  }
+
+  .cv-page .cv-section-title {
+    font-size: 9.5pt;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    color: #1a1a1a;
+    border-bottom: 1px solid #d0d0d0;
+    padding-bottom: 3px;
+    margin: 18px 0 10px;
+  }
+
+  .cv-page .cv-entry { margin-bottom: 12px; }
+
+  .cv-page .cv-entry-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 1px;
+  }
+
+  .cv-page .cv-role {
+    font-weight: 600;
+    font-size: 10.5pt;
+    color: #1a1a1a;
+  }
+
+  .cv-page .cv-dates {
+    font-size: 9pt;
+    color: #777;
+    white-space: nowrap;
+  }
+
+  .cv-page .cv-org {
+    font-size: 9.5pt;
+    color: #555;
+    margin-bottom: 4px;
+  }
+
+  .cv-page .cv-bullets {
+    list-style: disc;
+    margin: 4px 0 0 18px;
+    padding: 0;
+    font-size: 10pt;
+    color: #333;
+    line-height: 1.55;
+  }
+
+  .cv-page .cv-bullets li { margin-bottom: 3px; }
+
+  .cv-page .cv-skills {
+    font-size: 10pt;
+    color: #333;
+    line-height: 1.7;
+  }
+
+  .cv-page .cv-skills strong {
+    font-weight: 600;
+  }
+
+  /* ── Footer ────────────────────────────────── */
+  .site-footer {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 40px 24px 48px;
+    text-align: center;
+    font-size: 13px;
+    color: var(--text3);
+    line-height: 1.7;
+  }
+
+  .site-footer .brand {
+    font-weight: 600;
+    color: var(--text2);
+  }
+
+  @media print {
+    body { background: #fff; }
+    .guide-wrapper, .site-footer, .cv-label { display: none; }
+    .cv-container { padding: 0; }
+    .cv-page { box-shadow: none; padding: 0; min-height: auto; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ╔══════════════════════════════════════════╗
+     ║      STRATEGY GUIDE — GENERAL CV        ║
+     ╚══════════════════════════════════════════╝ -->
+
+<div class="guide-wrapper">
+
+  <h1>General CV — Strategy Guide</h1>
+  <p class="subtitle">The all-rounder for business, operations, public sector, non-profit, and graduate schemes</p>
+
+  <p>Not every career path has a rigid CV convention. If you're applying to business roles, graduate schemes, operations, HR, the public sector, or non-profits, you need a CV that's clean, adaptable, and focuses on transferable skills. This template is built for exactly that.</p>
+
+  <!-- ── Section 1 ── -->
+  <h2>1. One Template, Any Industry — How to Adapt</h2>
+
+  <p>This CV is designed as a starting point, not a finished product. The structure stays the same, but the emphasis shifts depending on where you're applying.</p>
+
+  <h3>How to adjust by sector</h3>
+  <ul>
+    <li><strong>Graduate schemes (e.g. Civil Service Fast Stream, Teach First):</strong> Emphasise leadership, teamwork, and societal impact. These schemes value competency-based evidence over technical skills.</li>
+    <li><strong>Operations / Business:</strong> Lead with process improvements, efficiency gains, and anything involving data or systems. Use numbers wherever possible.</li>
+    <li><strong>HR / People:</strong> Highlight communication, stakeholder management, conflict resolution, and any training or mentoring you've done.</li>
+    <li><strong>Non-profit / Public sector:</strong> Focus on mission alignment, volunteering, community engagement, and any work that demonstrates public service motivation.</li>
+  </ul>
+
+  <div class="tip tip-accent">
+    <strong>Scribed Insight</strong>
+    Read the job description line by line. For each bullet in the person spec, you should be able to point to a line on your CV that demonstrates it. If you can't, add one or adjust what's there.
+  </div>
+
+  <hr class="section-divider" />
+
+  <!-- ── Section 2 ── -->
+  <h2>2. The Experience Bullet Formula</h2>
+
+  <p>The core skill in CV writing is turning a vague task description into a compelling evidence bullet. Every bullet should follow this structure:</p>
+
+  <div class="tip tip-green">
+    <strong>Bullet Formula</strong>
+    [Strong verb] + [What you did] + [Measurable result or impact]
+  </div>
+
+  <h3>Before and after examples</h3>
+
+  <p><strong>Weak:</strong> "Helped with team administration and supported events."</p>
+  <div class="prompt">Strong: "Coordinated logistics for 8 society events with 50–200 attendees, managing venue bookings, speaker liaison, and day-of operations."</div>
+
+  <p><strong>Weak:</strong> "Was involved in the consulting project."</p>
+  <div class="prompt">Strong: "Conducted stakeholder interviews with 6 department heads and synthesised findings into a process improvement report, identifying £40K in annual cost savings."</div>
+
+  <p><strong>Weak:</strong> "Assisted with social media."</p>
+  <div class="prompt">Strong: "Managed the organisation's LinkedIn presence, growing followers by 25% over 4 months through a weekly content calendar and targeted engagement strategy."</div>
+
+  <h3>Power verbs to use</h3>
+  <ul>
+    <li><strong>Leadership:</strong> Led, Directed, Oversaw, Chaired, Founded, Spearheaded</li>
+    <li><strong>Analysis:</strong> Analysed, Evaluated, Assessed, Researched, Investigated, Mapped</li>
+    <li><strong>Communication:</strong> Presented, Drafted, Negotiated, Facilitated, Briefed, Liaised</li>
+    <li><strong>Execution:</strong> Delivered, Implemented, Coordinated, Managed, Organised, Streamlined</li>
+  </ul>
+
+  <hr class="section-divider" />
+
+  <!-- ── Section 3 ── -->
+  <h2>3. Making Non-Glamorous Experience Sound Strong</h2>
+
+  <p>Not everyone has a brand-name internship. That's fine — recruiters in these sectors know that. What matters is how you describe what you did, not where you did it.</p>
+
+  <h3>Retail, hospitality, and part-time work</h3>
+  <p>These roles build genuine commercial skills. Reframe them in business language:</p>
+  <ul>
+    <li>"Worked the till" → "Processed 100+ customer transactions per shift, maintaining accuracy under time pressure"</li>
+    <li>"Helped customers" → "Resolved customer queries and complaints, consistently receiving positive feedback and maintaining a 4.8/5 satisfaction score"</li>
+    <li>"Trained new people" → "Onboarded and mentored 4 new team members across the first two weeks of employment"</li>
+  </ul>
+
+  <div class="tip tip-warning">
+    <strong>Common Mistake</strong>
+    Don't hide or omit non-corporate roles. An empty CV with one internship looks worse than a CV showing consistent work experience across different settings. Recruiters value work ethic.
+  </div>
+
+  <h3>University projects and coursework</h3>
+  <p>If the project was substantial (group project, dissertation, case study competition), treat it like a professional entry:</p>
+  <div class="prompt">"Led a 5-person team in a simulated business strategy exercise, delivering a market entry proposal for a real SME client. Received the highest mark in the cohort (82%)."</div>
+
+  <hr class="section-divider" />
+
+  <!-- ── Section 4 ── -->
+  <h2>4. Extracurriculars Matter — More Than You Think</h2>
+
+  <p>For graduate-level applications, your Extracurriculars &amp; Leadership section can be just as impactful as your Experience section. This is where you show initiative, responsibility, and character.</p>
+
+  <h3>How to describe society roles</h3>
+  <p>Don't just list the title — describe what you actually did and the scale of your impact:</p>
+
+  <div class="prompt">"As President of the Entrepreneurship Society (180 members), secured £3,000 in sponsorship, organised a 6-event speaker series, and grew membership by 40% year-on-year."</div>
+
+  <h3>How to describe volunteering</h3>
+  <p>Volunteering demonstrates values and initiative. Describe it with the same rigour as paid work:</p>
+
+  <div class="prompt">"Volunteered weekly at Leeds North Food Bank, sorting and distributing food parcels for 60+ families. Trained 3 new volunteers on stock management procedures."</div>
+
+  <div class="tip tip-green">
+    <strong>Inclusion Threshold</strong>
+    If you cannot describe the role in bullet-point format with at least one specific outcome, it is probably not worth including. One well-described role is stronger than three vague ones.
+  </div>
+
+  <hr class="section-divider" />
+
+  <!-- ── Section 5 ── -->
+  <h2>5. Section Order for General Applications</h2>
+
+  <p>This template uses the following order, optimised for graduate-level generalist applications:</p>
+
+  <ol>
+    <li><strong>Name &amp; Contact</strong> — clean, professional, complete</li>
+    <li><strong>Education</strong> — degree, grade, relevant modules; comes first because it's your strongest credential at graduate level</li>
+    <li><strong>Experience</strong> — internships, part-time roles, freelance work, in reverse chronological order</li>
+    <li><strong>Extracurriculars &amp; Leadership</strong> — society roles, volunteering, competitions, personal projects</li>
+    <li><strong>Skills</strong> — technical tools, languages, certifications; grouped and concise</li>
+  </ol>
+
+  <p>Once you have 2+ years of post-graduation experience, move Experience above Education. Until then, lead with your degree.</p>
+
+  <div class="tip tip-accent">
+    <strong>No Profile Summary</strong>
+    Unlike creative roles, a general CV doesn't need a profile summary. Recruiters in business, operations, and public sector roles prefer to see evidence immediately. If you want to add context about your interests or career direction, do it in your cover letter.
+  </div>
+
+</div>
+
+<!-- ╔══════════════════════════════════════════╗
+     ║       EXAMPLE CV — ALEX TORRES          ║
+     ╚══════════════════════════════════════════╝ -->
+
+<div class="cv-container">
+
+  <p class="cv-label">Example — Filled-in General CV</p>
+
+  <div class="cv-page">
+
+    <div class="cv-name">Alex Torres</div>
+    <div class="cv-contact">
+      07891 234 567 &nbsp;·&nbsp; alex.torres@outlook.com &nbsp;·&nbsp; linkedin.com/in/alextorres &nbsp;·&nbsp; Leeds, UK
+    </div>
+
+    <!-- Education -->
+    <div class="cv-section-title">Education</div>
+
+    <div class="cv-entry">
+      <div class="cv-entry-header">
+        <span class="cv-role">BSc (Hons) Business Management</span>
+        <span class="cv-dates">Sep 2023 – Jun 2026</span>
+      </div>
+      <div class="cv-org">University of Leeds</div>
+      <ul class="cv-bullets">
+        <li>Predicted First Class Honours (current average: 74%)</li>
+        <li>Relevant modules: Strategic Management, Operations &amp; Supply Chain, Organisational Behaviour, Business Analytics</li>
+        <li>Dissertation: "Scaling the Unscalable: How UK Food Banks Optimise Volunteer-Led Operations"</li>
+      </ul>
+    </div>
+
+    <div class="cv-entry">
+      <div class="cv-entry-header">
+        <span class="cv-role">A-Levels</span>
+        <span class="cv-dates">Sep 2021 – Jun 2023</span>
+      </div>
+      <div class="cv-org">St Mary's Sixth Form College, Leeds</div>
+      <ul class="cv-bullets">
+        <li>Business Studies (A*), Economics (A), Mathematics (A)</li>
+      </ul>
+    </div>
+
+    <!-- Experience -->
+    <div class="cv-section-title">Experience</div>
+
+    <div class="cv-entry">
+      <div class="cv-entry-header">
+        <span class="cv-role">Business Consulting Intern</span>
+        <span class="cv-dates">Jun 2025 – Aug 2025</span>
+      </div>
+      <div class="cv-org">Deloitte, Leeds</div>
+      <ul class="cv-bullets">
+        <li>Supported a 6-person consulting team on a process improvement engagement for a mid-market logistics client, conducting stakeholder interviews and mapping current-state workflows</li>
+        <li>Built a data analysis dashboard in Excel and Power BI that identified £40K in annual cost savings across three operational areas</li>
+        <li>Drafted client-facing slide decks and summary memos, receiving positive feedback from the engagement manager on clarity and structure</li>
+        <li>Presented final recommendations to the client's operations director alongside senior consultants</li>
+      </ul>
+    </div>
+
+    <div class="cv-entry">
+      <div class="cv-entry-header">
+        <span class="cv-role">Customer Team Member (Part-Time)</span>
+        <span class="cv-dates">Oct 2023 – May 2025</span>
+      </div>
+      <div class="cv-org">Tesco Express, Leeds</div>
+      <ul class="cv-bullets">
+        <li>Processed 120+ customer transactions per shift, maintaining accuracy and efficiency during peak trading periods</li>
+        <li>Onboarded and mentored 3 new team members, covering till procedures, stock rotation, and customer service standards</li>
+        <li>Selected by the store manager to lead a stock loss reduction trial, contributing to a 15% decrease in waste over one quarter</li>
+      </ul>
+    </div>
+
+    <!-- Extracurriculars & Leadership -->
+    <div class="cv-section-title">Extracurriculars &amp; Leadership</div>
+
+    <div class="cv-entry">
+      <div class="cv-entry-header">
+        <span class="cv-role">President, Leeds Entrepreneurship Society</span>
+        <span class="cv-dates">Sep 2025 – Present</span>
+      </div>
+      <div class="cv-org">University of Leeds Students' Union</div>
+      <ul class="cv-bullets">
+        <li>Lead a committee of 8 to deliver programming for 180+ members, including a 6-event speaker series and an annual pitch competition with a £500 prize fund</li>
+        <li>Secured £3,000 in external sponsorship from three local businesses by developing a partnership proposal and leading pitch meetings</li>
+        <li>Grew society membership by 40% year-on-year through targeted marketing at Freshers' Fair and an improved onboarding experience</li>
+      </ul>
+    </div>
+
+    <div class="cv-entry">
+      <div class="cv-entry-header">
+        <span class="cv-role">Volunteer, Leeds North Food Bank</span>
+        <span class="cv-dates">Jan 2024 – Present</span>
+      </div>
+      <div class="cv-org">The Trussell Trust</div>
+      <ul class="cv-bullets">
+        <li>Volunteer weekly to sort and distribute food parcels for 60+ families, managing intake logistics and stock rotation</li>
+        <li>Trained 3 new volunteers on warehouse procedures and food safety standards</li>
+        <li>Proposed a simple spreadsheet-based stock tracking system, now adopted by the team to reduce surplus expiry waste</li>
+      </ul>
+    </div>
+
+    <!-- Skills -->
+    <div class="cv-section-title">Skills</div>
+    <div class="cv-skills">
+      <p><strong>Technical:</strong> Microsoft Excel (advanced — VLOOKUP, pivot tables, macros), Power BI, Google Workspace, basic SQL</p>
+      <p><strong>Communication:</strong> Report writing, client presentations, stakeholder management, workshop facilitation</p>
+      <p><strong>Languages:</strong> English (native), Spanish (intermediate — DELE B1)</p>
+      <p><strong>Certifications:</strong> Google Data Analytics Professional Certificate (in progress), Level 2 Food Hygiene</p>
+    </div>
+
+  </div><!-- /cv-page -->
+
+</div><!-- /cv-container -->
+
+<!-- ── Footer ── -->
+<footer class="site-footer">
+  <span class="brand">Scribed</span> — Premium Document Design — scribed.eu<br />
+  This template is licensed for personal and commercial use by the purchaser. Do not redistribute.
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sponsorship Pitch Deck — Scribed Template</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  /*
+   * COLOUR THEME — uncomment ONE block below.
+   * ─────────────────────────────────────────
+   * Theme 1: Navy (default)
+   * Theme 2: Sage
+   * Theme 3: Charcoal
+   */
+
+  /* Theme 1: Navy */
+  :root {
+    --bg: #ffffff;
+    --bg-warm: #F7F8FB;
+    --text: #1A1A1A;
+    --text2: #4A4A4A;
+    --text3: #9B9B9B;
+    --accent: #2B4C7E;
+    --accent-light: rgba(43,76,126,0.06);
+    --green: #2D7A4F;
+    --green-light: rgba(45,122,79,0.06);
+    --warning: #B8860B;
+    --warning-light: rgba(184,134,11,0.06);
+    --danger: #C03030;
+    --danger-light: rgba(192,48,48,0.06);
+    --border: #E0E3E8;
+    --border-light: #ECEEF2;
+    --gold: #B8860B;
+    --gold-light: #F5F0E0;
+    --silver: #8A8A8A;
+    --silver-light: #F2F2F0;
+    --bronze: #A0692E;
+    --bronze-light: #F5EDE2;
+  }
+
+  /* Theme 2: Sage — uncomment below and comment out Theme 1
+  :root {
+    --bg: #ffffff;
+    --bg-warm: #F5F7F4;
+    --text: #1A1A1A;
+    --text2: #4A4A4A;
+    --text3: #9B9B9B;
+    --accent: #4A7C59;
+    --accent-light: rgba(74,124,89,0.06);
+    --green: #2D7A4F;
+    --green-light: rgba(45,122,79,0.06);
+    --warning: #B8860B;
+    --warning-light: rgba(184,134,11,0.06);
+    --danger: #C03030;
+    --danger-light: rgba(192,48,48,0.06);
+    --border: #DEE3DC;
+    --border-light: #EAEDE8;
+    --gold: #B8860B;
+    --gold-light: #F5F0E0;
+    --silver: #8A8A8A;
+    --silver-light: #F2F2F0;
+    --bronze: #A0692E;
+    --bronze-light: #F5EDE2;
+  }
+  */
+
+  /* Theme 3: Charcoal — uncomment below and comment out Theme 1
+  :root {
+    --bg: #ffffff;
+    --bg-warm: #F5F5F5;
+    --text: #1A1A1A;
+    --text2: #4A4A4A;
+    --text3: #9B9B9B;
+    --accent: #3D3D3D;
+    --accent-light: rgba(61,61,61,0.05);
+    --green: #2D7A4F;
+    --green-light: rgba(45,122,79,0.06);
+    --warning: #B8860B;
+    --warning-light: rgba(184,134,11,0.06);
+    --danger: #C03030;
+    --danger-light: rgba(192,48,48,0.06);
+    --border: #E0E0E0;
+    --border-light: #EBEBEB;
+    --gold: #B8860B;
+    --gold-light: #F5F0E0;
+    --silver: #8A8A8A;
+    --silver-light: #F2F2F0;
+    --bronze: #A0692E;
+    --bronze-light: #F5EDE2;
+  }
+  */
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body {
+    font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    padding: 48px 24px 80px;
+    -webkit-font-smoothing: antialiased;
+  }
+  .container { max-width: 780px; margin: 0 auto; }
+
+  .doc-header { margin-bottom: 32px; padding-bottom: 20px; border-bottom: 1px solid var(--border); }
+  .doc-label { font-size: 11px; font-weight: 600; letter-spacing: 2.5px; color: var(--accent); text-transform: uppercase; margin-bottom: 8px; }
+  h1 { font-family: 'Instrument Serif', Georgia, serif; font-size: 32px; font-weight: 400; line-height: 1.2; margin-bottom: 4px; }
+  .doc-meta { font-size: 13px; color: var(--text3); margin-top: 4px; }
+
+  .how-to-use { background: var(--bg-warm); border: 1px solid var(--border-light); border-radius: 12px; padding: 20px 24px; margin-bottom: 28px; }
+  .how-to-use h2 { font-family: 'Instrument Serif', Georgia, serif; font-size: 20px; font-weight: 400; margin-bottom: 10px; color: var(--text); border: none; padding: 0; }
+  .how-to-use p { font-size: 14px; color: var(--text2); margin-bottom: 6px; }
+  .how-to-use p:last-child { margin-bottom: 0; }
+  .how-to-use ul { font-size: 14px; color: var(--text2); padding-left: 20px; margin: 6px 0; }
+  .how-to-use li { margin-bottom: 3px; }
+
+  h2 { font-family: 'Instrument Serif', Georgia, serif; font-size: 22px; font-weight: 400; margin: 28px 0 10px; padding-top: 20px; border-top: 1px solid var(--border-light); }
+  h3 { font-size: 15px; font-weight: 600; margin: 14px 0 6px; }
+  p { color: var(--text2); font-size: 15px; margin-bottom: 8px; }
+  p strong { color: var(--text); }
+  ul, ol { color: var(--text2); font-size: 15px; padding-left: 24px; margin-bottom: 10px; }
+  li { margin-bottom: 4px; }
+  li strong { color: var(--text); }
+
+  .prompt {
+    background: var(--bg-warm);
+    border: none;
+    border-left: 3px solid var(--accent);
+    border-radius: 0 8px 8px 0;
+    padding: 12px 16px;
+    margin: 8px 0 12px;
+    font-size: 14px;
+    color: var(--text3);
+    font-style: italic;
+  }
+
+  .example {
+    background: #F8F6F3;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 14px 18px;
+    margin: 8px 0 12px;
+    font-size: 14px;
+    color: var(--text2);
+  }
+  .example-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+
+  .callout { padding: 12px 16px; border-radius: 0 10px 10px 0; margin: 10px 0; }
+  .callout-green { border-left: 3px solid var(--green); background: var(--green-light); }
+  .callout-warning { border-left: 3px solid var(--warning); background: var(--warning-light); }
+  .callout-accent { border-left: 3px solid var(--accent); background: var(--accent-light); }
+  .callout-title { font-weight: 600; font-size: 14px; margin-bottom: 4px; }
+  .callout-title.green { color: var(--green); }
+  .callout-title.warning { color: var(--warning); }
+  .callout-title.accent { color: var(--accent); }
+  .callout p { font-size: 13px; }
+
+  .insight-box {
+    background: var(--bg-warm);
+    border: 1px solid var(--border-light);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 12px 0;
+  }
+  .insight-label { font-size: 10px; font-weight: 600; letter-spacing: 1.5px; color: var(--accent); text-transform: uppercase; margin-bottom: 6px; }
+  .insight-box p { margin-bottom: 6px; font-size: 14px; }
+  .insight-box p:last-child { margin-bottom: 0; }
+
+  table { width: 100%; border-collapse: collapse; font-size: 14px; margin: 8px 0 14px; }
+  thead th { text-align: left; padding: 8px 12px; background: var(--bg-warm); border-bottom: 1px solid var(--border); font-weight: 600; font-size: 12px; color: var(--text3); text-transform: uppercase; letter-spacing: 0.5px; }
+  tbody td { padding: 8px 12px; border-bottom: 1px solid var(--border-light); color: var(--text2); vertical-align: top; }
+  .table-wrap { border: 1px solid var(--border); border-radius: 10px; overflow: hidden; }
+
+  /* ---- Sponsorship deck (the deliverable) ---- */
+  .deck { margin: 20px 0; border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
+  .deck-header {
+    padding: 28px 32px 24px;
+    background: linear-gradient(135deg, var(--text) 0%, #2D2D2D 100%);
+    color: #fff;
+  }
+  .deck-header .org-name { font-family: 'Instrument Serif', Georgia, serif; font-size: 26px; line-height: 1.2; }
+  .deck-header .deck-title { font-size: 13px; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,0.7); margin-top: 4px; }
+  .deck-accent { height: 3px; background: linear-gradient(90deg, var(--accent), #6B8DB8 50%, var(--accent)); }
+
+  .deck-intro { padding: 20px 32px 16px; }
+  .deck-intro p { font-size: 14px; color: var(--text2); }
+  .deck-intro strong { color: var(--text); }
+
+  .deck-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; border-top: 1px solid var(--border-light); border-bottom: 1px solid var(--border-light); }
+  .stat { padding: 14px 16px; text-align: center; border-right: 1px solid var(--border-light); }
+  .stat:last-child { border-right: none; }
+  .stat-val { font-family: 'Instrument Serif', Georgia, serif; font-size: 24px; color: var(--accent); }
+  .stat-lbl { font-size: 11px; color: var(--text3); margin-top: 2px; }
+
+  /* ---- Tier cards ---- */
+  .tiers { padding: 20px 32px; display: flex; flex-direction: column; gap: 12px; }
+  .tier {
+    display: grid;
+    grid-template-columns: 160px 1fr;
+    border: 1px solid var(--border-light);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .tier-head {
+    padding: 16px 18px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+  }
+  .tier-head .name { font-family: 'Instrument Serif', Georgia, serif; font-size: 18px; }
+  .tier-head .price { font-size: 15px; font-weight: 700; }
+  .tier-head .per { font-size: 10px; font-weight: 500; letter-spacing: 1px; text-transform: uppercase; opacity: 0.7; }
+  .tier-body { padding: 12px 18px; background: var(--bg); }
+  .tier-body ul { list-style: none; padding: 0; margin: 0; }
+  .tier-body li { position: relative; padding: 3px 0 3px 16px; font-size: 13px; line-height: 1.5; color: var(--text2); }
+  .tier-body li::before { content: ""; position: absolute; left: 0; top: 10px; width: 6px; height: 6px; border-radius: 2px; transform: rotate(45deg); }
+
+  .tier.gold .tier-head { background: linear-gradient(160deg, #2D2216, #3D3020); color: #fff; }
+  .tier.gold .tier-head .price { color: #E8C864; }
+  .tier.gold .tier-body li::before { background: var(--gold); }
+  .tier.gold { border-color: #D8C9A4; }
+
+  .tier.silver .tier-head { background: var(--silver-light); color: var(--text); }
+  .tier.silver .tier-head .price { color: var(--accent); }
+  .tier.silver .tier-body li::before { background: var(--silver); }
+
+  .tier.bronze .tier-head { background: var(--bronze-light); color: var(--text); }
+  .tier.bronze .tier-head .price { color: var(--accent); }
+  .tier.bronze .tier-body li::before { background: var(--bronze); }
+
+  .deck-note { padding: 12px 32px 16px; }
+  .deck-note p { font-size: 12px; color: var(--text3); border-left: 3px solid var(--accent); padding-left: 12px; }
+
+  .deck-footer {
+    background: var(--bg-warm);
+    border-top: 1px solid var(--border-light);
+    padding: 12px 32px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    color: var(--text3);
+  }
+  .deck-footer .brand { font-weight: 600; color: var(--text2); }
+
+  hr { border: none; border-top: 1px solid var(--border-light); margin: 20px 0; }
+  .footer { font-size: 12px; color: var(--text3); margin-top: 28px; padding-top: 16px; border-top: 1px solid var(--border-light); }
+
+  @media (max-width: 600px) {
+    .deck-stats { grid-template-columns: repeat(2, 1fr); }
+    .tier { grid-template-columns: 1fr; }
+    body { padding: 32px 16px 60px; }
+  }
+  @media print {
+    body { padding: 20px; }
+    .deck { box-shadow: none; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="doc-header">
+    <div class="doc-label">Scribed Template — Sponsorship Pitch Deck</div>
+    <h1>Sponsorship pitch deck</h1>
+    <div class="doc-meta">The one-pager that gets companies to sponsor you</div>
+  </div>
+
+  <!-- HOW TO USE -->
+  <div class="how-to-use">
+    <h2>How to use this template</h2>
+    <p>This template has two parts: <strong>Part 1</strong> is the strategy guide (how to structure tiers, price them, and pitch). <strong>Part 2</strong> is the actual one-page sponsorship deck you send to companies.</p>
+    <ul>
+      <li>Read Part 1 first — it'll take 10 minutes and will save you weeks of back-and-forth.</li>
+      <li><strong>Examples</strong> use a fictional university society called the <strong>Manchester Entrepreneurship Society</strong> (600 members, 3 events per year). Delete after use.</li>
+      <li>The deck in Part 2 is ready to customise — replace the placeholder text, adjust the tiers, and send.</li>
+      <li>This template works for university societies, sports clubs, non-profits, events, and community organisations.</li>
+    </ul>
+  </div>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- PART 1: STRATEGY GUIDE                      -->
+  <!-- ═══════════════════════════════════════════ -->
+
+  <h2>Part 1: Strategy — before you write anything</h2>
+
+  <h3>Know your numbers</h3>
+
+  <p>Companies don't sponsor you because they like you. They sponsor you because you give them access to an audience they want. Before you write a single word, answer these:</p>
+
+  <div class="prompt">Fill in your actual numbers. If you don't know them, estimate conservatively — sponsors will respect honesty more than inflated claims.</div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Metric</th><th>Your number</th><th>Why sponsors care</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Total members / audience</strong></td><td>[number]</td><td>How many people will see their brand</td></tr>
+        <tr><td><strong>Event attendance (avg)</strong></td><td>[number]</td><td>How many people they can meet face-to-face</td></tr>
+        <tr><td><strong>Events per year</strong></td><td>[number]</td><td>How many touchpoints they get</td></tr>
+        <tr><td><strong>LinkedIn / social followers</strong></td><td>[number]</td><td>Digital reach beyond events</td></tr>
+        <tr><td><strong>Audience profile</strong></td><td>[e.g. "Final-year finance students"]</td><td>Are these the people they want to hire / sell to?</td></tr>
+        <tr><td><strong>Previous sponsors (if any)</strong></td><td>[names]</td><td>Social proof — who else has trusted you</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout callout-green">
+    <div class="callout-title green">Audience profile matters most</div>
+    <p>Your <strong>audience profile</strong> carries more weight than raw member count. A society with 200 final-year engineering students is worth more to a tech company than one with 2,000 random followers. Lead with who your people are, not how many.</p>
+  </div>
+
+  <h3>How to structure tiers</h3>
+
+  <p>Three tiers is the standard. The psychology:</p>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Tier</th><th>Purpose</th><th>Typical price</th><th>What to include</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><strong>Gold / Headline</strong></td>
+          <td>Your dream sponsor. Only 1–2 companies. Premium exclusivity.</td>
+          <td>[2–5x your Silver price]</td>
+          <td>Everything in Silver, plus: headline naming rights, keynote speaking slot, exclusive recruitment access, co-branded events, logo on all materials</td>
+        </tr>
+        <tr>
+          <td><strong>Silver / Partner</strong></td>
+          <td>The anchor tier. Where most sponsors land. Best value.</td>
+          <td>[Your base price — this is the "normal" tier]</td>
+          <td>Logo placement, 1–2 named events, speaking opportunity, recruitment promotion, social media features</td>
+        </tr>
+        <tr>
+          <td><strong>Bronze / Supporter</strong></td>
+          <td>Low-commitment entry point. Gets them in the door.</td>
+          <td>[40–60% of Silver]</td>
+          <td>Logo on website/materials, one event mention, newsletter inclusion</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout callout-accent">
+    <div class="callout-title accent">Pricing rule of thumb</div>
+    <p>If you have no previous sponsors, start lower than you think — it's easier to raise prices next year than to get zero sponsors this year. For a university society with 500+ members: Bronze €1,000–€2,000 / Silver €3,000–€5,000 / Gold €7,000–€12,000. Scale up or down based on your audience quality and event capacity.</p>
+  </div>
+
+  <div class="callout callout-warning">
+    <div class="callout-title warning">Common mistakes</div>
+    <p><strong>1.</strong> Listing benefits without explaining value — "Logo on website" means nothing. "Your brand in front of 800 students actively pursuing finance careers" means something.<br>
+    <strong>2.</strong> Too many tiers — three is perfect. Four confuses people. Two doesn't give enough options.<br>
+    <strong>3.</strong> Not including a "custom" line — always say "All tiers can be tailored." This opens the door for sponsors who want something specific.</p>
+  </div>
+
+  <h3>How to write the intro paragraph</h3>
+
+  <div class="prompt">Your intro paragraph should answer three questions in under 50 words: (1) Who are you? (2) Who is your audience? (3) Why should a sponsor care? Lead with the audience, not yourself.</div>
+
+  <div class="example">
+    <div class="example-label">Example — Manchester Entrepreneurship Society</div>
+    <p style="margin:0;">The <strong>Manchester Entrepreneurship Society</strong> connects sponsor firms with a community of <strong>600+ students</strong> pursuing careers in finance, consulting, and technology. Our sponsorship tiers give partner firms meaningful, year-round visibility on campus and a direct line to our most motivated members.</p>
+  </div>
+
+  <h3>The outreach email</h3>
+
+  <div class="prompt">Never send the deck cold. Send a short email (5 sentences max) that prompts them to open it. Follow this structure:</div>
+
+  <div class="insight-box">
+    <p><strong>Subject:</strong> [Your Society] — Sponsorship for [Year]</p>
+    <p><strong>Line 1:</strong> One sentence saying who you are and your audience size.</p>
+    <p><strong>Line 2:</strong> One sentence about what the sponsor gets (not what you need).</p>
+    <p><strong>Line 3:</strong> One sentence naming previous sponsors or a relevant fact ("Last year, 3 of our members were hired by [Company X]").</p>
+    <p><strong>Line 4:</strong> "I've attached our sponsorship deck — would you have 10 minutes this week for a quick call?"</p>
+    <p><strong>Line 5:</strong> Sign-off with your name and title.</p>
+  </div>
+
+  <div class="example">
+    <div class="example-label">Example outreach email</div>
+    <p style="margin:0;font-size:13px;">
+      <strong>Subject:</strong> Manchester Entrepreneurship Society — Sponsorship 2026/27<br><br>
+      Hi [Name],<br><br>
+      I'm the sponsorship lead at the Manchester Entrepreneurship Society — we have 600+ members, most of whom are final-year students pursuing careers in finance and consulting. Our sponsorship packages give partner firms direct access to this talent pool through named events, campus visibility, and recruitment promotion. Last year, two of our Gold sponsors hired directly from our membership. I've attached our sponsorship deck — would you have 10 minutes this week for a quick call?<br><br>
+      Best,<br>
+      [Your name] · [Your title] · [Society]
+    </p>
+  </div>
+
+  <hr>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- PART 2: THE ACTUAL DECK                     -->
+  <!-- ═══════════════════════════════════════════ -->
+
+  <h2>Part 2: The sponsorship deck</h2>
+
+  <p>This is the document you send. Customise it with your details, then export as PDF.</p>
+
+  <div class="prompt">Replace everything in [brackets]. Adjust the tier names, prices, and benefits to match your organisation. The design is intentional — keep it clean.</div>
+
+  <!-- ──── THE DECK ──── -->
+  <div class="deck">
+
+    <div class="deck-header">
+      <div class="org-name">[Your Organisation Name]</div>
+      <div class="deck-title">Sponsorship Opportunities — [Year]</div>
+    </div>
+    <div class="deck-accent"></div>
+
+    <div class="deck-intro">
+      <p>The <strong>[Your Organisation]</strong> connects our partners with a community of <strong>[number]+ [audience type]</strong> pursuing careers in [field]. Our sponsorship tiers are designed to give partner firms meaningful, year-round visibility and a direct line to our most [adjective — e.g. "motivated," "qualified," "engaged"] members.</p>
+    </div>
+
+    <div class="deck-stats">
+      <div class="stat"><div class="stat-val">[X]+</div><div class="stat-lbl">Members</div></div>
+      <div class="stat"><div class="stat-val">[X]</div><div class="stat-lbl">Events / year</div></div>
+      <div class="stat"><div class="stat-val">[X]+</div><div class="stat-lbl">Avg. attendance</div></div>
+      <div class="stat"><div class="stat-val">[X]+</div><div class="stat-lbl">LinkedIn followers</div></div>
+    </div>
+
+    <div class="tiers">
+
+      <div class="tier gold">
+        <div class="tier-head">
+          <div class="name">Gold Sponsor</div>
+          <div class="price">[€X,XXX]</div>
+          <div class="per">Per Year</div>
+        </div>
+        <div class="tier-body">
+          <ul>
+            <li>[Benefit 1 — the headline benefit, e.g. "Direct recruitment pipeline to our members"]</li>
+            <li>[Benefit 2 — visibility, e.g. "Named headline sponsor on LinkedIn &amp; website"]</li>
+            <li>[Benefit 3 — audience access, e.g. "Brand exposure to [X]+ member community"]</li>
+            <li>[Benefit 4 — engagement, e.g. "Co-host or keynote at selected events"]</li>
+            <li>[Benefit 5 — exclusivity, e.g. "Headline sponsor of [flagship event]"]</li>
+            <li>[Benefit 6 — branding, e.g. "Priority logo placement across all materials"]</li>
+            <li>[Benefit 7 — frequency, e.g. "Multiple named events per year"]</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tier silver">
+        <div class="tier-head">
+          <div class="name">Silver Sponsor</div>
+          <div class="price">[€X,XXX]</div>
+          <div class="per">Per Year</div>
+        </div>
+        <div class="tier-body">
+          <ul>
+            <li>[Benefit 1 — recruitment, e.g. "Promotion of your recruitment drive to members"]</li>
+            <li>[Benefit 2 — events, e.g. "Logo placement on named sponsorable events"]</li>
+            <li>[Benefit 3 — speaking, e.g. "Opportunity to speak at selected engagements"]</li>
+            <li>[Benefit 4 — visibility, e.g. "Named sponsor on LinkedIn &amp; website"]</li>
+            <li>[Benefit 5 — frequency, e.g. "Two named events per year"]</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tier bronze">
+        <div class="tier-head">
+          <div class="name">Bronze Sponsor</div>
+          <div class="price">[€X,XXX–€X,XXX]</div>
+          <div class="per">Per Year</div>
+        </div>
+        <div class="tier-body">
+          <ul>
+            <li>[Benefit 1 — recruitment, e.g. "Advertise internship &amp; graduate pipelines to members"]</li>
+            <li>[Benefit 2 — speaking, e.g. "Speak to members once per semester"]</li>
+            <li>[Benefit 3 — branding, e.g. "Secondary logo placement at named events"]</li>
+            <li>[Benefit 4 — visibility, e.g. "Named on sponsors page, LinkedIn &amp; website"]</li>
+            <li>[Benefit 5 — frequency, e.g. "One named event per year"]</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="deck-note">
+      <p>All tiers can be tailored to your goals — including merchandise, campus visits, and promotion of opportunities at our induction and flagship events. We are happy to discuss a package that works for you.</p>
+    </div>
+
+    <div class="deck-footer">
+      <div class="brand">[Your Organisation Name]</div>
+      <div>[your-email@example.com]</div>
+    </div>
+
+  </div>
+
+  <!-- ──── EXAMPLE DECK ──── -->
+
+  <div class="example">
+    <div class="example-label">Example — Manchester Entrepreneurship Society (filled in)</div>
+  </div>
+
+  <div class="deck" style="margin-top: -4px;">
+
+    <div class="deck-header">
+      <div class="org-name">Manchester Entrepreneurship Society</div>
+      <div class="deck-title">Sponsorship Opportunities — 2026/27</div>
+    </div>
+    <div class="deck-accent"></div>
+
+    <div class="deck-intro">
+      <p>The <strong>Manchester Entrepreneurship Society</strong> connects our partners with a community of <strong>600+ engaged students</strong> pursuing careers in finance, consulting, and technology. Our sponsorship tiers give partner firms meaningful, year-round visibility on campus and a direct line to our most motivated members.</p>
+    </div>
+
+    <div class="deck-stats">
+      <div class="stat"><div class="stat-val">600+</div><div class="stat-lbl">Members</div></div>
+      <div class="stat"><div class="stat-val">12</div><div class="stat-lbl">Events / year</div></div>
+      <div class="stat"><div class="stat-val">150+</div><div class="stat-lbl">Avg. attendance</div></div>
+      <div class="stat"><div class="stat-val">2,400+</div><div class="stat-lbl">LinkedIn followers</div></div>
+    </div>
+
+    <div class="tiers">
+
+      <div class="tier gold">
+        <div class="tier-head">
+          <div class="name">Gold Sponsor</div>
+          <div class="price">€10,000</div>
+          <div class="per">Per Year</div>
+        </div>
+        <div class="tier-body">
+          <ul>
+            <li>Direct recruitment pipeline to our members</li>
+            <li>Named headline sponsor on our LinkedIn &amp; website</li>
+            <li>Brand exposure to our 600+ member community</li>
+            <li>Co-host or keynote at selected engagements</li>
+            <li>Headline sponsor of our annual Stock Pitch Competition</li>
+            <li>Priority logo placement across all materials</li>
+            <li>Multiple named events per year</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tier silver">
+        <div class="tier-head">
+          <div class="name">Silver Sponsor</div>
+          <div class="price">€5,000</div>
+          <div class="per">Per Year</div>
+        </div>
+        <div class="tier-body">
+          <ul>
+            <li>Promotion of your recruitment drive to our members</li>
+            <li>Logo placement on named sponsorable events</li>
+            <li>Opportunity to speak at selected engagements</li>
+            <li>Named sponsor on our LinkedIn &amp; website</li>
+            <li>Two named events per year</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tier bronze">
+        <div class="tier-head">
+          <div class="name">Bronze Sponsor</div>
+          <div class="price">€2,500–€3,500</div>
+          <div class="per">Per Year</div>
+        </div>
+        <div class="tier-body">
+          <ul>
+            <li>Advertise internship &amp; graduate pipelines to members</li>
+            <li>Speak to members once per semester</li>
+            <li>Secondary logo placement at named events</li>
+            <li>Named on our sponsors page, LinkedIn &amp; website</li>
+            <li>One named event per year</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="deck-note">
+      <p>All tiers can be tailored to your goals — including merchandise for member raffles, campus visits, and promotion of internship opportunities at our induction and flagship events. We are happy to discuss a package that works for you.</p>
+    </div>
+
+    <div class="deck-footer">
+      <div class="brand">Manchester Entrepreneurship Society</div>
+      <div>sponsorship@mancentsoc.co.uk</div>
+    </div>
+
+  </div>
+
+  <hr>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- PART 3: FOLLOW-UP                           -->
+  <!-- ═══════════════════════════════════════════ -->
+
+  <h2>Part 3: After you send it</h2>
+
+  <h3>Follow-up timeline</h3>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>When</th><th>Action</th><th>Channel</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Day 0</strong></td><td>Send outreach email + deck</td><td>Email</td></tr>
+        <tr><td><strong>Day 3</strong></td><td>Connect on LinkedIn with a short note referencing the email</td><td>LinkedIn</td></tr>
+        <tr><td><strong>Day 7</strong></td><td>Follow up: "Just checking this landed — happy to jump on a quick call"</td><td>Email</td></tr>
+        <tr><td><strong>Day 14</strong></td><td>Final follow-up: "Closing our sponsorship round on [date]. Wanted to make sure you had a chance to review"</td><td>Email</td></tr>
+        <tr><td><strong>Day 21+</strong></td><td>No response = not interested this year. Move on. Try again next year.</td><td>—</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout callout-green">
+    <div class="callout-title green">Deals close on calls, not in inboxes</div>
+    <p>The deck secures the call; the call secures the deal. Avoid trying to close over email — your goal is always to get 10 minutes on the phone or in person. On the call, ask what they want (recruitment, brand awareness, thought leadership) and tailor the tier accordingly.</p>
+  </div>
+
+  <h3>Negotiation tips</h3>
+
+  <ul>
+    <li><strong>If they say "too expensive"</strong> — don't drop the price. Drop the tier. "We also have a Silver package at [price] — would that work better for this year?"</li>
+    <li><strong>If they want something custom</strong> — say yes. "All tiers can be tailored" is the line that opens the door. Build a bespoke package.</li>
+    <li><strong>If they want to "think about it"</strong> — create urgency. "We're closing Gold by [date] and we've had interest from [another firm]."</li>
+    <li><strong>If they say no</strong> — ask for next year. "Totally understand. Can I reach out again in [Month] for next year's programme?" Keep the relationship warm.</li>
+  </ul>
+
+  <div class="footer">
+    <p>Scribed — Premium Document Design — scribed.eu</p>
+    <p>This template is licensed for personal and commercial use by the purchaser. Do not redistribute.</p>
+  </div>
+
+</div>
+</body>
+</html>

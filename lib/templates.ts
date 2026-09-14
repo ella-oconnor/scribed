@@ -1,4 +1,10 @@
-export type TemplateCategory = "startup" | "career" | "finance" | "society";
+export type TemplateCategory = "startup" | "career" | "student" | "society";
+
+export interface ColorVariant {
+  name: string;
+  accent: string;
+  bg: string;
+}
 
 export interface Template {
   slug: string;
@@ -10,10 +16,18 @@ export interface Template {
   category: TemplateCategory;
   featured: boolean;
   lemonSqueezyUrl: string;
-  previewImages: string[];
+  previewImage: string;
+  downloadFile: string;
+  colorVariants: ColorVariant[];
   includes: string[];
   audience: string;
 }
+
+const standardColors: ColorVariant[] = [
+  { name: "Navy", accent: "#2B4C7E", bg: "#F7F8FA" },
+  { name: "Sage", accent: "#4A6741", bg: "#F8FAF7" },
+  { name: "Charcoal", accent: "#3D3D3D", bg: "#F9F9F9" },
+];
 
 export const templates: Template[] = [
   {
@@ -28,55 +42,37 @@ export const templates: Template[] = [
     category: "startup",
     featured: true,
     lemonSqueezyUrl: "#",
-    previewImages: ["/images/templates/mvp-doc-preview.png"],
+    previewImage: "/images/templates/startup-mvp-doc-preview.png",
+    downloadFile: "/templates/startup-mvp-doc.html",
+    colorVariants: standardColors,
     includes: [
-      "Editable HTML file",
-      "Google Docs version",
-      "Notion version",
-      "Strategic writing prompts",
-      "Example content",
+      "Strategy guide with worked examples",
+      "Blank template with prompts",
+      "Filled example (Glassbox)",
+      "3 colour themes",
     ],
     audience: "Founders building an MVP or preparing for fundraising",
   },
   {
-    slug: "pitch-deck-framework",
-    title: "Investor Pitch Deck",
-    description:
-      "A 15-slide deck framework with real strategic copy, not placeholder text.",
-    longDescription:
-      "Covers the full investor story: problem, solution, market sizing (TAM/SAM/SOM), business model, traction, competition, team, financials, and the ask. Every slide has pre-written strategic copy from a real funded-startup perspective. Replace with your details — the structure does the heavy lifting.",
-    price: 39,
-    currency: "EUR",
-    category: "startup",
-    featured: true,
-    lemonSqueezyUrl: "#",
-    previewImages: ["/images/templates/pitch-deck-preview.png"],
-    includes: [
-      "PowerPoint file",
-      "Google Slides version",
-      "Keynote version",
-      "Speaker notes",
-      "Example financials slide",
-    ],
-    audience: "Founders raising pre-seed to Series A",
-  },
-  {
     slug: "monetisation-analysis",
     title: "Monetisation Analysis",
-    description: "Compare revenue models with real numbers, not guesswork.",
+    description:
+      "Compare revenue models with real numbers and a clear recommendation.",
     longDescription:
       "A structured framework for comparing monetisation paths: subscription vs licensing vs marketplace vs enterprise. Includes revenue projection templates, competitive pricing benchmarks, exit multiple comparisons, and a clear recommendation format. Based on research methodology used for real startup strategy decisions.",
     price: 29,
     currency: "EUR",
     category: "startup",
-    featured: false,
+    featured: true,
     lemonSqueezyUrl: "#",
-    previewImages: ["/images/templates/monetisation-preview.png"],
+    previewImage: "/images/templates/monetisation-analysis-preview.png",
+    downloadFile: "/templates/monetisation-analysis.html",
+    colorVariants: standardColors,
     includes: [
-      "Editable HTML file",
-      "Google Docs version",
-      "Revenue model spreadsheet",
-      "Pricing benchmark framework",
+      "Strategy guide with frameworks",
+      "Blank analysis template",
+      "Filled example (Beacon)",
+      "3 colour themes",
     ],
     audience: "Founders and product managers deciding how to charge",
   },
@@ -86,43 +82,23 @@ export const templates: Template[] = [
     description:
       "A structured framework for making your next career move with clarity.",
     longDescription:
-      "Score and compare career paths on your own terms — not generic prestige. Covers constraints mapping, weighted criteria scoring, timeline planning, decision questions, and a preliminary lean framework. Designed for graduates and early-career professionals choosing between multiple offers or career directions.",
+      "Score and compare career paths on your own terms. Covers constraints mapping, weighted criteria scoring, timeline planning, decision questions, and a preliminary lean framework. Designed for graduates and early-career professionals choosing between multiple offers or career directions.",
     price: 19,
     currency: "EUR",
     category: "career",
     featured: true,
     lemonSqueezyUrl: "#",
-    previewImages: ["/images/templates/career-brief-preview.png"],
+    previewImage: "/images/templates/career-decision-brief-preview.png",
+    downloadFile: "/templates/career-decision-brief.html",
+    colorVariants: standardColors,
     includes: [
-      "Editable HTML file",
-      "Google Docs version",
-      "Notion version",
-      "Scoring worksheet",
+      "Strategy guide",
+      "Weighted scoring template",
+      "Filled example (Alex)",
+      "3 colour themes",
     ],
     audience:
       "Graduates and early-career professionals weighing career options",
-  },
-  {
-    slug: "linkedin-rewrite-kit",
-    title: "LinkedIn Profile Rewrite Kit",
-    description:
-      "Headline, About section, and experience descriptions that actually get noticed.",
-    longDescription:
-      "Three headline formulas, a structured About section framework with strategic prompts, and experience bullet-point templates that focus on outcomes, not responsibilities. Includes before/after examples from real profiles in finance, tech, and consulting. Written by someone who has hired and been hired.",
-    price: 15,
-    currency: "EUR",
-    category: "career",
-    featured: false,
-    lemonSqueezyUrl: "#",
-    previewImages: ["/images/templates/linkedin-kit-preview.png"],
-    includes: [
-      "PDF guide",
-      "Google Docs template",
-      "3 headline formulas",
-      "Before/after examples",
-    ],
-    audience:
-      "Job seekers, career pivoters, and graduates entering the market",
   },
   {
     slug: "sponsorship-pitch-deck",
@@ -130,63 +106,192 @@ export const templates: Template[] = [
     description:
       "A tiered sponsorship deck that makes companies say yes.",
     longDescription:
-      "A complete sponsorship proposal framework with Gold/Silver/Bronze tier structure, audience demographics section, deliverables matrix, and a clear CTA. Designed for student societies, nonprofits, and event organisers. Based on a deck that secured five-figure sponsorship commitments.",
+      "A complete sponsorship proposal framework with Gold/Silver/Bronze tier structure, audience demographics section, deliverables matrix, and a clear call to action. Designed for student societies, nonprofits, and event organisers. Based on a deck that secured five-figure sponsorship commitments.",
     price: 19,
     currency: "EUR",
     category: "society",
     featured: false,
     lemonSqueezyUrl: "#",
-    previewImages: ["/images/templates/sponsorship-preview.png"],
+    previewImage: "/images/templates/sponsorship-pitch-deck-preview.png",
+    downloadFile: "/templates/sponsorship-pitch-deck.html",
+    colorVariants: standardColors,
     includes: [
-      "PowerPoint file",
-      "Google Slides version",
-      "Tier pricing calculator",
-      "Follow-up email templates",
+      "Strategy guide",
+      "Full pitch deck with tier cards",
+      "Filled example",
+      "3 colour themes",
     ],
     audience:
       "Student societies, nonprofits, and event organisers seeking sponsors",
   },
   {
-    slug: "outreach-plan",
-    title: "Go-to-Market Outreach Plan",
+    slug: "linkedin-profile-kit",
+    title: "LinkedIn Profile Kit",
     description:
-      "A structured plan for reaching your first 20 customers.",
+      "Headline, About section, and experience descriptions that get noticed.",
     longDescription:
-      "A complete outreach framework: target persona definition, prospect research template, personalised message scripts, follow-up cadence, and tracking worksheet. Includes 3 message templates for cold outreach, warm introductions, and follow-ups. Based on methodology that generated real responses from Series A-C founders.",
-    price: 29,
+      "Three headline formulas, a structured About section framework with strategic prompts, and experience bullet-point templates that focus on outcomes. Includes before/after examples across finance, tech, and consulting. Written for graduates and early-career professionals.",
+    price: 15,
     currency: "EUR",
-    category: "startup",
-    featured: false,
+    category: "career",
+    featured: true,
     lemonSqueezyUrl: "#",
-    previewImages: ["/images/templates/outreach-preview.png"],
+    previewImage: "/images/templates/linkedin-profile-kit-preview.png",
+    downloadFile: "/templates/linkedin-profile-kit.html",
+    colorVariants: standardColors,
     includes: [
-      "Editable HTML file",
-      "Google Docs version",
-      "Message templates",
-      "Prospect tracking spreadsheet",
+      "Strategy guide",
+      "3 headline formulas",
+      "About section framework",
+      "Weak vs strong examples",
+      "3 colour themes",
     ],
-    audience: "Founders and salespeople finding their first customers",
+    audience:
+      "Job seekers, career pivoters, and graduates entering the market",
   },
   {
-    slug: "equity-research-note",
-    title: "Equity Research Note",
+    slug: "cv-finance",
+    title: "Finance CV",
     description:
-      "A sell-side style research note framework for any public company.",
+      "WSO-style single-column CV built for banking, consulting, and finance roles.",
     longDescription:
-      "A professional equity research note template covering investment thesis, revenue analysis, valuation, competitive positioning, and risk factors. Includes chart placeholders, financial table frameworks, and recommendation format. Based on institutional-quality research methodology used in university finance programmes.",
-    price: 19,
+      "A clean, single-column CV following the Wall Street Oasis format trusted across investment banking, consulting, and asset management. Strict section ordering, conservative typography, and ATS-optimised structure. Includes a strategy guide on bullet point formulas, what to cut, and what recruiters actually scan first.",
+    price: 15,
     currency: "EUR",
-    category: "finance",
+    category: "student",
     featured: false,
     lemonSqueezyUrl: "#",
-    previewImages: ["/images/templates/equity-note-preview.png"],
+    previewImage: "/images/templates/cv-finance-preview.png",
+    downloadFile: "/templates/cv-finance.html",
+    colorVariants: standardColors,
     includes: [
-      "LaTeX source file",
-      "PDF example",
-      "Google Docs version",
-      "Financial table templates",
+      "Strategy guide",
+      "Blank CV template",
+      "Filled example (Morgan Reid)",
+      "3 colour themes",
     ],
-    audience: "Finance students, analysts, and investment society members",
+    audience:
+      "Students and graduates applying to finance, banking, or consulting",
+  },
+  {
+    slug: "cv-tech",
+    title: "Tech CV",
+    description:
+      "Jake's Resume-style CV optimised for software, data, and product roles.",
+    longDescription:
+      "A projects-first, single-column CV following the format preferred across software engineering, data science, and product management. Prioritises technical skills, project impact, and quantified outcomes. ATS-friendly with clean formatting that parses correctly across all major applicant tracking systems.",
+    price: 15,
+    currency: "EUR",
+    category: "student",
+    featured: false,
+    lemonSqueezyUrl: "#",
+    previewImage: "/images/templates/cv-tech-preview.png",
+    downloadFile: "/templates/cv-tech.html",
+    colorVariants: standardColors,
+    includes: [
+      "Strategy guide",
+      "Blank CV template",
+      "Filled example (Casey Lin)",
+      "3 colour themes",
+    ],
+    audience:
+      "Students and graduates applying to tech, engineering, or data roles",
+  },
+  {
+    slug: "cv-creative",
+    title: "Creative CV",
+    description:
+      "A portfolio-ready CV for design, marketing, media, and creative roles.",
+    longDescription:
+      "A CV format with slightly more visual personality while remaining ATS-friendly. Includes a profile summary section, portfolio link integration, and guidance on balancing creativity with clarity. Designed for roles where presentation matters as much as content.",
+    price: 15,
+    currency: "EUR",
+    category: "student",
+    featured: false,
+    lemonSqueezyUrl: "#",
+    previewImage: "/images/templates/cv-creative-preview.png",
+    downloadFile: "/templates/cv-creative.html",
+    colorVariants: standardColors,
+    includes: [
+      "Strategy guide",
+      "Blank CV template",
+      "Filled example (Riley Park)",
+      "3 colour themes",
+    ],
+    audience:
+      "Students and graduates applying to design, marketing, or media roles",
+  },
+  {
+    slug: "cv-general",
+    title: "General CV",
+    description:
+      "A clean all-rounder CV that works across industries and career stages.",
+    longDescription:
+      "A versatile CV format that adapts to any industry. Includes guidance on highlighting extracurriculars, tailoring for different sectors, and structuring experience for maximum impact. The go-to template when you need one CV that covers everything.",
+    price: 15,
+    currency: "EUR",
+    category: "student",
+    featured: false,
+    lemonSqueezyUrl: "#",
+    previewImage: "/images/templates/cv-general-preview.png",
+    downloadFile: "/templates/cv-general.html",
+    colorVariants: standardColors,
+    includes: [
+      "Strategy guide",
+      "Blank CV template",
+      "Filled example (Alex Torres)",
+      "3 colour themes",
+    ],
+    audience:
+      "Students and graduates applying across multiple industries",
+  },
+  {
+    slug: "cover-letter",
+    title: "Cover Letter",
+    description:
+      "A four-paragraph structure that connects your experience to their needs.",
+    longDescription:
+      "A cover letter framework with a clear four-paragraph structure: hook, evidence of fit, specific contribution, and close. Includes research guidance, tone calibration tips, and a complete worked example. Every paragraph has strategic prompts so you know exactly what goes where.",
+    price: 12,
+    currency: "EUR",
+    category: "student",
+    featured: false,
+    lemonSqueezyUrl: "#",
+    previewImage: "/images/templates/cover-letter-preview.png",
+    downloadFile: "/templates/cover-letter.html",
+    colorVariants: standardColors,
+    includes: [
+      "Strategy guide",
+      "Blank letter template",
+      "Filled example (Priya Sharma)",
+      "3 colour themes",
+    ],
+    audience:
+      "Job seekers writing tailored cover letters for specific roles",
+  },
+  {
+    slug: "personal-statement",
+    title: "Personal Statement",
+    description:
+      "A paragraph-by-paragraph framework for postgrad and masters applications.",
+    longDescription:
+      "A structured personal statement framework covering motivation, academic foundation, relevant experience, programme fit, and career vision. Includes paragraph-by-paragraph guidance, research tips for referencing specific modules and faculty, and a complete worked example for a masters application.",
+    price: 15,
+    currency: "EUR",
+    category: "student",
+    featured: false,
+    lemonSqueezyUrl: "#",
+    previewImage: "/images/templates/personal-statement-preview.png",
+    downloadFile: "/templates/personal-statement.html",
+    colorVariants: standardColors,
+    includes: [
+      "Strategy guide",
+      "Paragraph-by-paragraph framework",
+      "Filled example (Kai Nakamura)",
+      "3 colour themes",
+    ],
+    audience:
+      "Graduates applying to masters, MBA, or postgraduate programmes",
   },
 ];
 
@@ -195,7 +300,7 @@ export const categories: { value: TemplateCategory | "all"; label: string }[] =
     { value: "all", label: "All" },
     { value: "startup", label: "Startup" },
     { value: "career", label: "Career" },
-    { value: "finance", label: "Finance" },
+    { value: "student", label: "Student" },
     { value: "society", label: "Society" },
   ];
 

@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Career Decision Brief — Scribed Template</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  /*
+   * COLOUR THEME — uncomment ONE block below.
+   * ─────────────────────────────────────────
+   * Theme 1: Navy (default)
+   * Theme 2: Sage
+   * Theme 3: Charcoal
+   */
+
+  /* Theme 1: Navy */
+  :root {
+    --bg: #ffffff;
+    --bg-warm: #F7F8FB;
+    --text: #1A1A1A;
+    --text2: #4A4A4A;
+    --text3: #9B9B9B;
+    --accent: #2B4C7E;
+    --accent-light: rgba(43,76,126,0.06);
+    --green: #2D7A4F;
+    --green-light: rgba(45,122,79,0.06);
+    --warning: #B8860B;
+    --warning-light: rgba(184,134,11,0.06);
+    --danger: #C03030;
+    --danger-light: rgba(192,48,48,0.06);
+    --border: #E0E3E8;
+    --border-light: #ECEEF2;
+  }
+
+  /* Theme 2: Sage — uncomment below and comment out Theme 1
+  :root {
+    --bg: #ffffff;
+    --bg-warm: #F5F7F4;
+    --text: #1A1A1A;
+    --text2: #4A4A4A;
+    --text3: #9B9B9B;
+    --accent: #4A7C59;
+    --accent-light: rgba(74,124,89,0.06);
+    --green: #2D7A4F;
+    --green-light: rgba(45,122,79,0.06);
+    --warning: #B8860B;
+    --warning-light: rgba(184,134,11,0.06);
+    --danger: #C03030;
+    --danger-light: rgba(192,48,48,0.06);
+    --border: #DEE3DC;
+    --border-light: #EAEDE8;
+  }
+  */
+
+  /* Theme 3: Charcoal — uncomment below and comment out Theme 1
+  :root {
+    --bg: #ffffff;
+    --bg-warm: #F5F5F5;
+    --text: #1A1A1A;
+    --text2: #4A4A4A;
+    --text3: #9B9B9B;
+    --accent: #3D3D3D;
+    --accent-light: rgba(61,61,61,0.05);
+    --green: #2D7A4F;
+    --green-light: rgba(45,122,79,0.06);
+    --warning: #B8860B;
+    --warning-light: rgba(184,134,11,0.06);
+    --danger: #C03030;
+    --danger-light: rgba(192,48,48,0.06);
+    --border: #E0E0E0;
+    --border-light: #EBEBEB;
+  }
+  */
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    padding: 48px 24px 80px;
+    -webkit-font-smoothing: antialiased;
+  }
+  .container { max-width: 720px; margin: 0 auto; }
+
+  .doc-header { margin-bottom: 32px; padding-bottom: 20px; border-bottom: 1px solid var(--border); }
+  .doc-label { font-size: 11px; font-weight: 600; letter-spacing: 2.5px; color: var(--accent); text-transform: uppercase; margin-bottom: 8px; }
+  h1 { font-family: 'Instrument Serif', Georgia, serif; font-size: 32px; font-weight: 400; line-height: 1.2; margin-bottom: 4px; }
+  .doc-meta { font-size: 13px; color: var(--text3); margin-top: 4px; }
+
+  .how-to-use { background: var(--bg-warm); border: 1px solid var(--border-light); border-radius: 12px; padding: 20px 24px; margin-bottom: 28px; }
+  .how-to-use h2 { font-family: 'Instrument Serif', Georgia, serif; font-size: 20px; font-weight: 400; margin-bottom: 10px; color: var(--text); border: none; padding: 0; }
+  .how-to-use p { font-size: 14px; color: var(--text2); margin-bottom: 6px; }
+  .how-to-use p:last-child { margin-bottom: 0; }
+  .how-to-use ul { font-size: 14px; color: var(--text2); padding-left: 20px; margin: 6px 0; }
+  .how-to-use li { margin-bottom: 3px; }
+
+  h2 { font-family: 'Instrument Serif', Georgia, serif; font-size: 22px; font-weight: 400; margin: 28px 0 10px; padding-top: 20px; border-top: 1px solid var(--border-light); }
+  h2:first-of-type { border-top: none; padding-top: 0; }
+  h3 { font-size: 15px; font-weight: 600; margin: 14px 0 6px; }
+  p { color: var(--text2); font-size: 15px; margin-bottom: 8px; }
+  p strong { color: var(--text); }
+  ul, ol { color: var(--text2); font-size: 15px; padding-left: 24px; margin-bottom: 10px; }
+  li { margin-bottom: 4px; }
+  li strong { color: var(--text); }
+
+  .prompt {
+    background: var(--bg-warm);
+    border: none;
+    border-left: 3px solid var(--accent);
+    border-radius: 0 8px 8px 0;
+    padding: 12px 16px;
+    margin: 8px 0 12px;
+    font-size: 14px;
+    color: var(--text3);
+    font-style: italic;
+  }
+
+  .example {
+    background: #F8F6F3;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 14px 18px;
+    margin: 8px 0 12px;
+    font-size: 14px;
+    color: var(--text2);
+  }
+  .example-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+
+  .callout { padding: 12px 16px; border-radius: 0 10px 10px 0; margin: 10px 0; }
+  .callout-green { border-left: 3px solid var(--green); background: var(--green-light); }
+  .callout-warning { border-left: 3px solid var(--warning); background: var(--warning-light); }
+  .callout-accent { border-left: 3px solid var(--accent); background: var(--accent-light); }
+  .callout-title { font-weight: 600; font-size: 14px; margin-bottom: 4px; }
+  .callout-title.green { color: var(--green); }
+  .callout-title.warning { color: var(--warning); }
+  .callout-title.accent { color: var(--accent); }
+  .callout p { font-size: 13px; }
+
+  .insight-box {
+    background: var(--bg-warm);
+    border: 1px solid var(--border-light);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 12px 0;
+  }
+  .insight-label { font-size: 10px; font-weight: 600; letter-spacing: 1.5px; color: var(--accent); text-transform: uppercase; margin-bottom: 6px; }
+  .insight-box p { margin-bottom: 6px; font-size: 14px; }
+  .insight-box p:last-child { margin-bottom: 0; }
+
+  table { width: 100%; border-collapse: collapse; font-size: 14px; margin: 8px 0 14px; }
+  thead th { text-align: left; padding: 8px 12px; background: var(--bg-warm); border-bottom: 1px solid var(--border); font-weight: 600; font-size: 12px; color: var(--text3); text-transform: uppercase; letter-spacing: 0.5px; }
+  tbody td { padding: 8px 12px; border-bottom: 1px solid var(--border-light); color: var(--text2); vertical-align: top; }
+  .table-wrap { border: 1px solid var(--border); border-radius: 10px; overflow: hidden; }
+
+  .score-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 12px 0; }
+  .score-card { background: var(--bg-warm); border: 1px solid var(--border-light); border-radius: 10px; padding: 16px 18px; }
+  .score-card h4 { font-size: 15px; font-weight: 600; margin-bottom: 8px; }
+  .score-row { display: flex; justify-content: space-between; padding: 4px 0; border-bottom: 1px solid var(--border-light); font-size: 13px; }
+  .score-row:last-child { border-bottom: none; }
+  .score-label { color: var(--text2); }
+  .score-value { font-weight: 600; color: var(--text3); }
+  .score-total { display: flex; justify-content: space-between; padding: 8px 0 0; margin-top: 4px; border-top: 1px solid var(--border); font-size: 14px; font-weight: 600; }
+
+  .verdict-box {
+    background: var(--bg-warm);
+    border: 2px solid var(--accent);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 12px 0;
+  }
+  .verdict-label { font-size: 10px; font-weight: 600; letter-spacing: 1.5px; color: var(--accent); text-transform: uppercase; margin-bottom: 4px; }
+  .verdict-text { font-family: 'Instrument Serif', Georgia, serif; font-size: 18px; line-height: 1.3; color: var(--text); }
+
+  .footer { font-size: 12px; color: var(--text3); margin-top: 28px; padding-top: 16px; border-top: 1px solid var(--border-light); }
+  hr { border: none; border-top: 1px solid var(--border-light); margin: 20px 0; }
+
+  @media (max-width: 600px) {
+    .score-grid { grid-template-columns: 1fr; }
+    body { padding: 32px 16px 60px; }
+  }
+  @media print { body { padding: 20px; } }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="doc-header">
+    <div class="doc-label">Scribed Template — Career Decision Brief</div>
+    <h1>[Option A] vs [Option B]: Decision Brief</h1>
+    <div class="doc-meta">Last updated: [Date] — Revisit after each conversation or new information</div>
+  </div>
+
+  <!-- HOW TO USE -->
+  <div class="how-to-use">
+    <h2>How to use this template</h2>
+    <p>A structured framework for making career decisions based on evidence rather than instinct. Use it when choosing between job offers, deciding whether to stay or leave, or comparing 2–4 career paths.</p>
+    <ul>
+      <li>Fill it in once, then <strong>revisit and re-score</strong> after every conversation, interview, or new piece of information.</li>
+      <li><strong>Examples</strong> use a fictional graduate called <strong>Alex</strong> choosing between a return offer at an ad agency vs a strategy role at a bank in Edinburgh. Delete after use.</li>
+      <li>Be honest. This document is for you — not your parents, not LinkedIn, not your interviewer.</li>
+      <li>Takes 30–60 minutes to fill in properly. If you can't score a criterion, you don't have enough information yet — that's useful data.</li>
+    </ul>
+  </div>
+
+  <!-- ───── 1. CONSTRAINTS ───── -->
+
+  <h2>1. Constraints (non-negotiables)</h2>
+
+  <p>These are the things you will not compromise on. If a path violates a constraint, it's out — regardless of how good everything else looks.</p>
+
+  <div class="prompt">List 3–5 hard constraints. These should be binary (yes/no), not preferences. "I prefer London" is a criterion. "I cannot work in a country that requires visa sponsorship" is a constraint.</div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Constraint</th><th>Your note</th></tr></thead>
+      <tbody>
+        <tr><td><strong>[Constraint 1 — e.g. "Must finish degree"]</strong></td><td>[Why this is non-negotiable and how it affects timing]</td></tr>
+        <tr><td><strong>[Constraint 2 — e.g. "Location / visa"]</strong></td><td>[Specifics]</td></tr>
+        <tr><td><strong>[Constraint 3 — e.g. "Minimum salary"]</strong></td><td>[Specifics]</td></tr>
+        <tr><td><strong>[Constraint 4]</strong></td><td>[Specifics]</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="example">
+    <div class="example-label">Example — Alex</div>
+    <table style="margin: 0;">
+      <thead><tr><th>Constraint</th><th>Note</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Finish degree first</strong></td><td>Final year starts September. Start date must be post-graduation (June+).</td></tr>
+        <tr><td><strong>Must be Edinburgh or London</strong></td><td>Partner is Edinburgh-based. Won't do a long-distance move to another country.</td></tr>
+        <tr><td><strong>Minimum £40K base</strong></td><td>London rent + student loan repayments. Below this isn't viable.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ───── 2. CRITERIA ───── -->
+
+  <h2>2. Criteria (score 1–5)</h2>
+
+  <p>These are what matters to you, weighted by importance. 1 = nice to have, 5 = deal-breaker if missing.</p>
+
+  <div class="prompt">Score each criterion for importance (weight). Add your own criteria if the defaults don't fit. The criteria that get a 5 are the ones that should drive your decision.</div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Criterion</th><th>Weight (1–5)</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td><strong>City / commute fit</strong></td><td>[score]</td><td>[e.g. proximity to partner, lifestyle, cost of living]</td></tr>
+        <tr><td><strong>Learning pace &amp; scope</strong></td><td>[score]</td><td>[e.g. depth vs breadth, mentorship, skill development]</td></tr>
+        <tr><td><strong>Compensation &amp; stability</strong></td><td>[score]</td><td>[e.g. base, bonus, equity, job security]</td></tr>
+        <tr><td><strong>Visa / mobility</strong></td><td>[score]</td><td>[e.g. right to work, future flexibility to move countries]</td></tr>
+        <tr><td><strong>People &amp; culture</strong></td><td>[score]</td><td>[e.g. team quality, values alignment, working style]</td></tr>
+        <tr><td><strong>Long-term direction</strong></td><td>[score]</td><td>[e.g. where does this role lead in 3–5 years?]</td></tr>
+        <tr><td><strong>CV / brand value</strong></td><td>[score]</td><td>[e.g. how much does the company name matter for future moves?]</td></tr>
+        <tr><td><strong>[Your criterion]</strong></td><td>[score]</td><td>[Add your own if needed]</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout callout-accent">
+    <div class="callout-title accent">How to use this</div>
+    <p>After scoring weights, shortlist the 2–3 paths that score highest without violating any 5-weight criterion. If a path fails on something you rated 5, it's out.</p>
+  </div>
+
+  <!-- ───── 3. SCORE EACH PATH ───── -->
+
+  <h2>3. Score each path</h2>
+
+  <p>For each path you're considering, score it against your criteria. Multiply criterion weight × path score for a weighted total.</p>
+
+  <div class="prompt">Create a card for each path (2–4 paths). Score each criterion 1–5 for how well that path delivers on it. Multiply by your weight from Section 2. The highest total wins — but use judgement, not just maths.</div>
+
+  <div class="score-grid">
+    <div class="score-card">
+      <h4>[Path A — e.g. "Return to current company"]</h4>
+      <div class="score-row"><span class="score-label">City / commute</span><span class="score-value">[weight] × [score] = [total]</span></div>
+      <div class="score-row"><span class="score-label">Learning pace</span><span class="score-value">[w] × [s] = [t]</span></div>
+      <div class="score-row"><span class="score-label">Compensation</span><span class="score-value">[w] × [s] = [t]</span></div>
+      <div class="score-row"><span class="score-label">Visa / mobility</span><span class="score-value">[w] × [s] = [t]</span></div>
+      <div class="score-row"><span class="score-label">People &amp; culture</span><span class="score-value">[w] × [s] = [t]</span></div>
+      <div class="score-row"><span class="score-label">Long-term direction</span><span class="score-value">[w] × [s] = [t]</span></div>
+      <div class="score-row"><span class="score-label">CV / brand</span><span class="score-value">[w] × [s] = [t]</span></div>
+      <div class="score-total"><span>Weighted total</span><span>[sum]</span></div>
+    </div>
+    <div class="score-card">
+      <h4>[Path B — e.g. "Consulting in London"]</h4>
+      <div class="score-row"><span class="score-label">City / commute</span><span class="score-value">[weight] × [score] = [total]</span></div>
+      <div class="score-row"><span class="score-label">Learning pace</span><span class="score-value">[w] × [s] = [t]</span></div>
+      <div class="score-row"><span class="score-label">Compensation</span><span class="score-value">[w] × [s] = [t]</span></div>
+      <div class="score-row"><span class="score-label">Visa / mobility</span><span class="score-value">[w] × [s] = [t]</span></div>
+      <div class="score-row"><span class="score-label">People &amp; culture</span><span class="score-value">[w] × [s] = [t]</span></div>
+      <div class="score-row"><span class="score-label">Long-term direction</span><span class="score-value">[w] × [s] = [t]</span></div>
+      <div class="score-row"><span class="score-label">CV / brand</span><span class="score-value">[w] × [s] = [t]</span></div>
+      <div class="score-total"><span>Weighted total</span><span>[sum]</span></div>
+    </div>
+  </div>
+
+  <div class="example">
+    <div class="example-label">Example — Alex</div>
+    <div class="score-grid" style="margin: 0;">
+      <div class="score-card" style="background: #fff;">
+        <h4>Path A: Return to ad agency (London)</h4>
+        <div class="score-row"><span class="score-label">City / commute</span><span class="score-value">4 × 2 = 8</span></div>
+        <div class="score-row"><span class="score-label">Learning pace</span><span class="score-value">5 × 4 = 20</span></div>
+        <div class="score-row"><span class="score-label">Compensation</span><span class="score-value">3 × 4 = 12</span></div>
+        <div class="score-row"><span class="score-label">People &amp; culture</span><span class="score-value">5 × 5 = 25</span></div>
+        <div class="score-row"><span class="score-label">Long-term direction</span><span class="score-value">4 × 3 = 12</span></div>
+        <div class="score-row"><span class="score-label">CV / brand</span><span class="score-value">3 × 4 = 12</span></div>
+        <div class="score-total"><span>Total</span><span>89</span></div>
+      </div>
+      <div class="score-card" style="background: #fff;">
+        <h4>Path B: Strategy at bank (Edinburgh)</h4>
+        <div class="score-row"><span class="score-label">City / commute</span><span class="score-value">4 × 5 = 20</span></div>
+        <div class="score-row"><span class="score-label">Learning pace</span><span class="score-value">5 × 3 = 15</span></div>
+        <div class="score-row"><span class="score-label">Compensation</span><span class="score-value">3 × 3 = 9</span></div>
+        <div class="score-row"><span class="score-label">People &amp; culture</span><span class="score-value">5 × 3 = 15</span></div>
+        <div class="score-row"><span class="score-label">Long-term direction</span><span class="score-value">4 × 4 = 16</span></div>
+        <div class="score-row"><span class="score-label">CV / brand</span><span class="score-value">3 × 5 = 15</span></div>
+        <div class="score-total"><span>Total</span><span>90</span></div>
+      </div>
+    </div>
+    <p style="margin-top: 8px; font-size: 13px; color: var(--text3);">Scores are close — which means the decision comes down to the 5-weight criteria (learning, people). Alex needs to dig deeper on those two.</p>
+  </div>
+
+  <!-- ───── 4. TIMELINE ───── -->
+
+  <h2>4. Timeline map</h2>
+
+  <p>When do you need to decide? What happens in each phase? Map it out so you're not making decisions under artificial urgency.</p>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Phase</th><th>Dates</th><th>Focus</th></tr></thead>
+      <tbody>
+        <tr><td><strong>[Phase 1 — e.g. "Final year"]</strong></td><td>[Dates]</td><td>[What you should be doing in this phase]</td></tr>
+        <tr><td><strong>[Phase 2 — e.g. "Offer window"]</strong></td><td>[Dates]</td><td>[Decisions to make, deadlines]</td></tr>
+        <tr><td><strong>[Phase 3 — e.g. "First 12 months"]</strong></td><td>[Dates]</td><td>[What success looks like in year one]</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout callout-warning">
+    <div class="callout-title warning">Rule of thumb</div>
+    <p>Don't stack more than one big bet in the same month. Moving city + starting a new job + finishing a thesis = burnout. Sequence where possible.</p>
+  </div>
+
+  <!-- ───── 5. DECISION QUESTIONS ───── -->
+
+  <h2>5. The hard questions</h2>
+
+  <p>These are the questions you need to answer honestly before committing. If you can't answer them, you need more information — go have more conversations.</p>
+
+  <div class="prompt">Customise these to your situation. The best decision questions are specific, uncomfortable, and force you to confront trade-offs.</div>
+
+  <ol>
+    <li><strong>If I choose [Path A]</strong>, what specifically am I giving up that I can't get back? [Answer]</li>
+    <li><strong>If I choose [Path B]</strong>, what's the worst realistic outcome in 12 months? [Answer]</li>
+    <li><strong>What would "success" look like in 36 months</strong> in each path? (Title, skills, city, network, savings) [Answer]</li>
+    <li><strong>Am I choosing this because I want it, or because it sounds impressive?</strong> [Answer]</li>
+    <li><strong>Which path has the best "option value"</strong> — i.e. keeps the most doors open for future moves? [Answer]</li>
+  </ol>
+
+  <div class="example">
+    <div class="example-label">Example — Alex</div>
+    <ol style="font-size: 13px; margin: 0;">
+      <li style="margin-bottom: 4px;"><strong>If I return to the agency</strong>, I give up Edinburgh and proximity to my partner for at least another year. That's real.</li>
+      <li style="margin-bottom: 4px;"><strong>If I go to the bank</strong>, worst case: I hate the structure, the work is dry, and I'm job-hunting again in 18 months. But I'd be in Edinburgh with a strong CV line.</li>
+      <li style="margin-bottom: 4px;"><strong>36-month success at agency:</strong> Senior creative strategist, deep brand expertise, London-based, £58K. <strong>At bank:</strong> Associate, breadth across markets, Edinburgh-based, £52K + bonus.</li>
+      <li style="margin-bottom: 4px;"><strong>Honestly?</strong> The bank sounds more impressive to other people. The agency is what I actually enjoy day-to-day.</li>
+    </ol>
+  </div>
+
+  <!-- ───── 6. PRELIMINARY LEAN ───── -->
+
+  <h2>6. Preliminary lean</h2>
+
+  <p>Based on everything above, where are you leaning? This is not a final answer — it's a working hypothesis to test.</p>
+
+  <div class="prompt">Fill in 2–4 paths. For each, describe the specific conditions under which it wins. Revisit after every new conversation or piece of information.</div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Path</th><th>When it wins</th></tr></thead>
+      <tbody>
+        <tr><td><strong>[Path A]</strong></td><td>[Under what conditions is this the right choice?]</td></tr>
+        <tr><td><strong>[Path B]</strong></td><td>[Under what conditions is this the right choice?]</td></tr>
+        <tr><td><strong>[Path C — optional]</strong></td><td>[Under what conditions?]</td></tr>
+        <tr><td><strong>[Hybrid — optional]</strong></td><td>[Is there a way to combine elements of both?]</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ───── 7. NEXT STEPS ───── -->
+
+  <h2>7. Next steps</h2>
+
+  <div class="prompt">What do you need to do in the next 2 weeks to make this decision with more confidence? List 3–5 specific actions.</div>
+
+  <ul>
+    <li><strong>[Action 1]</strong> — [e.g. "Have a call with [person] to understand the team structure"]</li>
+    <li><strong>[Action 2]</strong> — [e.g. "Research visa requirements for [country]"]</li>
+    <li><strong>[Action 3]</strong> — [e.g. "Ask [company] about start date flexibility"]</li>
+    <li><strong>[Action 4]</strong> — [e.g. "Re-score this document after those conversations"]</li>
+  </ul>
+
+  <hr>
+
+  <!-- ───── VERDICT ───── -->
+
+  <div class="verdict-box">
+    <div class="verdict-label">Current lean (update as you go)</div>
+    <div class="verdict-text">[Your current best answer — one sentence. Expect this to evolve as you gather more information.]</div>
+  </div>
+
+  <p style="font-size: 13px; color: var(--text3); font-style: italic;">This brief is private working material. It does not replace professional career, immigration, or legal advice.</p>
+
+  <div class="footer">
+    <p>Scribed — Premium Document Design — scribed.eu</p>
+    <p>This template is licensed for personal and commercial use by the purchaser. Do not redistribute.</p>
+  </div>
+
+</div>
+</body>
+</html>

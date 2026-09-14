@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Monetisation Analysis — Scribed Template</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  /*
+   * COLOUR THEME — uncomment ONE block below.
+   * ─────────────────────────────────────────
+   * Theme 1: Navy (default)
+   * Theme 2: Sage
+   * Theme 3: Charcoal
+   */
+
+  /* Theme 1: Navy */
+  :root {
+    --bg: #ffffff;
+    --bg-warm: #F7F8FB;
+    --text: #1A1A1A;
+    --text2: #4A4A4A;
+    --text3: #9B9B9B;
+    --accent: #2B4C7E;
+    --accent-light: rgba(43,76,126,0.06);
+    --green: #2D7A4F;
+    --green-light: rgba(45,122,79,0.06);
+    --warning: #B8860B;
+    --warning-light: rgba(184,134,11,0.06);
+    --danger: #C03030;
+    --danger-light: rgba(192,48,48,0.06);
+    --border: #E0E3E8;
+    --border-light: #ECEEF2;
+  }
+
+  /* Theme 2: Sage — uncomment below and comment out Theme 1
+  :root {
+    --bg: #ffffff;
+    --bg-warm: #F5F7F4;
+    --text: #1A1A1A;
+    --text2: #4A4A4A;
+    --text3: #9B9B9B;
+    --accent: #4A7C59;
+    --accent-light: rgba(74,124,89,0.06);
+    --green: #2D7A4F;
+    --green-light: rgba(45,122,79,0.06);
+    --warning: #B8860B;
+    --warning-light: rgba(184,134,11,0.06);
+    --danger: #C03030;
+    --danger-light: rgba(192,48,48,0.06);
+    --border: #DEE3DC;
+    --border-light: #EAEDE8;
+  }
+  */
+
+  /* Theme 3: Charcoal — uncomment below and comment out Theme 1
+  :root {
+    --bg: #ffffff;
+    --bg-warm: #F5F5F5;
+    --text: #1A1A1A;
+    --text2: #4A4A4A;
+    --text3: #9B9B9B;
+    --accent: #3D3D3D;
+    --accent-light: rgba(61,61,61,0.05);
+    --green: #2D7A4F;
+    --green-light: rgba(45,122,79,0.06);
+    --warning: #B8860B;
+    --warning-light: rgba(184,134,11,0.06);
+    --danger: #C03030;
+    --danger-light: rgba(192,48,48,0.06);
+    --border: #E0E0E0;
+    --border-light: #EBEBEB;
+  }
+  */
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    padding: 48px 24px 80px;
+    -webkit-font-smoothing: antialiased;
+  }
+  .container { max-width: 860px; margin: 0 auto; }
+
+  /* Header */
+  .doc-header { margin-bottom: 32px; padding-bottom: 20px; border-bottom: 1px solid var(--border); }
+  .doc-label { font-size: 11px; font-weight: 600; letter-spacing: 2.5px; color: var(--accent); text-transform: uppercase; margin-bottom: 8px; }
+  h1 { font-family: 'Instrument Serif', Georgia, serif; font-size: 32px; font-weight: 400; line-height: 1.2; margin-bottom: 4px; }
+  .subtitle { font-size: 15px; color: var(--text2); margin-bottom: 0; }
+  .doc-meta { font-size: 13px; color: var(--text3); margin-top: 4px; }
+
+  /* How to use */
+  .how-to-use { background: var(--bg-warm); border: 1px solid var(--border-light); border-radius: 12px; padding: 20px 24px; margin-bottom: 28px; }
+  .how-to-use h2 { font-family: 'Instrument Serif', Georgia, serif; font-size: 20px; font-weight: 400; margin-bottom: 10px; color: var(--text); border: none; padding: 0; }
+  .how-to-use p { font-size: 14px; color: var(--text2); margin-bottom: 6px; }
+  .how-to-use p:last-child { margin-bottom: 0; }
+  .how-to-use ul { font-size: 14px; color: var(--text2); padding-left: 20px; margin: 6px 0; }
+  .how-to-use li { margin-bottom: 3px; }
+
+  /* Sections */
+  h2 { font-family: 'Instrument Serif', Georgia, serif; font-size: 22px; font-weight: 400; margin: 28px 0 10px; padding-top: 20px; border-top: 1px solid var(--border-light); }
+  h3 { font-size: 15px; font-weight: 600; margin: 14px 0 6px; }
+  p { color: var(--text2); font-size: 15px; margin-bottom: 8px; }
+  p strong { color: var(--text); }
+  ul, ol { color: var(--text2); font-size: 15px; padding-left: 24px; margin-bottom: 10px; }
+  li { margin-bottom: 4px; }
+  li strong { color: var(--text); }
+
+  /* Prompt boxes */
+  .prompt {
+    background: var(--bg-warm);
+    border: none;
+    border-left: 3px solid var(--accent);
+    border-radius: 0 8px 8px 0;
+    padding: 12px 16px;
+    margin: 8px 0 12px;
+    font-size: 14px;
+    color: var(--text3);
+    font-style: italic;
+  }
+
+  /* Example boxes */
+  .example {
+    background: #F8F6F3;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 14px 18px;
+    margin: 8px 0 12px;
+    font-size: 14px;
+    color: var(--text2);
+  }
+  .example-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+
+  /* Verdict box */
+  .verdict-box {
+    background: var(--bg-warm);
+    border: 2px solid var(--accent);
+    border-radius: 10px;
+    padding: 20px 24px;
+    margin: 16px 0;
+  }
+  .verdict-label { font-size: 10px; font-weight: 600; letter-spacing: 1.5px; color: var(--accent); text-transform: uppercase; margin-bottom: 6px; }
+  .verdict-text { font-family: 'Instrument Serif', Georgia, serif; font-size: 20px; line-height: 1.3; color: var(--text); }
+  .verdict-sub { color: var(--text2); font-size: 14px; margin-top: 6px; }
+
+  /* Comparison grid */
+  .compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 14px 0; }
+  .path-card { background: var(--bg-warm); border: 1px solid var(--border-light); border-radius: 10px; overflow: hidden; }
+  .path-card.winner { border-color: var(--green); }
+  .path-header { padding: 12px 16px; border-bottom: 1px solid var(--border-light); display: flex; justify-content: space-between; align-items: center; }
+  .path-header h3 { margin: 0; font-size: 14px; }
+  .path-body { padding: 14px 16px; }
+  .path-body p { color: var(--text2); font-size: 13px; margin-bottom: 6px; }
+
+  .pill { display: inline-block; font-size: 11px; font-weight: 600; padding: 2px 8px; border-radius: 10px; }
+  .pill-green { background: rgba(45,122,79,0.1); color: var(--green); }
+  .pill-warning { background: rgba(184,134,11,0.1); color: var(--warning); }
+  .pill-accent { background: rgba(196,93,62,0.1); color: var(--accent); }
+
+  .metric-row { display: flex; justify-content: space-between; padding: 6px 0; border-bottom: 1px solid var(--border-light); font-size: 13px; }
+  .metric-row:last-of-type { border-bottom: none; }
+  .metric-label { color: var(--text3); }
+  .metric-value { font-weight: 600; }
+  .metric-value.green { color: var(--green); }
+  .metric-value.warning { color: var(--warning); }
+  .metric-value.accent { color: var(--accent); }
+
+  /* Comparable cards */
+  .comp-card { background: var(--bg-warm); border: 1px solid var(--border-light); border-radius: 8px; padding: 14px 16px; margin-bottom: 8px; }
+  .comp-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 4px; }
+  .comp-company { font-weight: 600; font-size: 15px; }
+  .comp-date { font-size: 12px; color: var(--text3); }
+  .comp-detail { color: var(--text2); font-size: 13px; margin-bottom: 3px; }
+  .comp-highlight { color: var(--accent); font-weight: 600; font-size: 13px; }
+
+  /* Tables */
+  table { width: 100%; border-collapse: collapse; font-size: 13px; margin: 8px 0 14px; }
+  thead th { text-align: left; padding: 8px 12px; background: var(--bg-warm); border-bottom: 1px solid var(--border); font-weight: 600; font-size: 11px; color: var(--text3); text-transform: uppercase; letter-spacing: 0.5px; }
+  tbody td { padding: 8px 12px; border-bottom: 1px solid var(--border-light); color: var(--text2); vertical-align: top; }
+  .table-wrap { border: 1px solid var(--border); border-radius: 10px; overflow: hidden; }
+
+  /* Timeline */
+  .timeline { margin: 12px 0; }
+  .timeline-step { display: flex; gap: 12px; margin-bottom: 12px; }
+  .timeline-marker { display: flex; flex-direction: column; align-items: center; min-width: 24px; }
+  .timeline-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--accent); margin-top: 5px; }
+  .timeline-line { flex: 1; width: 2px; background: var(--border-light); margin-top: 4px; }
+  .timeline-content { flex: 1; }
+  .timeline-label { font-size: 11px; color: var(--text3); font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
+  .timeline-text { font-size: 13px; color: var(--text2); margin-top: 2px; }
+  .timeline-text strong { color: var(--text); }
+
+  /* Callouts */
+  .callout { padding: 12px 16px; border-radius: 0 10px 10px 0; margin: 10px 0; }
+  .callout-green { border-left: 3px solid var(--green); background: var(--green-light); }
+  .callout-warning { border-left: 3px solid var(--warning); background: var(--warning-light); }
+  .callout-accent { border-left: 3px solid var(--accent); background: var(--accent-light); }
+  .callout-title { font-weight: 600; font-size: 14px; margin-bottom: 4px; }
+  .callout-title.green { color: var(--green); }
+  .callout-title.warning { color: var(--warning); }
+  .callout-title.accent { color: var(--accent); }
+  .callout p { font-size: 13px; }
+
+  /* Insight box */
+  .insight-box {
+    background: var(--bg-warm);
+    border: 1px solid var(--border-light);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 12px 0;
+  }
+  .insight-label { font-size: 10px; font-weight: 600; letter-spacing: 1.5px; color: var(--accent); text-transform: uppercase; margin-bottom: 6px; }
+  .insight-box p { margin-bottom: 6px; font-size: 14px; }
+  .insight-box p:last-child { margin-bottom: 0; }
+
+  /* Footer */
+  .footer { font-size: 12px; color: var(--text3); margin-top: 28px; padding-top: 16px; border-top: 1px solid var(--border-light); }
+
+  hr { border: none; border-top: 1px solid var(--border-light); margin: 20px 0; }
+
+  @media (max-width: 700px) {
+    .compare-grid { grid-template-columns: 1fr; }
+    body { padding: 32px 16px 60px; }
+  }
+  @media print {
+    body { padding: 20px; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="doc-header">
+    <div class="doc-label">Scribed Template — Monetisation Analysis</div>
+    <h1>[Path A] vs [Path B]: Which Is More Profitable?</h1>
+    <p class="subtitle">[One sentence describing what this analysis covers and why you need to choose.]</p>
+    <div class="doc-meta">v1.0 — [Month Year] — [Your Name] — Confidential</div>
+  </div>
+
+  <!-- HOW TO USE -->
+  <div class="how-to-use">
+    <h2>How to use this template</h2>
+    <p>This document provides a structured framework for comparing two monetisation paths using real data. Use it when your company has multiple viable revenue strategies and needs to commit to one.</p>
+    <ul>
+      <li><strong>Prompts</strong> (dashed boxes) guide what to research and write. Delete once filled.</li>
+      <li><strong>Examples</strong> (shaded boxes labelled "Example") use a fictional company called <strong>Beacon</strong> — an AI customer support tool choosing between SMB direct sales vs enterprise licensing. Delete after use.</li>
+      <li>The power of this document is the comparable research. Spend time finding real companies, real deals, real numbers.</li>
+      <li>This is a decision document — it should conclude with a clear recommendation supported by evidence.</li>
+    </ul>
+  </div>
+
+  <!-- ───── VERDICT ───── -->
+
+  <div class="verdict-box">
+    <div class="verdict-label">Bottom line</div>
+    <div class="verdict-text">[One sentence: which path wins and why. Be direct.]</div>
+    <div class="verdict-sub">[One sentence of evidence. Name a real company that proves this.]</div>
+  </div>
+
+  <div class="example">
+    <div class="example-label">Example — Beacon</div>
+    <div class="verdict-box" style="margin: 0; border-color: var(--border);">
+      <div class="verdict-label">Bottom line</div>
+      <div class="verdict-text">Enterprise platform licensing is 5–20x more profitable than SMB direct sales. But you start with SMBs to prove the product works.</div>
+      <div class="verdict-sub">Intercom did exactly this: started with startup chat widgets at $49/mo, now at $300M+ ARR selling $50K–$200K enterprise deals. The customer support AI market is $12B and growing 24% annually.</div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ───── HEAD-TO-HEAD ───── -->
+
+  <h2>Head-to-head comparison</h2>
+
+  <div class="prompt">Fill in the two paths you're comparing. For each metric, research real numbers — TAM, buyer count, typical deal size, exit multiples, sales motion. This is the core of the analysis.</div>
+
+  <div class="compare-grid">
+    <div class="path-card">
+      <div class="path-header">
+        <h3>Path A: [Your first option]</h3>
+        <span class="pill pill-warning">[Label]</span>
+      </div>
+      <div class="path-body">
+        <div class="metric-row"><span class="metric-label">Total addressable market</span><span class="metric-value">[Size]</span></div>
+        <div class="metric-row"><span class="metric-label">Number of buyers globally</span><span class="metric-value">[Count]</span></div>
+        <div class="metric-row"><span class="metric-label">Typical deal size (ACV)</span><span class="metric-value">[Range]</span></div>
+        <div class="metric-row"><span class="metric-label">Exit multiples (ARR)</span><span class="metric-value">[Range]</span></div>
+        <div class="metric-row"><span class="metric-label">Largest exit in category</span><span class="metric-value">[Company + amount]</span></div>
+        <div class="metric-row"><span class="metric-label">Sales motion</span><span class="metric-value">[Type]</span></div>
+        <div class="metric-row"><span class="metric-label">Competitive moat</span><span class="metric-value">[Assessment]</span></div>
+        <p style="margin-top: 8px;">[2–3 sentences explaining why this path is or isn't viable.]</p>
+      </div>
+    </div>
+
+    <div class="path-card winner">
+      <div class="path-header">
+        <h3>Path B: [Your second option]</h3>
+        <span class="pill pill-green">[Label]</span>
+      </div>
+      <div class="path-body">
+        <div class="metric-row"><span class="metric-label">Total addressable market</span><span class="metric-value">[Size]</span></div>
+        <div class="metric-row"><span class="metric-label">Number of buyers globally</span><span class="metric-value">[Count]</span></div>
+        <div class="metric-row"><span class="metric-label">Typical deal size (ACV)</span><span class="metric-value">[Range]</span></div>
+        <div class="metric-row"><span class="metric-label">Exit multiples (ARR)</span><span class="metric-value">[Range]</span></div>
+        <div class="metric-row"><span class="metric-label">Largest exit in category</span><span class="metric-value">[Company + amount]</span></div>
+        <div class="metric-row"><span class="metric-label">Sales motion</span><span class="metric-value">[Type]</span></div>
+        <div class="metric-row"><span class="metric-label">Competitive moat</span><span class="metric-value">[Assessment]</span></div>
+        <p style="margin-top: 8px;">[2–3 sentences explaining why this path wins.]</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="example">
+    <div class="example-label">Example — Beacon</div>
+    <div class="compare-grid" style="margin: 0;">
+      <div class="path-card" style="background: #fff;">
+        <div class="path-header"><h3>Path A: SMB Direct (Self-Serve)</h3><span class="pill pill-warning">Ceiling</span></div>
+        <div class="path-body">
+          <div class="metric-row"><span class="metric-label">TAM</span><span class="metric-value warning">~$3B</span></div>
+          <div class="metric-row"><span class="metric-label">Buyers</span><span class="metric-value warning">~500K SMBs</span></div>
+          <div class="metric-row"><span class="metric-label">ACV</span><span class="metric-value">$600–$2,400/yr</span></div>
+          <div class="metric-row"><span class="metric-label">Exit multiples</span><span class="metric-value warning">4–7x ARR</span></div>
+          <p style="margin-top: 8px;">High churn, price-sensitive buyers, race to the bottom. Zendesk went public but stalled at 5x ARR.</p>
+        </div>
+      </div>
+      <div class="path-card winner" style="background: #fff;">
+        <div class="path-header"><h3>Path B: Enterprise Platform</h3><span class="pill pill-green">Winner</span></div>
+        <div class="path-body">
+          <div class="metric-row"><span class="metric-label">TAM</span><span class="metric-value green">~$12B</span></div>
+          <div class="metric-row"><span class="metric-label">Buyers</span><span class="metric-value green">50K+ enterprises</span></div>
+          <div class="metric-row"><span class="metric-label">ACV</span><span class="metric-value">$50K–$200K/yr</span></div>
+          <div class="metric-row"><span class="metric-label">Exit multiples</span><span class="metric-value green">8–15x ARR</span></div>
+          <p style="margin-top: 8px;">Sticky contracts, high switching costs, predictable revenue. Intercom hit $300M+ ARR via this path.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ───── COMPARABLES ───── -->
+
+  <h2>Companies that prove this works</h2>
+  <p class="subtitle">Real deals, real numbers. These are the playbooks to study.</p>
+
+  <div class="prompt">Research 4–8 real companies that chose each path. For each, include: company name, valuation or exit price, date, revenue at time of deal, what happened, and what it means for you. Group them by path.</div>
+
+  <h3 style="color: var(--green);">[Path B] comparables — the winners</h3>
+
+  <div class="comp-card">
+    <div class="comp-header">
+      <span class="comp-company">[Company 1] → [Valuation / Exit]</span>
+      <span class="comp-date">[Date]</span>
+    </div>
+    <div class="comp-detail">[What they do. Revenue at the time. Key facts.]</div>
+    <div class="comp-highlight">[Why this is relevant to your decision. What you can learn.]</div>
+  </div>
+
+  <div class="comp-card">
+    <div class="comp-header">
+      <span class="comp-company">[Company 2] → [Valuation / Exit]</span>
+      <span class="comp-date">[Date]</span>
+    </div>
+    <div class="comp-detail">[What they do. Revenue at the time. Key facts.]</div>
+    <div class="comp-highlight">[Why this is relevant.]</div>
+  </div>
+
+  <div class="comp-card">
+    <div class="comp-header">
+      <span class="comp-company">[Company 3] → [Valuation / Exit]</span>
+      <span class="comp-date">[Date]</span>
+    </div>
+    <div class="comp-detail">[What they do. Revenue at the time. Key facts.]</div>
+    <div class="comp-highlight">[Why this is relevant.]</div>
+  </div>
+
+  <h3 style="color: var(--warning);">[Path A] comparables — the cautionary tales</h3>
+
+  <div class="comp-card">
+    <div class="comp-header">
+      <span class="comp-company">[Company 4] → [Outcome]</span>
+      <span class="comp-date">[Date]</span>
+    </div>
+    <div class="comp-detail">[What they do. What happened.]</div>
+    <div class="comp-highlight">[Why this path produced a smaller outcome.]</div>
+  </div>
+
+  <div class="comp-card">
+    <div class="comp-header">
+      <span class="comp-company">[Company 5] → [Outcome]</span>
+      <span class="comp-date">[Date]</span>
+    </div>
+    <div class="comp-detail">[What they do. What happened.]</div>
+    <div class="comp-highlight">[Why this is a warning sign.]</div>
+  </div>
+
+  <hr>
+
+  <!-- ───── MULTIPLES TABLE ───── -->
+
+  <h2>Valuation multiples in your market</h2>
+  <p class="subtitle">What acquirers and investors actually pay for companies like yours.</p>
+
+  <div class="prompt">Find 5–8 real deals with disclosed valuations. Include the deal name, valuation, revenue, multiple, and buyer type. This table is what makes your analysis credible.</div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Deal</th><th>Valuation</th><th>Revenue</th><th>Multiple</th><th>Buyer type</th></tr></thead>
+      <tbody>
+        <tr><td>[Company 1]</td><td>[Amount]</td><td>[ARR / Rev]</td><td><strong>[X.Xx ARR]</strong></td><td>[VC / PE / Strategic]</td></tr>
+        <tr><td>[Company 2]</td><td>[Amount]</td><td>[ARR / Rev]</td><td><strong>[X.Xx ARR]</strong></td><td>[VC / PE / Strategic]</td></tr>
+        <tr><td>[Company 3]</td><td>[Amount]</td><td>[ARR / Rev]</td><td><strong>[X.Xx ARR]</strong></td><td>[VC / PE / Strategic]</td></tr>
+        <tr><td>[Company 4]</td><td>[Amount]</td><td>[ARR / Rev]</td><td><strong>[X.Xx ARR]</strong></td><td>[VC / PE / Strategic]</td></tr>
+        <tr><td>[Company 5]</td><td>[Amount]</td><td>[ARR / Rev]</td><td><strong>[X.Xx ARR]</strong></td><td>[VC / PE / Strategic]</td></tr>
+        <tr><td style="font-style: italic; color: var(--text3);">Market median range</td><td></td><td></td><td><strong>[X–Xx ARR]</strong></td><td></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <hr>
+
+  <!-- ───── ROADMAP ───── -->
+
+  <h2>What this means for [Your Company]</h2>
+
+  <div class="callout callout-green">
+    <div class="callout-title green">[Name the playbook you're following]</div>
+    <p>[Describe the company whose path you're replicating. How did they start? Where are they now? Why is this the model?]</p>
+  </div>
+
+  <h3>Your path to revenue</h3>
+
+  <div class="prompt">Map out your revenue timeline in 4 phases. Be specific about price points, customer counts, and ARR targets at each stage.</div>
+
+  <div class="timeline">
+    <div class="timeline-step">
+      <div class="timeline-marker"><div class="timeline-dot"></div><div class="timeline-line"></div></div>
+      <div class="timeline-content">
+        <div class="timeline-label">Now → 6 months</div>
+        <div class="timeline-text"><strong>[Phase 1 strategy]</strong> — [Price point, customer target, goal. What are you proving?]</div>
+      </div>
+    </div>
+    <div class="timeline-step">
+      <div class="timeline-marker"><div class="timeline-dot"></div><div class="timeline-line"></div></div>
+      <div class="timeline-content">
+        <div class="timeline-label">6–18 months</div>
+        <div class="timeline-text"><strong>[Phase 2 strategy]</strong> — [New customer segment, higher price point, ARR target.]</div>
+      </div>
+    </div>
+    <div class="timeline-step">
+      <div class="timeline-marker"><div class="timeline-dot"></div><div class="timeline-line"></div></div>
+      <div class="timeline-content">
+        <div class="timeline-label">18–36 months</div>
+        <div class="timeline-text"><strong>[Phase 3 strategy]</strong> — [Enterprise deals, large contracts. Where the real money is.]</div>
+      </div>
+    </div>
+    <div class="timeline-step">
+      <div class="timeline-marker"><div class="timeline-dot"></div></div>
+      <div class="timeline-content">
+        <div class="timeline-label">36+ months</div>
+        <div class="timeline-text"><strong>[Exit options]</strong> — [What exits are possible at this scale? Name specific acquirers.]</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="callout callout-warning">
+    <div class="callout-title warning">Why not start with [the losing path]?</div>
+    <p>[Explain why the other path has a limited upside. Use data from your comparables to quantify the constraint.]</p>
+  </div>
+
+  <div class="callout callout-accent">
+    <div class="callout-title accent">[Key buyer insight — how do they actually buy?]</div>
+    <p>[Describe the buying process of your target enterprise customer. Do they partner first? License? Acquire? What does the sales motion look like?]</p>
+  </div>
+
+  <hr>
+
+  <!-- ───── PROJECTIONS ───── -->
+
+  <h2>The numbers that matter</h2>
+
+  <div class="prompt">Show two revenue scenarios using the multiples from your comparables table. Be realistic about timelines. This is the "what could this be worth?" section.</div>
+
+  <div class="compare-grid">
+    <div class="path-card">
+      <div class="path-header">
+        <h3>If you reach [Target 1 ARR]</h3>
+        <span class="pill pill-accent">[Timeframe]</span>
+      </div>
+      <div class="path-body">
+        <div class="metric-row"><span class="metric-label">Valuation at [low]x ARR</span><span class="metric-value">[Amount]</span></div>
+        <div class="metric-row"><span class="metric-label">Valuation at [mid]x ARR</span><span class="metric-value accent">[Amount]</span></div>
+        <div class="metric-row"><span class="metric-label">Valuation at [high]x ARR</span><span class="metric-value green">[Amount]</span></div>
+        <div class="metric-row"><span class="metric-label">Comparable</span><span class="metric-value">[Company at similar scale]</span></div>
+      </div>
+    </div>
+    <div class="path-card">
+      <div class="path-header">
+        <h3>If you reach [Target 2 ARR]</h3>
+        <span class="pill pill-green">[Timeframe]</span>
+      </div>
+      <div class="path-body">
+        <div class="metric-row"><span class="metric-label">Valuation at [low]x ARR</span><span class="metric-value">[Amount]</span></div>
+        <div class="metric-row"><span class="metric-label">Valuation at [mid]x ARR</span><span class="metric-value accent">[Amount]</span></div>
+        <div class="metric-row"><span class="metric-label">Valuation at [high]x ARR</span><span class="metric-value green">[Amount]</span></div>
+        <div class="metric-row"><span class="metric-label">Comparable</span><span class="metric-value">[Company at similar scale]</span></div>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ───── KEY TAKEAWAYS ───── -->
+
+  <h2>Key takeaways</h2>
+
+  <div class="prompt">Write 4–6 bullet points that summarise the entire analysis. These should be clear enough that someone who reads only this section understands your recommendation.</div>
+
+  <div class="insight-box">
+    <ol style="padding-left: 18px; font-size: 14px;">
+      <li style="margin-bottom: 6px;"><strong>[Takeaway 1 — the market size argument]</strong> — [One sentence with a number.]</li>
+      <li style="margin-bottom: 6px;"><strong>[Takeaway 2 — the starting strategy]</strong> — [How to begin. Name the comparable.]</li>
+      <li style="margin-bottom: 6px;"><strong>[Takeaway 3 — the exit evidence]</strong> — [Real exit data that proves the path works.]</li>
+      <li style="margin-bottom: 6px;"><strong>[Takeaway 4 — how enterprise buyers buy]</strong> — [The sales motion for your target.]</li>
+      <li style="margin-bottom: 6px;"><strong>[Takeaway 5 — why not the other path]</strong> — [One sentence on why Path A loses.]</li>
+    </ol>
+  </div>
+
+  <div class="example">
+    <div class="example-label">Example — Beacon</div>
+    <div class="insight-box" style="margin: 0;">
+      <ol style="padding-left: 18px; font-size: 14px;">
+        <li style="margin-bottom: 6px;"><strong>Enterprise customer support AI is a $12B market growing 24%/year.</strong> SMB chat widgets are a $3B market with declining margins.</li>
+        <li style="margin-bottom: 6px;"><strong>Start with SMBs at $49–$199/mo to prove the product.</strong> Intercom did this — started with startup chat, now sells $200K enterprise deals.</li>
+        <li style="margin-bottom: 6px;"><strong>Exit multiples are 8–15x ARR for enterprise platforms.</strong> At $10M ARR, Beacon could be worth $80–$150M.</li>
+        <li style="margin-bottom: 6px;"><strong>Enterprise buyers pilot for 3 months, then sign annual contracts.</strong> Land-and-expand is the motion — start with one team, spread to the org.</li>
+        <li style="margin-bottom: 6px;"><strong>SMB-only companies stall.</strong> Zendesk went public but flatlined at 5x ARR because SMBs churn at 5–8% monthly.</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="footer">
+    <p>Scribed — Premium Document Design — scribed.eu</p>
+    <p>This template is licensed for personal and commercial use by the purchaser. Do not redistribute.</p>
+  </div>
+
+</div>
+</body>
+</html>

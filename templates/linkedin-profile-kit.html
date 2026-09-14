@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LinkedIn Profile Kit — Scribed Template</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  /*
+   * COLOUR THEME — uncomment ONE block below.
+   * ─────────────────────────────────────────
+   * Theme 1: Navy (default)
+   * Theme 2: Sage
+   * Theme 3: Charcoal
+   */
+
+  /* Theme 1: Navy */
+  :root {
+    --bg: #ffffff;
+    --bg-warm: #F7F8FB;
+    --text: #1A1A1A;
+    --text2: #4A4A4A;
+    --text3: #9B9B9B;
+    --accent: #2B4C7E;
+    --accent-light: rgba(43,76,126,0.06);
+    --green: #2D7A4F;
+    --green-light: rgba(45,122,79,0.06);
+    --warning: #B8860B;
+    --warning-light: rgba(184,134,11,0.06);
+    --danger: #C03030;
+    --danger-light: rgba(192,48,48,0.06);
+    --border: #E0E3E8;
+    --border-light: #ECEEF2;
+    --linkedin: #0A66C2;
+    --linkedin-light: rgba(10,102,194,0.06);
+  }
+
+  /* Theme 2: Sage — uncomment below and comment out Theme 1
+  :root {
+    --bg: #ffffff;
+    --bg-warm: #F5F7F4;
+    --text: #1A1A1A;
+    --text2: #4A4A4A;
+    --text3: #9B9B9B;
+    --accent: #4A7C59;
+    --accent-light: rgba(74,124,89,0.06);
+    --green: #2D7A4F;
+    --green-light: rgba(45,122,79,0.06);
+    --warning: #B8860B;
+    --warning-light: rgba(184,134,11,0.06);
+    --danger: #C03030;
+    --danger-light: rgba(192,48,48,0.06);
+    --border: #DEE3DC;
+    --border-light: #EAEDE8;
+    --linkedin: #0A66C2;
+    --linkedin-light: rgba(10,102,194,0.06);
+  }
+  */
+
+  /* Theme 3: Charcoal — uncomment below and comment out Theme 1
+  :root {
+    --bg: #ffffff;
+    --bg-warm: #F5F5F5;
+    --text: #1A1A1A;
+    --text2: #4A4A4A;
+    --text3: #9B9B9B;
+    --accent: #3D3D3D;
+    --accent-light: rgba(61,61,61,0.05);
+    --green: #2D7A4F;
+    --green-light: rgba(45,122,79,0.06);
+    --warning: #B8860B;
+    --warning-light: rgba(184,134,11,0.06);
+    --danger: #C03030;
+    --danger-light: rgba(192,48,48,0.06);
+    --border: #E0E0E0;
+    --border-light: #EBEBEB;
+    --linkedin: #0A66C2;
+    --linkedin-light: rgba(10,102,194,0.06);
+  }
+  */
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    padding: 48px 24px 80px;
+    -webkit-font-smoothing: antialiased;
+  }
+  .container { max-width: 720px; margin: 0 auto; }
+
+  .doc-header { margin-bottom: 32px; padding-bottom: 20px; border-bottom: 1px solid var(--border); }
+  .doc-label { font-size: 11px; font-weight: 600; letter-spacing: 2.5px; color: var(--accent); text-transform: uppercase; margin-bottom: 8px; }
+  h1 { font-family: 'Instrument Serif', Georgia, serif; font-size: 32px; font-weight: 400; line-height: 1.2; margin-bottom: 4px; }
+  .doc-meta { font-size: 13px; color: var(--text3); margin-top: 4px; }
+
+  .how-to-use { background: var(--bg-warm); border: 1px solid var(--border-light); border-radius: 12px; padding: 20px 24px; margin-bottom: 28px; }
+  .how-to-use h2 { font-family: 'Instrument Serif', Georgia, serif; font-size: 20px; font-weight: 400; margin-bottom: 10px; color: var(--text); border: none; padding: 0; }
+  .how-to-use p { font-size: 14px; color: var(--text2); margin-bottom: 6px; }
+  .how-to-use p:last-child { margin-bottom: 0; }
+  .how-to-use ul { font-size: 14px; color: var(--text2); padding-left: 20px; margin: 6px 0; }
+  .how-to-use li { margin-bottom: 3px; }
+
+  h2 { font-family: 'Instrument Serif', Georgia, serif; font-size: 22px; font-weight: 400; margin: 28px 0 10px; padding-top: 20px; border-top: 1px solid var(--border-light); }
+  h3 { font-size: 15px; font-weight: 600; margin: 14px 0 6px; }
+  p { color: var(--text2); font-size: 15px; margin-bottom: 8px; }
+  p strong { color: var(--text); }
+  ul, ol { color: var(--text2); font-size: 15px; padding-left: 24px; margin-bottom: 10px; }
+  li { margin-bottom: 4px; }
+  li strong { color: var(--text); }
+
+  .prompt {
+    background: var(--bg-warm);
+    border: none;
+    border-left: 3px solid var(--accent);
+    border-radius: 0 8px 8px 0;
+    padding: 12px 16px;
+    margin: 8px 0 12px;
+    font-size: 14px;
+    color: var(--text3);
+    font-style: italic;
+  }
+
+  .example {
+    background: #F8F6F3;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 14px 18px;
+    margin: 8px 0 12px;
+    font-size: 14px;
+    color: var(--text2);
+  }
+  .example-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+
+  .callout { padding: 12px 16px; border-radius: 0 10px 10px 0; margin: 10px 0; }
+  .callout-green { border-left: 3px solid var(--green); background: var(--green-light); }
+  .callout-warning { border-left: 3px solid var(--warning); background: var(--warning-light); }
+  .callout-accent { border-left: 3px solid var(--accent); background: var(--accent-light); }
+  .callout-linkedin { border-left: 3px solid var(--linkedin); background: var(--linkedin-light); }
+  .callout-title { font-weight: 600; font-size: 14px; margin-bottom: 4px; }
+  .callout-title.green { color: var(--green); }
+  .callout-title.warning { color: var(--warning); }
+  .callout-title.accent { color: var(--accent); }
+  .callout-title.linkedin { color: var(--linkedin); }
+  .callout p { font-size: 13px; }
+
+  .insight-box {
+    background: var(--bg-warm);
+    border: 1px solid var(--border-light);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 12px 0;
+  }
+  .insight-label { font-size: 10px; font-weight: 600; letter-spacing: 1.5px; color: var(--accent); text-transform: uppercase; margin-bottom: 6px; }
+  .insight-box p { margin-bottom: 6px; font-size: 14px; }
+  .insight-box p:last-child { margin-bottom: 0; }
+
+  table { width: 100%; border-collapse: collapse; font-size: 14px; margin: 8px 0 14px; }
+  thead th { text-align: left; padding: 8px 12px; background: var(--bg-warm); border-bottom: 1px solid var(--border); font-weight: 600; font-size: 12px; color: var(--text3); text-transform: uppercase; letter-spacing: 0.5px; }
+  tbody td { padding: 8px 12px; border-bottom: 1px solid var(--border-light); color: var(--text2); vertical-align: top; }
+  .table-wrap { border: 1px solid var(--border); border-radius: 10px; overflow: hidden; }
+
+  /* Formula blocks */
+  .formula {
+    background: var(--bg-warm);
+    border: 1px solid var(--border-light);
+    border-radius: 10px;
+    padding: 14px 18px;
+    margin: 8px 0 10px;
+    font-family: 'DM Sans', monospace;
+    font-size: 14px;
+    color: var(--text);
+    letter-spacing: 0.2px;
+  }
+  .formula .label { font-size: 10px; font-weight: 600; letter-spacing: 1.5px; color: var(--accent); text-transform: uppercase; margin-bottom: 6px; }
+
+  /* Draft blocks */
+  .draft {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 8px 0 12px;
+  }
+  .draft-label { font-size: 10px; font-weight: 600; letter-spacing: 1.5px; color: var(--linkedin); text-transform: uppercase; margin-bottom: 8px; }
+  .draft p { font-size: 14px; color: var(--text2); margin-bottom: 6px; }
+  .draft p:last-child { margin-bottom: 0; }
+
+  .footer { font-size: 12px; color: var(--text3); margin-top: 28px; padding-top: 16px; border-top: 1px solid var(--border-light); }
+  hr { border: none; border-top: 1px solid var(--border-light); margin: 20px 0; }
+
+  @media (max-width: 600px) { body { padding: 32px 16px 60px; } }
+  @media print { body { padding: 20px; } }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="doc-header">
+    <div class="doc-label">Scribed Template — LinkedIn Profile Kit</div>
+    <h1>LinkedIn profile kit</h1>
+    <div class="doc-meta">Headline, About section, and profile strategy — done in 30 minutes</div>
+  </div>
+
+  <!-- HOW TO USE -->
+  <div class="how-to-use">
+    <h2>How to use this template</h2>
+    <p>This kit gives you plug-and-play formulas for the three parts of your LinkedIn that actually matter: your <strong>headline</strong>, your <strong>About section</strong>, and your <strong>profile setup</strong>. Fill in the formulas, copy to LinkedIn, done.</p>
+    <ul>
+      <li>Three headline formulas — pick the one that fits your situation.</li>
+      <li>A paragraph-by-paragraph About section framework with strategic prompts.</li>
+      <li><strong>Examples</strong> use two fictional people: <strong>Jordan</strong> (graduate looking for a first role in product management) and <strong>Sam</strong> (mid-career professional switching from operations to strategy). Delete after use.</li>
+      <li>Takes 30 minutes if you already know your story. Takes 60 if you need to think about it — that thinking is the point.</li>
+    </ul>
+  </div>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- 1. HEADLINE                                  -->
+  <!-- ═══════════════════════════════════════════ -->
+
+  <h2>1. Headline</h2>
+
+  <p>Your headline is the most-read line on your profile. It shows up in search results, connection requests, and comments. Most people default to their job title — a missed opportunity.</p>
+
+  <div class="callout callout-linkedin">
+    <div class="callout-title linkedin">The rule</div>
+    <p>Your headline should answer: <strong>"What do you do, where, and why should I care?"</strong> in under 120 characters. Lead with what you do, not where you work.</p>
+  </div>
+
+  <h3>Formula A — For graduates &amp; job seekers</h3>
+
+  <div class="formula">
+    <div class="label">Formula</div>
+    [Degree] | [Most impressive experience] | [Specific skill or interest]
+  </div>
+
+  <div class="prompt">Use this if you're a student or recent graduate. Lead with your degree only if it's relevant to the roles you want. Otherwise lead with experience.</div>
+
+  <div class="example">
+    <div class="example-label">Example — Jordan (graduate)</div>
+    <p style="margin:0;"><code>BSc Computer Science (First Class) | Product Intern @ Spotify | Interested in B2B SaaS</code></p>
+  </div>
+
+  <h3>Formula B — For professionals with a clear role</h3>
+
+  <div class="formula">
+    <div class="label">Formula</div>
+    [What you do] | [Where / who you do it for] | [One specific differentiator]
+  </div>
+
+  <div class="prompt">Use this if you have a defined role. The differentiator is what makes you memorable — a metric, a specialism, a niche.</div>
+
+  <div class="example">
+    <div class="example-label">Example — Sam (mid-career)</div>
+    <p style="margin:0;"><code>Operations → Strategy | Helping SaaS companies scale from 50 to 500 people | Ex-Deliveroo, Ex-Revolut</code></p>
+  </div>
+
+  <h3>Formula C — For founders &amp; freelancers</h3>
+
+  <div class="formula">
+    <div class="label">Formula</div>
+    [What you build / sell] for [who] | [Proof point or company name]
+  </div>
+
+  <div class="example">
+    <div class="example-label">Example</div>
+    <p style="margin:0;"><code>I design brand identities for early-stage startups | 40+ brands launched | Founder @ StudioNorth</code></p>
+  </div>
+
+  <div class="callout callout-warning">
+    <div class="callout-title warning">Common mistakes</div>
+    <p><strong>"Open to work"</strong> — use LinkedIn's "Open to Work" frame instead of wasting headline space.<br>
+    <strong>"Passionate about..."</strong> — too vague to be useful. Replace with a specific skill or result.<br>
+    <strong>Just your job title</strong> — "Marketing Manager" is generic. "Marketing Manager | B2B SaaS | Grew pipeline 3x at [Company]" is specific and memorable.</p>
+  </div>
+
+  <div class="prompt">Write your headline here. Try all three formulas, then pick the best one.</div>
+
+  <p><strong>Your headline (Formula A):</strong> [Write it]</p>
+  <p><strong>Your headline (Formula B):</strong> [Write it]</p>
+  <p><strong>Your headline (Formula C):</strong> [Write it]</p>
+  <p><strong>Final choice:</strong> [Paste your winner here]</p>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- 2. ABOUT SECTION                             -->
+  <!-- ═══════════════════════════════════════════ -->
+
+  <h2>2. About section</h2>
+
+  <p>The About section is 4 paragraphs, each with a specific purpose. Every sentence should either build credibility or make someone want to talk to you.</p>
+
+  <div class="callout callout-linkedin">
+    <div class="callout-title linkedin">The rule</div>
+    <p>LinkedIn shows the first ~3 lines before "see more." Those 3 lines decide whether anyone reads the rest. <strong>Front-load your strongest sentence.</strong></p>
+  </div>
+
+  <h3>Paragraph 1 — The hook</h3>
+
+  <div class="formula">
+    <div class="label">What to write</div>
+    One sentence that says who you are and what you do — with enough specificity that a recruiter knows instantly whether to keep reading.
+  </div>
+
+  <div class="prompt">Avoid opening with "I am a..." — it lacks impact. Lead with what you do, what you've achieved, or what you're known for. Include your degree or company only if they add credibility.</div>
+
+  <div class="draft">
+    <div class="draft-label">Your paragraph 1</div>
+    <p>[Write your opening sentence here. This is the most important sentence on your profile.]</p>
+  </div>
+
+  <div class="example">
+    <div class="example-label">Example — Jordan (graduate)</div>
+    <p style="margin:0;">Final-year Computer Science student at the University of Leeds (First Class), with hands-on product experience at Spotify — where I shipped a feature used by 2M+ users in my first internship.</p>
+  </div>
+
+  <div class="example">
+    <div class="example-label">Example — Sam (mid-career)</div>
+    <p style="margin:0;">I've spent 6 years in operations at high-growth startups (Deliveroo, Revolut) and I'm now moving into strategy — because I've seen what happens when companies scale without it.</p>
+  </div>
+
+  <h3>Paragraph 2 — The evidence</h3>
+
+  <div class="formula">
+    <div class="label">What to write</div>
+    2–3 sentences that prove you're good at what you do. Use specific projects, metrics, or outcomes — not adjectives.
+  </div>
+
+  <div class="prompt">Evidence beats adjectives. Instead of "strong communicator," write "presented risk scenarios to the executive team weekly." Instead of "results-driven," write "grew the pipeline from 200 to 600 leads in one quarter."</div>
+
+  <div class="draft">
+    <div class="draft-label">Your paragraph 2</div>
+    <p>[Write 2–3 sentences with specific evidence. What did you do? What was the result?]</p>
+  </div>
+
+  <div class="example">
+    <div class="example-label">Example — Jordan</div>
+    <p style="margin:0;">At Spotify, I ran the discovery phase for a playlist collaboration feature — user research, wireframes, and the pitch to the product lead. The feature shipped 3 months later and is now used by 2M+ listeners monthly. Before that, I led the tech team for our university hackathon (300 participants, 12 sponsors).</p>
+  </div>
+
+  <h3>Paragraph 3 — What you're interested in</h3>
+
+  <div class="formula">
+    <div class="label">What to write</div>
+    1–2 sentences about what you care about professionally. This helps recruiters and connection requests understand what kind of conversations you want.
+  </div>
+
+  <div class="prompt">Be specific. "I'm interested in technology" means nothing. "I'm interested in how B2B SaaS companies find product-market fit in vertical markets" means something.</div>
+
+  <div class="draft">
+    <div class="draft-label">Your paragraph 3</div>
+    <p>[What are you genuinely interested in? What problems do you want to work on?]</p>
+  </div>
+
+  <div class="example">
+    <div class="example-label">Example — Sam</div>
+    <p style="margin:0;">I'm interested in how high-growth companies make the transition from "move fast and break things" to "move fast and don't break the business." That's where operations meets strategy — and it's where I want to build my career.</p>
+  </div>
+
+  <h3>Paragraph 4 — The close</h3>
+
+  <div class="formula">
+    <div class="label">What to write</div>
+    One sentence that invites the right people to reach out. Be specific about what you want.
+  </div>
+
+  <div class="prompt">Avoid generic phrases like "open to opportunities" or "let's connect." Specify what kind of opportunities you want and why someone should reach out to you.</div>
+
+  <div class="draft">
+    <div class="draft-label">Your paragraph 4</div>
+    <p>[One sentence: what you're looking for and what kind of people you want to hear from.]</p>
+  </div>
+
+  <div class="example">
+    <div class="example-label">Example — Jordan</div>
+    <p style="margin:0;">I'm looking for graduate product management roles at B2B SaaS companies (London preferred) — happy to connect with PMs, founders, or anyone hiring for product teams.</p>
+  </div>
+
+  <div class="example">
+    <div class="example-label">Example — Sam</div>
+    <p style="margin:0;">Always happy to talk with people in strategy, ops, or leadership at scaling companies — especially if you've made the ops-to-strategy transition yourself.</p>
+  </div>
+
+  <hr>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- 3. FULL DRAFT                                -->
+  <!-- ═══════════════════════════════════════════ -->
+
+  <h2>3. Your full About — paste it together</h2>
+
+  <div class="draft">
+    <div class="draft-label">Your complete About section</div>
+    <p>[Paragraph 1 — the hook]</p>
+    <p>[Paragraph 2 — the evidence]</p>
+    <p>[Paragraph 3 — what you're interested in]</p>
+    <p>[Paragraph 4 — the close]</p>
+  </div>
+
+  <div class="example">
+    <div class="example-label">Example — Jordan (complete)</div>
+    <p style="margin-bottom:6px;">Final-year Computer Science student at the University of Leeds (First Class), with hands-on product experience at Spotify — where I shipped a feature used by 2M+ users in my first internship.</p>
+    <p style="margin-bottom:6px;">At Spotify, I ran the discovery phase for a playlist collaboration feature — user research, wireframes, and the pitch to the product lead. The feature shipped 3 months later and is now used by 2M+ listeners monthly. Before that, I led the tech team for our university hackathon (300 participants, 12 sponsors).</p>
+    <p style="margin-bottom:6px;">I'm interested in how B2B SaaS companies find product-market fit — particularly in vertical markets where the user knows more about the domain than the PM does. That's the kind of product work I want to do.</p>
+    <p style="margin:0;">Looking for graduate PM roles at B2B SaaS companies (London preferred) — happy to connect with PMs, founders, or anyone hiring for product teams.</p>
+  </div>
+
+  <hr>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- 4. PROFILE CHECKLIST                         -->
+  <!-- ═══════════════════════════════════════════ -->
+
+  <h2>4. Profile checklist</h2>
+
+  <p>Your headline and About are 80% of the impact. The rest takes 10 minutes:</p>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Element</th><th>What to do</th><th>Why it matters</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><strong>Profile photo</strong></td>
+          <td>Professional headshot. Face fills 60%+ of the frame. Plain or blurred background. Smile.</td>
+          <td>Profiles with photos get 21x more views. A bad photo is worse than no photo.</td>
+        </tr>
+        <tr>
+          <td><strong>Banner image</strong></td>
+          <td>Simple branded image, a cityscape, or a photo of you at a relevant event. Not the default blue.</td>
+          <td>The banner is the first thing people see. Default = you don't care about your profile.</td>
+        </tr>
+        <tr>
+          <td><strong>Experience</strong></td>
+          <td>For each role: 2–3 bullet points. Start each with a verb. Include one metric if possible.</td>
+          <td>Recruiters scan bullets, not paragraphs. Verb + result is the format.</td>
+        </tr>
+        <tr>
+          <td><strong>Education</strong></td>
+          <td>Degree, university, grade (if good), relevant modules or societies.</td>
+          <td>Include societies/clubs — they show leadership and initiative outside the classroom.</td>
+        </tr>
+        <tr>
+          <td><strong>Featured</strong></td>
+          <td>Pin 1–3 things: a project, an article, a post that did well, or a portfolio link.</td>
+          <td>The Featured section is prime real estate. Use it to show work, not just describe it.</td>
+        </tr>
+        <tr>
+          <td><strong>Skills</strong></td>
+          <td>Add 10+ relevant skills. Pin the top 3 that match the roles you want.</td>
+          <td>LinkedIn's search algorithm uses skills to match you to jobs and recruiters.</td>
+        </tr>
+        <tr>
+          <td><strong>URL</strong></td>
+          <td>Customise to linkedin.com/in/yourname (Settings → Edit public profile URL).</td>
+          <td>Looks professional on your CV. "linkedin.com/in/jordan-chen" &gt; "linkedin.com/in/user-38291847"</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <hr>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- 5. EXPERIENCE BULLETS                        -->
+  <!-- ═══════════════════════════════════════════ -->
+
+  <h2>5. Experience bullet formula</h2>
+
+  <p>Each role on your profile should have 2–3 bullets. Use this formula:</p>
+
+  <div class="formula">
+    <div class="label">Formula</div>
+    [Action verb] + [what you did] + [result or impact]
+  </div>
+
+  <div class="prompt">Start every bullet with a strong verb: Led, Built, Shipped, Designed, Launched, Managed, Grew, Reduced, Presented, Automated. Avoid starting with "Responsible for" or "Helped with."</div>
+
+  <div class="example">
+    <div class="example-label">Weak example vs strong example</div>
+    <p style="margin-bottom:4px;"><strong>Weak:</strong> <span style="color:var(--text3);">Responsible for helping the marketing team with campaigns and social media management across platforms</span></p>
+    <p style="margin-bottom:4px;"><strong>Strong:</strong> <strong>Ran paid social campaigns across Meta and Google Ads — grew lead pipeline from 200 to 580 MQLs in one quarter (190% increase)</strong></p>
+    <p style="margin-bottom:4px;"><strong>Weak:</strong> <span style="color:var(--text3);">Helped with a project that improved the onboarding process</span></p>
+    <p style="margin:0;"><strong>Strong:</strong> <strong>Redesigned the customer onboarding flow — reduced time-to-first-value from 14 days to 3 days, improving 30-day retention by 22%</strong></p>
+  </div>
+
+  <div class="prompt">Write your experience bullets here. One role at a time, 2–3 bullets each.</div>
+
+  <h3>[Role 1 — Your most recent / impressive role]</h3>
+  <ul>
+    <li>[Bullet 1 — your biggest achievement in this role]</li>
+    <li>[Bullet 2 — a specific project or responsibility]</li>
+    <li>[Bullet 3 — optional: a skill or tool you used]</li>
+  </ul>
+
+  <h3>[Role 2]</h3>
+  <ul>
+    <li>[Bullet 1]</li>
+    <li>[Bullet 2]</li>
+  </ul>
+
+  <h3>[Role 3 — optional]</h3>
+  <ul>
+    <li>[Bullet 1]</li>
+    <li>[Bullet 2]</li>
+  </ul>
+
+  <hr>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- 6. POSTING STRATEGY                          -->
+  <!-- ═══════════════════════════════════════════ -->
+
+  <h2>6. Posting strategy (optional but powerful)</h2>
+
+  <p>You don't have to post on LinkedIn. But if you do, even once a month, it dramatically increases who sees your profile.</p>
+
+  <h3>The easiest post formats</h3>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Format</th><th>What to write</th><th>Example hook</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><strong>Lesson learned</strong></td>
+          <td>Something you learned at work or in a project. 3–5 short paragraphs.</td>
+          <td>"The biggest mistake I made in my first internship..."</td>
+        </tr>
+        <tr>
+          <td><strong>Contrarian take</strong></td>
+          <td>A professional opinion most people would disagree with. Back it up.</td>
+          <td>"Unpopular opinion: your CV doesn't matter as much as you think."</td>
+        </tr>
+        <tr>
+          <td><strong>Framework / tip</strong></td>
+          <td>Something useful. A template, a checklist, a process you use.</td>
+          <td>"Here's the 5-step framework I use for every product decision..."</td>
+        </tr>
+        <tr>
+          <td><strong>Milestone</strong></td>
+          <td>Started a new role, finished a project, hit a goal. Keep it humble.</td>
+          <td>"Last week I shipped my first feature to production. Here's what I learned."</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout callout-green">
+    <div class="callout-title green">Consistency compounds</div>
+    <p>Post once every 2 weeks — 26 posts a year. Most professionals post nothing. Consistent, moderate output outperforms sporadic brilliance on LinkedIn.</p>
+  </div>
+
+  <div class="callout callout-warning">
+    <div class="callout-title warning">What not to post</div>
+    <p><strong>"Thrilled to announce..."</strong> — overused and reads as corporate boilerplate.<br>
+    <strong>Motivational quotes</strong> — undermine professional credibility.<br>
+    <strong>Engagement bait</strong> — "Like if you agree!" damages your credibility.<br>
+    <strong>Long humblebrags</strong> — self-congratulatory narratives disguised as humility rarely land well.</p>
+  </div>
+
+  <hr>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- 7. FINAL REVIEW                              -->
+  <!-- ═══════════════════════════════════════════ -->
+
+  <h2>7. Final review</h2>
+
+  <p>Before you publish, check these:</p>
+
+  <ul>
+    <li><strong>Headline</strong> — under 120 characters, answers "what do you do and why should I care?"</li>
+    <li><strong>About section</strong> — first 3 lines are strong enough to make someone click "see more"</li>
+    <li><strong>No adjectives without evidence</strong> — delete "passionate," "driven," "motivated" unless followed by proof</li>
+    <li><strong>Experience bullets</strong> — every bullet starts with a verb and includes a result</li>
+    <li><strong>Profile photo</strong> — professional, face fills the frame, good lighting</li>
+    <li><strong>Banner</strong> — not the default LinkedIn blue</li>
+    <li><strong>Featured section</strong> — at least one pinned item</li>
+    <li><strong>Custom URL</strong> — linkedin.com/in/yourname</li>
+    <li><strong>Read it out loud</strong> — if it sounds like corporate jargon, rewrite it in your own voice</li>
+  </ul>
+
+  <div class="insight-box">
+    <div class="insight-label">Remember</div>
+    <p><strong>Your LinkedIn profile serves a different purpose to your CV.</strong> A CV lists what you've done. LinkedIn tells people who you are, what you care about, and whether they want to work with you. Write like a person, not a job description.</p>
+  </div>
+
+  <div class="footer">
+    <p>Scribed — Premium Document Design — scribed.eu</p>
+    <p>This template is licensed for personal and commercial use by the purchaser. Do not redistribute.</p>
+  </div>
+
+</div>
+</body>
+</html>

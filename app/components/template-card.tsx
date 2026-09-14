@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
 import type { Template } from "@/lib/templates";
@@ -15,33 +17,29 @@ function PlaceholderImage({ title }: { title: string }) {
 const categoryLabels: Record<string, string> = {
   startup: "Startup",
   career: "Career",
-  finance: "Finance",
+  student: "Student",
   society: "Society",
 };
 
 export default function TemplateCard({ template }: { template: Template }) {
-  const hasImage =
-    template.previewImages.length > 0 &&
-    !template.previewImages[0].includes("preview.png");
-
   return (
     <Link
       href={`/templates/${template.slug}`}
       className="group block rounded-xl border border-border-light bg-white transition-shadow duration-300 hover:shadow-lg"
     >
-      {/* Preview image area — 4:3 aspect ratio */}
+      {/* Preview image area */}
       <div className="relative aspect-[4/3] overflow-hidden rounded-t-xl bg-bg-warm">
-        {hasImage ? (
-          <Image
-            src={template.previewImages[0]}
-            alt={template.title}
-            fill
-            className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-          />
-        ) : (
-          <PlaceholderImage title={template.title} />
-        )}
+        <Image
+          src={template.previewImage}
+          alt={template.title}
+          fill
+          className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+          onError={(e) => {
+            (e.target as HTMLImageElement).style.display = "none";
+          }}
+        />
+        <PlaceholderImage title={template.title} />
       </div>
 
       {/* Card body */}
@@ -65,6 +63,20 @@ export default function TemplateCard({ template }: { template: Template }) {
         <p className="text-sm leading-relaxed text-text-secondary line-clamp-2">
           {template.description}
         </p>
+
+        {/* Colour swatches */}
+        {template.colorVariants.length > 0 && (
+          <div className="flex items-center gap-1.5 mt-3">
+            {template.colorVariants.map((v) => (
+              <span
+                key={v.name}
+                title={v.name}
+                className="w-3.5 h-3.5 rounded-full border border-border"
+                style={{ backgroundColor: v.accent }}
+              />
+            ))}
+          </div>
+        )}
       </div>
     </Link>
   );

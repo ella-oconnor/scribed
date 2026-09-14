@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Creative CV Template — Scribed</title>
+<style>
+  :root {
+    --bg: #ffffff;
+    --bg-warm: #F7F8FB;
+    --text: #1A1A1A;
+    --text2: #4A4A4A;
+    --text3: #9B9B9B;
+    --accent: #2B4C7E;
+    --accent-light: rgba(43,76,126,0.06);
+    --green: #2D7A4F;
+    --green-light: rgba(45,122,79,0.06);
+    --warning: #B8860B;
+    --warning-light: rgba(184,134,11,0.06);
+    --border: #E0E3E8;
+    --border-light: #ECEEF2;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background: var(--bg-warm);
+    color: var(--text);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── Guide wrapper ─────────────────────────── */
+  .guide-wrapper {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 60px 24px 40px;
+  }
+
+  .guide-wrapper h1 {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 4px;
+  }
+
+  .guide-wrapper .subtitle {
+    font-size: 15px;
+    color: var(--text3);
+    margin-bottom: 36px;
+  }
+
+  .guide-wrapper h2 {
+    font-size: 19px;
+    font-weight: 700;
+    color: var(--text);
+    margin: 36px 0 14px;
+  }
+
+  .guide-wrapper h3 {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text2);
+    margin: 24px 0 10px;
+  }
+
+  .guide-wrapper p {
+    font-size: 15px;
+    color: var(--text2);
+    margin-bottom: 12px;
+    line-height: 1.7;
+  }
+
+  .guide-wrapper ul, .guide-wrapper ol {
+    margin: 0 0 16px 20px;
+    font-size: 15px;
+    color: var(--text2);
+    line-height: 1.7;
+  }
+
+  .guide-wrapper li { margin-bottom: 6px; }
+
+  /* ── Tip boxes ─────────────────────────────── */
+  .tip {
+    border-radius: 8px;
+    padding: 14px 18px;
+    margin: 16px 0;
+    font-size: 14px;
+    line-height: 1.65;
+  }
+
+  .tip strong { display: block; margin-bottom: 4px; font-size: 13px; text-transform: uppercase; letter-spacing: 0.4px; }
+
+  .tip-accent  { background: var(--accent-light); color: var(--accent); border: 1px solid rgba(43,76,126,0.10); }
+  .tip-green   { background: var(--green-light);  color: var(--green);  border: 1px solid rgba(45,122,79,0.10); }
+  .tip-warning { background: var(--warning-light); color: var(--warning); border: 1px solid rgba(184,134,11,0.10); }
+
+  /* ── Prompt boxes ──────────────────────────── */
+  .prompt {
+    background: var(--bg-warm);
+    border: none;
+    border-left: 3px solid var(--accent);
+    border-radius: 0 8px 8px 0;
+    padding: 12px 16px;
+    margin: 8px 0 12px;
+    font-size: 14px;
+    color: var(--text3);
+    font-style: italic;
+  }
+
+  /* ── Section divider ───────────────────────── */
+  .section-divider {
+    border: none;
+    border-top: 1px solid var(--border-light);
+    margin: 40px 0;
+  }
+
+  /* ── CV container ──────────────────────────── */
+  .cv-container {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 0 24px 60px;
+  }
+
+  .cv-label {
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text3);
+    margin-bottom: 16px;
+  }
+
+  .cv-page {
+    width: 100%;
+    max-width: 210mm;
+    min-height: 297mm;
+    margin: 0 auto;
+    background: #fff;
+    padding: 40px 44px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06), 0 8px 30px rgba(0,0,0,0.06);
+    border-radius: 2px;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    color: #1a1a1a;
+    font-size: 10.5pt;
+    line-height: 1.5;
+  }
+
+  /* ── CV typography ─────────────────────────── */
+  .cv-page .cv-name {
+    font-size: 22pt;
+    font-weight: 700;
+    letter-spacing: -0.3px;
+    margin-bottom: 2px;
+    color: #111;
+  }
+
+  .cv-page .cv-name-rule {
+    width: 50px;
+    height: 2px;
+    background: #2B4C7E;
+    border: none;
+    margin: 6px 0 10px;
+  }
+
+  .cv-page .cv-contact {
+    font-size: 9pt;
+    color: #555;
+    margin-bottom: 20px;
+    line-height: 1.6;
+  }
+
+  .cv-page .cv-contact a {
+    color: #555;
+    text-decoration: none;
+  }
+
+  .cv-page .cv-section-title {
+    font-size: 9.5pt;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    color: #1a1a1a;
+    border-bottom: 1px solid #d0d0d0;
+    padding-bottom: 3px;
+    margin: 18px 0 10px;
+  }
+
+  .cv-page .cv-profile {
+    font-size: 10pt;
+    color: #333;
+    line-height: 1.6;
+    margin-bottom: 2px;
+  }
+
+  .cv-page .cv-entry { margin-bottom: 12px; }
+
+  .cv-page .cv-entry-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 1px;
+  }
+
+  .cv-page .cv-role {
+    font-weight: 600;
+    font-size: 10.5pt;
+    color: #1a1a1a;
+  }
+
+  .cv-page .cv-dates {
+    font-size: 9pt;
+    color: #777;
+    white-space: nowrap;
+  }
+
+  .cv-page .cv-org {
+    font-size: 9.5pt;
+    color: #555;
+    margin-bottom: 4px;
+  }
+
+  .cv-page .cv-bullets {
+    list-style: disc;
+    margin: 4px 0 0 18px;
+    padding: 0;
+    font-size: 10pt;
+    color: #333;
+    line-height: 1.55;
+  }
+
+  .cv-page .cv-bullets li { margin-bottom: 3px; }
+
+  .cv-page .cv-skills {
+    font-size: 10pt;
+    color: #333;
+    line-height: 1.7;
+  }
+
+  .cv-page .cv-skills strong {
+    font-weight: 600;
+  }
+
+  /* ── Footer ────────────────────────────────── */
+  .site-footer {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 40px 24px 48px;
+    text-align: center;
+    font-size: 13px;
+    color: var(--text3);
+    line-height: 1.7;
+  }
+
+  .site-footer .brand {
+    font-weight: 600;
+    color: var(--text2);
+  }
+
+  @media print {
+    body { background: #fff; }
+    .guide-wrapper, .site-footer, .cv-label { display: none; }
+    .cv-container { padding: 0; }
+    .cv-page { box-shadow: none; padding: 0; min-height: auto; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ╔══════════════════════════════════════════╗
+     ║      STRATEGY GUIDE — CREATIVE CV       ║
+     ╚══════════════════════════════════════════╝ -->
+
+<div class="guide-wrapper">
+
+  <h1>Creative CV — Strategy Guide</h1>
+  <p class="subtitle">For marketing, media, design, and communications roles</p>
+
+  <p>Creative industries hire differently. Recruiters at agencies, studios, and media companies want to see evidence of creative thinking, measurable impact, and a distinctive voice — all within a format that still passes ATS screening. This guide shows you how.</p>
+
+  <!-- ── Section 1 ── -->
+  <h2>1. Why a Profile Summary Works Here</h2>
+
+  <p>In finance and consulting, a profile summary is unnecessary — your credentials speak first. In creative roles, a two-to-three sentence profile summary is expected and valued. It tells the reader who you are, what you care about, and what kind of creative work you do.</p>
+
+  <div class="tip tip-accent">
+    <strong>Scribed Insight</strong>
+    Your profile summary should read as a pitch, not a bio. Lead with your creative identity, then anchor it with one concrete proof point.
+  </div>
+
+  <p>A strong profile summary answers three questions in under 40 words:</p>
+  <ol>
+    <li>What's your creative discipline? (e.g. brand strategy, content design, social media)</li>
+    <li>What's your most impressive proof point? (a metric, an award, a notable client)</li>
+    <li>What are you looking for? (graduate role, placement, internship)</li>
+  </ol>
+
+  <div class="prompt">Example: "Final-year Communications student with a focus on brand storytelling. My design blog reaches 5,000 monthly readers and I was shortlisted for the D&AD New Blood Pencil. Seeking a graduate role in creative strategy."</div>
+
+  <h3>What to avoid</h3>
+  <ul>
+    <li>Vague statements: "I'm a passionate creative" — every applicant says this</li>
+    <li>Life stories: keep it to 2–3 sentences maximum</li>
+    <li>Subjective claims without evidence: "excellent communicator" means nothing without a metric</li>
+  </ul>
+
+  <hr class="section-divider" />
+
+  <!-- ── Section 2 ── -->
+  <h2>2. Describing Campaigns and Content with Metrics</h2>
+
+  <p>Creative work often feels hard to quantify, but recruiters still want numbers. The key is matching the right metrics to the right type of work.</p>
+
+  <h3>Metric cheat sheet by role type</h3>
+  <ul>
+    <li><strong>Social media:</strong> impressions, engagement rate, follower growth, click-through rate</li>
+    <li><strong>Content / editorial:</strong> monthly readers, page views, time on page, subscriber growth</li>
+    <li><strong>Campaign / advertising:</strong> reach, conversions, brand lift, awards/shortlists</li>
+    <li><strong>Design:</strong> project turnaround time, client satisfaction, iteration count, adoption rate</li>
+  </ul>
+
+  <div class="tip tip-green">
+    <strong>Bullet Formula</strong>
+    [Action verb] + [what you created/managed] + [measurable result]. Example: "Designed a 6-part Instagram carousel series for a product launch, generating 14K impressions and a 6.2% engagement rate."
+  </div>
+
+  <p>If you genuinely don't have metrics (e.g. university projects), describe scope and outcome instead:</p>
+  <div class="prompt">"Led a 4-person team to develop a 60-second spec ad for Nike as part of a brief competition — selected as best in class by external judges."</div>
+
+  <hr class="section-divider" />
+
+  <!-- ── Section 3 ── -->
+  <h2>3. Portfolio Links — Where and How</h2>
+
+  <p>Your portfolio is your most important asset in a creative application. The CV gets you to the interview; the portfolio gets you the job.</p>
+
+  <h3>Placement rules</h3>
+  <ol>
+    <li><strong>Contact header:</strong> Always include your portfolio URL directly in the contact line, next to email and phone. This is the primary placement.</li>
+    <li><strong>Projects section:</strong> If you have a dedicated Projects/Portfolio section, you can include it again with a brief description.</li>
+    <li><strong>Do not</strong> bury it at the bottom. If a recruiter can't find it in the first 3 seconds, it doesn't exist.</li>
+  </ol>
+
+  <div class="tip tip-warning">
+    <strong>ATS Warning</strong>
+    Write your portfolio URL as plain text (rileypark.design) rather than as a hyperlink label like "View Portfolio." ATS systems parse plain-text URLs more reliably than masked hyperlinks.
+  </div>
+
+  <h3>Portfolio URL formatting</h3>
+  <ul>
+    <li>Use a clean custom domain if possible: <em>rileypark.design</em> > <em>rileypark.myportfolio.com</em></li>
+    <li>If using Behance or Dribbble, that's fine — just make sure the URL is clean</li>
+    <li>Never link to a Google Drive folder as your "portfolio"</li>
+  </ul>
+
+  <hr class="section-divider" />
+
+  <!-- ── Section 4 ── -->
+  <h2>4. Personality vs. Professionalism — Finding the Balance</h2>
+
+  <p>Creative CVs can have more personality than a finance CV, but "more" doesn't mean "a lot." The CV itself should be clean and restrained. Save the full creative expression for your portfolio.</p>
+
+  <h3>What's allowed</h3>
+  <ul>
+    <li>A thin accent rule under your name (subtle, not a rainbow gradient)</li>
+    <li>Slightly more generous whitespace and a larger name treatment</li>
+    <li>A profile summary written in your own voice (not corporate-speak)</li>
+    <li>Mentioning personal creative projects (a blog, a zine, a YouTube channel)</li>
+  </ul>
+
+  <h3>What's not allowed</h3>
+  <ul>
+    <li>Skill bars, pie charts, infographics, or icons as section markers</li>
+    <li>Two-column or sidebar layouts (ATS reads top-to-bottom, left-to-right)</li>
+    <li>Decorative fonts, bright colours, or large graphics</li>
+    <li>Replacing section headings with clever alternatives ("The Journey So Far" instead of "Experience")</li>
+  </ul>
+
+  <div class="tip tip-accent">
+    <strong>The Rule</strong>
+    If someone printed your CV in greyscale on a standard office printer, would it still look professional and be fully readable? If yes, you're within bounds.
+  </div>
+
+  <hr class="section-divider" />
+
+  <h2>5. Section Order for Creative Roles</h2>
+
+  <p>This template follows the optimal order for entry-level creative applications:</p>
+
+  <ol>
+    <li><strong>Name &amp; Contact</strong> — including portfolio link prominently</li>
+    <li><strong>Profile Summary</strong> — 2–3 sentences; your creative identity and top proof point</li>
+    <li><strong>Experience</strong> — internships, freelance, part-time roles, in reverse chronological order</li>
+    <li><strong>Education</strong> — degree, relevant modules, grade if strong</li>
+    <li><strong>Projects / Portfolio</strong> — personal and university creative projects with outcomes</li>
+    <li><strong>Skills</strong> — tools, platforms, languages; grouped by category</li>
+  </ol>
+
+  <p>Experience comes before education in creative fields because agencies care more about what you've made than where you studied. If you have no experience yet, swap the order.</p>
+
+</div>
+
+<!-- ╔══════════════════════════════════════════╗
+     ║        EXAMPLE CV — RILEY PARK          ║
+     ╚══════════════════════════════════════════╝ -->
+
+<div class="cv-container">
+
+  <p class="cv-label">Example — Filled-in Creative CV</p>
+
+  <div class="cv-page">
+
+    <div class="cv-name">Riley Park</div>
+    <hr class="cv-name-rule" />
+    <div class="cv-contact">
+      07412 839 201 &nbsp;·&nbsp; rileypark@outlook.com &nbsp;·&nbsp; rileypark.design &nbsp;·&nbsp; linkedin.com/in/rileypark &nbsp;·&nbsp; Manchester, UK
+    </div>
+
+    <!-- Profile Summary -->
+    <div class="cv-section-title">Profile</div>
+    <p class="cv-profile">
+      Final-year Communications &amp; Media student at the University of Manchester with a focus on brand storytelling and content strategy. I run a design blog that reaches 5,000 monthly readers and won the 2025 UCAS Student Advertising Challenge. Seeking a graduate role in creative strategy or brand marketing.
+    </p>
+
+    <!-- Experience -->
+    <div class="cv-section-title">Experience</div>
+
+    <div class="cv-entry">
+      <div class="cv-entry-header">
+        <span class="cv-role">Creative Strategy Intern</span>
+        <span class="cv-dates">Jun 2025 – Aug 2025</span>
+      </div>
+      <div class="cv-org">Wieden+Kennedy, London</div>
+      <ul class="cv-bullets">
+        <li>Contributed to campaign ideation for a global sportswear client, developing three concept directions presented to the senior creative team</li>
+        <li>Researched cultural trends across TikTok and Instagram to inform a Gen-Z brand positioning deck used in a client pitch</li>
+        <li>Wrote social copy for a product launch campaign that achieved 120K impressions and a 5.8% engagement rate in the first week</li>
+        <li>Assisted art directors with mood boards, asset sourcing, and presentation design across two concurrent projects</li>
+      </ul>
+    </div>
+
+    <div class="cv-entry">
+      <div class="cv-entry-header">
+        <span class="cv-role">Social Media Assistant (Part-Time)</span>
+        <span class="cv-dates">Oct 2024 – May 2025</span>
+      </div>
+      <div class="cv-org">Manchester Students' Union</div>
+      <ul class="cv-bullets">
+        <li>Managed Instagram and TikTok accounts (12K combined followers), scheduling 5+ posts per week and responding to community engagement</li>
+        <li>Created a Reels series for Freshers' Week that generated 48K views and a 9.1% engagement rate — the highest-performing organic content of the semester</li>
+        <li>Coordinated with 6 student societies to produce co-branded content, increasing cross-account reach by 30%</li>
+      </ul>
+    </div>
+
+    <!-- Education -->
+    <div class="cv-section-title">Education</div>
+
+    <div class="cv-entry">
+      <div class="cv-entry-header">
+        <span class="cv-role">BA (Hons) Communications &amp; Media</span>
+        <span class="cv-dates">Sep 2023 – Jun 2026</span>
+      </div>
+      <div class="cv-org">University of Manchester</div>
+      <ul class="cv-bullets">
+        <li>Predicted First Class Honours</li>
+        <li>Relevant modules: Brand Strategy, Digital Media Production, Visual Communication, Consumer Psychology</li>
+        <li>Dissertation: "Scroll-Stopping: How Short-Form Video Reshapes Brand Recall Among 18–24s"</li>
+      </ul>
+    </div>
+
+    <!-- Projects / Portfolio -->
+    <div class="cv-section-title">Projects &amp; Portfolio</div>
+
+    <div class="cv-entry">
+      <div class="cv-entry-header">
+        <span class="cv-role">Design Blog — rileypark.design/blog</span>
+        <span class="cv-dates">Jan 2024 – Present</span>
+      </div>
+      <ul class="cv-bullets">
+        <li>Write weekly articles on brand identity, design trends, and creative careers — averaging 5,000 monthly readers and 1,200 newsletter subscribers</li>
+        <li>Featured in Creative Boom's "Student Voices to Watch" roundup (March 2025)</li>
+      </ul>
+    </div>
+
+    <div class="cv-entry">
+      <div class="cv-entry-header">
+        <span class="cv-role">UCAS Student Advertising Challenge — Winner</span>
+        <span class="cv-dates">Nov 2025</span>
+      </div>
+      <ul class="cv-bullets">
+        <li>Led a team of 3 to create a full campaign concept for a fictional sustainable fashion brand, including brand identity, 30-second video script, and media plan</li>
+        <li>Selected as the national winner from 200+ entries; presented at the UCAS Creative Careers Showcase</li>
+      </ul>
+    </div>
+
+    <!-- Skills -->
+    <div class="cv-section-title">Skills</div>
+    <div class="cv-skills">
+      <p><strong>Design &amp; Creative:</strong> Adobe Creative Suite (Photoshop, Illustrator, InDesign, Premiere Pro), Figma, Canva</p>
+      <p><strong>Content &amp; Strategy:</strong> Copywriting, SEO fundamentals, social media scheduling (Later, Buffer), Google Analytics</p>
+      <p><strong>Technical:</strong> WordPress, basic HTML/CSS, Mailchimp, Notion</p>
+      <p><strong>Languages:</strong> English (native), Korean (conversational)</p>
+    </div>
+
+  </div><!-- /cv-page -->
+
+</div><!-- /cv-container -->
+
+<!-- ── Footer ── -->
+<footer class="site-footer">
+  <span class="brand">Scribed</span> — Premium Document Design — scribed.eu<br />
+  This template is licensed for personal and commercial use by the purchaser. Do not redistribute.
+</footer>
+
+</body>
+</html>

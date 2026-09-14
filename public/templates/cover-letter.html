@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cover Letter Template — Scribed Template</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #ffffff;
+    --bg-warm: #F7F8FB;
+    --text: #1A1A1A;
+    --text2: #4A4A4A;
+    --text3: #9B9B9B;
+    --accent: #2B4C7E;
+    --accent-light: rgba(43,76,126,0.06);
+    --green: #2D7A4F;
+    --green-light: rgba(45,122,79,0.06);
+    --warning: #B8860B;
+    --warning-light: rgba(184,134,11,0.06);
+    --border: #E0E3E8;
+    --border-light: #ECEEF2;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    padding: 48px 24px 80px;
+    -webkit-font-smoothing: antialiased;
+  }
+  .container { max-width: 720px; margin: 0 auto; }
+
+  .doc-header { margin-bottom: 32px; padding-bottom: 20px; border-bottom: 1px solid var(--border); }
+  .doc-label { font-size: 11px; font-weight: 600; letter-spacing: 2.5px; color: var(--accent); text-transform: uppercase; margin-bottom: 8px; }
+  h1 { font-family: 'Instrument Serif', Georgia, serif; font-size: 32px; font-weight: 400; line-height: 1.2; margin-bottom: 4px; }
+  .doc-meta { font-size: 13px; color: var(--text3); margin-top: 4px; }
+
+  .how-to-use { background: var(--bg-warm); border: 1px solid var(--border-light); border-radius: 12px; padding: 20px 24px; margin-bottom: 28px; }
+  .how-to-use h2 { font-family: 'Instrument Serif', Georgia, serif; font-size: 20px; font-weight: 400; margin-bottom: 10px; color: var(--text); border: none; padding: 0; }
+  .how-to-use p { font-size: 14px; color: var(--text2); margin-bottom: 6px; }
+  .how-to-use p:last-child { margin-bottom: 0; }
+  .how-to-use ul { font-size: 14px; color: var(--text2); padding-left: 20px; margin: 6px 0; }
+  .how-to-use li { margin-bottom: 3px; }
+
+  h2 { font-family: 'Instrument Serif', Georgia, serif; font-size: 22px; font-weight: 400; margin: 28px 0 10px; padding-top: 20px; border-top: 1px solid var(--border-light); }
+  h3 { font-size: 15px; font-weight: 600; margin: 14px 0 6px; }
+  p { color: var(--text2); font-size: 15px; margin-bottom: 8px; }
+  p strong { color: var(--text); }
+  ul, ol { color: var(--text2); font-size: 15px; padding-left: 24px; margin-bottom: 10px; }
+  li { margin-bottom: 4px; }
+  li strong { color: var(--text); }
+
+  .prompt {
+    background: var(--bg-warm);
+    border: none;
+    border-left: 3px solid var(--accent);
+    border-radius: 0 8px 8px 0;
+    padding: 12px 16px;
+    margin: 8px 0 12px;
+    font-size: 14px;
+    color: var(--text3);
+    font-style: italic;
+  }
+
+  .example {
+    background: #F8F6F3;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 14px 18px;
+    margin: 8px 0 12px;
+    font-size: 14px;
+    color: var(--text2);
+  }
+  .example-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+
+  .callout { padding: 12px 16px; border-radius: 0 10px 10px 0; margin: 10px 0; }
+  .callout-green { border-left: 3px solid var(--green); background: var(--green-light); }
+  .callout-warning { border-left: 3px solid var(--warning); background: var(--warning-light); }
+  .callout-accent { border-left: 3px solid var(--accent); background: var(--accent-light); }
+  .callout-title { font-weight: 600; font-size: 14px; margin-bottom: 4px; }
+  .callout-title.green { color: var(--green); }
+  .callout-title.warning { color: var(--warning); }
+  .callout-title.accent { color: var(--accent); }
+  .callout p { font-size: 13px; }
+
+  .insight-box {
+    background: var(--bg-warm);
+    border: 1px solid var(--border-light);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 12px 0;
+  }
+  .insight-label { font-size: 10px; font-weight: 600; letter-spacing: 1.5px; color: var(--accent); text-transform: uppercase; margin-bottom: 6px; }
+  .insight-box p { margin-bottom: 6px; font-size: 14px; }
+  .insight-box p:last-child { margin-bottom: 0; }
+
+  table { width: 100%; border-collapse: collapse; font-size: 14px; margin: 8px 0 14px; }
+  thead th { text-align: left; padding: 8px 12px; background: var(--bg-warm); border-bottom: 1px solid var(--border); font-weight: 600; font-size: 12px; color: var(--text3); text-transform: uppercase; letter-spacing: 0.5px; }
+  tbody td { padding: 8px 12px; border-bottom: 1px solid var(--border-light); color: var(--text2); vertical-align: top; }
+  .table-wrap { border: 1px solid var(--border); border-radius: 10px; overflow: hidden; }
+
+  /* Formula blocks */
+  .formula {
+    background: var(--bg-warm);
+    border: 1px solid var(--border-light);
+    border-radius: 10px;
+    padding: 14px 18px;
+    margin: 8px 0 10px;
+    font-size: 14px;
+    color: var(--text);
+  }
+  .formula .label { font-size: 10px; font-weight: 600; letter-spacing: 1.5px; color: var(--accent); text-transform: uppercase; margin-bottom: 6px; }
+
+  /* Letter page */
+  .letter-page {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+    padding: 48px 56px;
+    margin: 16px 0;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 14px;
+    line-height: 1.7;
+    color: #1A1A1A;
+    max-width: 680px;
+  }
+  .letter-page .sender { font-size: 13px; color: #4A4A4A; margin-bottom: 24px; }
+  .letter-page .date { font-size: 13px; color: #6B6B6B; margin-bottom: 20px; }
+  .letter-page .recipient { font-size: 13px; color: #4A4A4A; margin-bottom: 20px; }
+  .letter-page .greeting { margin-bottom: 12px; }
+  .letter-page .body p { margin-bottom: 12px; color: #2A2A2A; }
+  .letter-page .sign-off { margin-top: 20px; }
+  .letter-page .sign-off .name { font-weight: 600; margin-top: 4px; }
+  .letter-page .placeholder { color: #9B9B9B; }
+
+  .footer { font-size: 12px; color: var(--text3); margin-top: 28px; padding-top: 16px; border-top: 1px solid var(--border-light); }
+  hr { border: none; border-top: 1px solid var(--border-light); margin: 20px 0; }
+
+  @media (max-width: 600px) {
+    body { padding: 32px 16px 60px; }
+    .letter-page { padding: 28px 24px; }
+  }
+  @media print { body { padding: 20px; } }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="doc-header">
+    <div class="doc-label">Scribed Template — Cover Letter</div>
+    <h1>Cover letter template</h1>
+    <div class="doc-meta">The 4-paragraph structure that hiring managers actually read</div>
+  </div>
+
+  <!-- HOW TO USE -->
+  <div class="how-to-use">
+    <h2>How to use this template</h2>
+    <p>The most common cover letter mistake is focusing on yourself instead of on the company. This template corrects that with a four-paragraph structure, each paragraph serving a specific purpose.</p>
+    <ul>
+      <li>Read the strategy guide first (5 minutes), then fill in the letter template.</li>
+      <li><strong>Examples</strong> use a fictional person called <strong>Priya Sharma</strong> applying for a graduate marketing analyst role at Monzo. Delete after use.</li>
+      <li>Adapt the letter for every application. Sending the same cover letter to 20 companies is worse than sending none.</li>
+      <li>Takes 20 minutes per application once you've written the first one.</li>
+    </ul>
+  </div>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- PART 1: STRATEGY                             -->
+  <!-- ═══════════════════════════════════════════ -->
+
+  <h2>Part 1: Before you write</h2>
+
+  <div class="callout callout-accent">
+    <div class="callout-title accent">The one rule</div>
+    <p>Every sentence in a cover letter should connect your experience to what the company needs. The focus belongs on <strong>why you're right for this specific role at this specific company</strong>.</p>
+  </div>
+
+  <h3>The 4-paragraph structure</h3>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Paragraph</th><th>Job</th><th>Length</th></tr></thead>
+      <tbody>
+        <tr><td><strong>1. The hook</strong></td><td>Why this company, why this role, why now. Show you've done your research.</td><td>2-3 sentences</td></tr>
+        <tr><td><strong>2. Your strongest evidence</strong></td><td>The one experience that proves you can do this job. Be specific.</td><td>3-4 sentences</td></tr>
+        <tr><td><strong>3. The second piece of evidence</strong></td><td>A different skill or experience that adds to your case. Show range.</td><td>2-3 sentences</td></tr>
+        <tr><td><strong>4. The close</strong></td><td>What you'd bring, enthusiasm for next steps. Confident, not desperate.</td><td>2 sentences</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Research before you write</h3>
+
+  <div class="prompt">Before writing a single word, spend 10 minutes answering these about the company and role. If you can't answer them, you haven't done enough research to write a good letter.</div>
+
+  <ul>
+    <li><strong>What does this company actually do?</strong> Not from their website — in your own words.</li>
+    <li><strong>What problem does this role solve for them?</strong> Read the job description carefully.</li>
+    <li><strong>What have they done recently?</strong> A product launch, a funding round, an expansion, a news story.</li>
+    <li><strong>Why do you genuinely want to work here?</strong> If the honest answer is "I need a job," find something real or don't apply.</li>
+  </ul>
+
+  <h3>Paragraph-by-paragraph formulas</h3>
+
+  <h3>Paragraph 1: The hook</h3>
+
+  <div class="formula">
+    <div class="label">Formula</div>
+    I'm applying for [Role] because [specific thing about the company that genuinely interests you]. [One sentence connecting your background to their need.]
+  </div>
+
+  <div class="callout callout-warning">
+    <div class="callout-title warning">Never start with</div>
+    <p><strong>"I am writing to apply for..."</strong> — generic and forgettable. The reader already knows you're applying. Lead with why.</p>
+  </div>
+
+  <div class="example">
+    <div class="example-label">Example — Priya applying to Monzo</div>
+    <p style="margin:0;">I'm applying for the Graduate Marketing Analyst role at Monzo because I've been following how your team turned transparency reports into a genuine brand differentiator — most banks hide their numbers, you publish them. My experience analysing campaign performance at a fintech startup taught me that the best marketing is honest marketing, which is exactly what your team does.</p>
+  </div>
+
+  <h3>Paragraph 2: Your strongest evidence</h3>
+
+  <div class="formula">
+    <div class="label">Formula</div>
+    At [Company/University], I [specific thing you did] which [result with numbers if possible]. This taught me [skill that's directly relevant to the role].
+  </div>
+
+  <div class="prompt">Pick the ONE experience that's most relevant. Not three — one. Go deep, not wide. Include a metric if you have one.</div>
+
+  <div class="example">
+    <div class="example-label">Example — Priya</div>
+    <p style="margin:0;">During my placement at a Series A fintech, I owned the weekly performance dashboard for paid acquisition — tracking CAC, conversion rates, and channel attribution across Meta, Google, and TikTok. When I noticed our TikTok CPA was 40% lower than Meta but getting a fraction of the budget, I built the business case to reallocate spend. The result was a 22% reduction in blended CAC over one quarter. That experience gave me a sharp instinct for where money is being wasted in a marketing budget.</p>
+  </div>
+
+  <h3>Paragraph 3: The second piece of evidence</h3>
+
+  <div class="formula">
+    <div class="label">Formula</div>
+    Beyond [first experience], I also [different skill or experience]. [Connect it to something in the job description.]
+  </div>
+
+  <div class="prompt">This paragraph shows range. If paragraph 2 was about technical skills, make this one about communication or leadership. If paragraph 2 was analytical, make this one about creativity.</div>
+
+  <div class="example">
+    <div class="example-label">Example — Priya</div>
+    <p style="margin:0;">Beyond performance analytics, I've developed a strong editorial instinct. I ran the content strategy for our university marketing society — growing our LinkedIn following from 200 to 1,800 in one academic year by shifting from promotional posts to opinion pieces written by members. I think Monzo's content team does something similar at a much larger scale, and I'd love to bring that same blend of data and storytelling to the marketing analytics function.</p>
+  </div>
+
+  <h3>Paragraph 4: The close</h3>
+
+  <div class="formula">
+    <div class="label">Formula</div>
+    [What you'd bring — one sentence.] [Enthusiasm for next steps — confident, not desperate.]
+  </div>
+
+  <div class="callout callout-warning">
+    <div class="callout-title warning">Never end with</div>
+    <p><strong>"I would be grateful for the opportunity..."</strong> — reads as overly deferential. <strong>"Please do not hesitate to contact me..."</strong> — reads as formulaic. A brief, confident closing is more effective.</p>
+  </div>
+
+  <div class="example">
+    <div class="example-label">Example — Priya</div>
+    <p style="margin:0;">I'd bring a combination of analytical rigour and creative thinking — someone who can pull insights from a dashboard and turn them into a story your customers actually care about. I'd love the chance to discuss how I could contribute to the team.</p>
+  </div>
+
+  <hr>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- PART 2: THE TEMPLATE                         -->
+  <!-- ═══════════════════════════════════════════ -->
+
+  <h2>Part 2: Your cover letter</h2>
+
+  <p>Fill in the brackets, then copy into a Word doc or PDF for submission.</p>
+
+  <div class="letter-page">
+    <div class="sender">
+      <span class="placeholder">[Your Name]</span><br>
+      <span class="placeholder">[Your Email] · [Your Phone]</span><br>
+      <span class="placeholder">[Your LinkedIn URL]</span>
+    </div>
+
+    <div class="date"><span class="placeholder">[Date]</span></div>
+
+    <div class="recipient">
+      <span class="placeholder">[Hiring Manager's Name, or "Hiring Team"]</span><br>
+      <span class="placeholder">[Company Name]</span><br>
+      <span class="placeholder">[Company Address — optional]</span>
+    </div>
+
+    <div class="greeting">Dear <span class="placeholder">[Name / Hiring Team]</span>,</div>
+
+    <div class="body">
+      <p><span class="placeholder">[Paragraph 1 — The hook. Why this company, why this role. Show you've done your research. 2-3 sentences.]</span></p>
+
+      <p><span class="placeholder">[Paragraph 2 — Your strongest evidence. One specific experience with results. 3-4 sentences.]</span></p>
+
+      <p><span class="placeholder">[Paragraph 3 — Second piece of evidence. A different skill. Connect it to the job description. 2-3 sentences.]</span></p>
+
+      <p><span class="placeholder">[Paragraph 4 — The close. What you'd bring + enthusiasm for next steps. 2 sentences.]</span></p>
+    </div>
+
+    <div class="sign-off">
+      Kind regards,<br>
+      <span class="name"><span class="placeholder">[Your Name]</span></span>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- PART 3: FILLED EXAMPLE                       -->
+  <!-- ═══════════════════════════════════════════ -->
+
+  <h2>Part 3: Filled-in example</h2>
+
+  <p>This is what a finished cover letter looks like using the framework above.</p>
+
+  <div class="letter-page">
+    <div class="sender">
+      Priya Sharma<br>
+      priya.sharma@email.com · +44 7700 123456<br>
+      linkedin.com/in/priyasharma
+    </div>
+
+    <div class="date">14 September 2026</div>
+
+    <div class="recipient">
+      Marketing Hiring Team<br>
+      Monzo Bank<br>
+      London
+    </div>
+
+    <div class="greeting">Dear Marketing Hiring Team,</div>
+
+    <div class="body">
+      <p>I'm applying for the Graduate Marketing Analyst role at Monzo because I've been following how your team turned transparency reports into a genuine brand differentiator — most banks hide their numbers, you publish them. My experience analysing campaign performance at a fintech startup taught me that the best marketing is honest marketing, which is exactly what your team does.</p>
+
+      <p>During my placement at a Series A fintech, I owned the weekly performance dashboard for paid acquisition — tracking CAC, conversion rates, and channel attribution across Meta, Google, and TikTok. When I noticed our TikTok CPA was 40% lower than Meta but getting a fraction of the budget, I built the business case to reallocate spend. The result was a 22% reduction in blended CAC over one quarter. That experience gave me a sharp instinct for where money is being wasted in a marketing budget.</p>
+
+      <p>Beyond performance analytics, I've developed a strong editorial instinct. I ran the content strategy for our university marketing society — growing our LinkedIn following from 200 to 1,800 in one academic year by shifting from promotional posts to opinion pieces written by members. I think Monzo's content team does something similar at a much larger scale, and I'd love to bring that same blend of data and storytelling to the marketing analytics function.</p>
+
+      <p>I'd bring a combination of analytical rigour and creative thinking — someone who can pull insights from a dashboard and turn them into a story your customers actually care about. I'd love the chance to discuss how I could contribute to the team.</p>
+    </div>
+
+    <div class="sign-off">
+      Kind regards,<br>
+      <span class="name">Priya Sharma</span>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- PART 4: CHECKLIST                            -->
+  <!-- ═══════════════════════════════════════════ -->
+
+  <h2>Part 4: Before you send — checklist</h2>
+
+  <ul>
+    <li><strong>Company name is correct</strong> — nothing kills an application faster than the wrong company name</li>
+    <li><strong>Role title matches the job posting exactly</strong></li>
+    <li><strong>Paragraph 1 mentions something specific about the company</strong> — not generic praise</li>
+    <li><strong>At least one paragraph includes a number or metric</strong></li>
+    <li><strong>Every paragraph connects your experience to their needs</strong> — not just what you did, but why it matters to them</li>
+    <li><strong>No typos</strong> — read it out loud, slowly</li>
+    <li><strong>Under one page</strong> — if it's longer, cut Paragraph 3</li>
+    <li><strong>The tone is confident, not desperate</strong> — no "I would be extremely grateful" or "I believe I could potentially"</li>
+    <li><strong>You've used the same font and formatting as your CV</strong> — they should look like a matching set</li>
+  </ul>
+
+  <div class="callout callout-green">
+    <div class="callout-title green">The 20-minute rule</div>
+    <p>Your first cover letter takes an hour. Every one after that should take 20 minutes — you rewrite Paragraph 1 (company-specific hook) and adjust Paragraphs 2-3 to emphasise the most relevant experience. The structure stays the same.</p>
+  </div>
+
+  <div class="insight-box">
+    <div class="insight-label">Remember</div>
+    <p><strong>Treat each sentence as an argument for your candidacy.</strong> Every sentence should answer the question: "Why should we hire this person?" If a sentence doesn't answer that, cut it.</p>
+  </div>
+
+  <div class="footer">
+    <p>Scribed — Premium Document Design — scribed.eu</p>
+    <p>This template is licensed for personal and commercial use by the purchaser. Do not redistribute.</p>
+  </div>
+
+</div>
+</body>
+</html>

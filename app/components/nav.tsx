@@ -15,12 +15,13 @@ export default function Nav() {
   return (
     <nav className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-border-light">
       <div className="mx-auto max-w-[1200px] px-6 flex items-center justify-between h-16">
-        <Link
-          href="/"
-          className="font-serif text-xl tracking-tight text-text"
-        >
-          Scribed
-        </Link>
+              <Link
+                  href="/"
+                  className="flex items-center"
+                >
+                  <img src="/icon-s.png" alt="" className="h-7 w-7 -mr-[6px]" />
+                  <span className="font-serif text-2xl tracking-tight text-text">cribed</span>
+                </Link>
 
         <div className="hidden md:flex items-center gap-8">
           {links.map((link) => (

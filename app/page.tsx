@@ -14,7 +14,7 @@ export default function Home() {
             <h1 className="font-serif text-5xl md:text-7xl leading-[1.05] tracking-tight text-text mb-6">
               Documents that
               <br />
-              <span className="text-accent">perform.</span>
+              <span className="text-accent">perform</span>
             </h1>
             <p className="text-lg md:text-xl text-text-secondary leading-relaxed mb-10 max-w-lg">
               Strategy-grade templates for founders, graduates, and teams.
@@ -67,9 +67,9 @@ export default function Home() {
                 Built by someone who ships
               </h3>
               <p className="text-sm text-text-secondary leading-relaxed">
-                Designed by a founder who has built production tools at
-                Coinbase and shipped a startup. These are the documents
-                behind real companies, not design exercises.
+                Every template is based on a real document that was used
+                to secure funding, land a job, or close a deal. These are
+                the documents behind real companies, not design exercises.
               </p>
             </div>
           </div>

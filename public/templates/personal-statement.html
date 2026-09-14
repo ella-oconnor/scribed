@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Personal Statement Template — Scribed Template</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #ffffff;
+    --bg-warm: #F7F8FB;
+    --text: #1A1A1A;
+    --text2: #4A4A4A;
+    --text3: #9B9B9B;
+    --accent: #2B4C7E;
+    --accent-light: rgba(43,76,126,0.06);
+    --green: #2D7A4F;
+    --green-light: rgba(45,122,79,0.06);
+    --warning: #B8860B;
+    --warning-light: rgba(184,134,11,0.06);
+    --border: #E0E3E8;
+    --border-light: #ECEEF2;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    padding: 48px 24px 80px;
+    -webkit-font-smoothing: antialiased;
+  }
+  .container { max-width: 720px; margin: 0 auto; }
+
+  .doc-header { margin-bottom: 32px; padding-bottom: 20px; border-bottom: 1px solid var(--border); }
+  .doc-label { font-size: 11px; font-weight: 600; letter-spacing: 2.5px; color: var(--accent); text-transform: uppercase; margin-bottom: 8px; }
+  h1 { font-family: 'Instrument Serif', Georgia, serif; font-size: 32px; font-weight: 400; line-height: 1.2; margin-bottom: 4px; }
+  .doc-meta { font-size: 13px; color: var(--text3); margin-top: 4px; }
+
+  .how-to-use { background: var(--bg-warm); border: 1px solid var(--border-light); border-radius: 12px; padding: 20px 24px; margin-bottom: 28px; }
+  .how-to-use h2 { font-family: 'Instrument Serif', Georgia, serif; font-size: 20px; font-weight: 400; margin-bottom: 10px; color: var(--text); border: none; padding: 0; }
+  .how-to-use p { font-size: 14px; color: var(--text2); margin-bottom: 6px; }
+  .how-to-use p:last-child { margin-bottom: 0; }
+  .how-to-use ul { font-size: 14px; color: var(--text2); padding-left: 20px; margin: 6px 0; }
+  .how-to-use li { margin-bottom: 3px; }
+
+  h2 { font-family: 'Instrument Serif', Georgia, serif; font-size: 22px; font-weight: 400; margin: 28px 0 10px; padding-top: 20px; border-top: 1px solid var(--border-light); }
+  h3 { font-size: 15px; font-weight: 600; margin: 14px 0 6px; }
+  p { color: var(--text2); font-size: 15px; margin-bottom: 8px; }
+  p strong { color: var(--text); }
+  ul, ol { color: var(--text2); font-size: 15px; padding-left: 24px; margin-bottom: 10px; }
+  li { margin-bottom: 4px; }
+  li strong { color: var(--text); }
+
+  .prompt {
+    background: var(--bg-warm);
+    border: none;
+    border-left: 3px solid var(--accent);
+    border-radius: 0 8px 8px 0;
+    padding: 12px 16px;
+    margin: 8px 0 12px;
+    font-size: 14px;
+    color: var(--text3);
+    font-style: italic;
+  }
+
+  .example {
+    background: #F8F6F3;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 14px 18px;
+    margin: 8px 0 12px;
+    font-size: 14px;
+    color: var(--text2);
+  }
+  .example-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+
+  .callout { padding: 12px 16px; border-radius: 0 10px 10px 0; margin: 10px 0; }
+  .callout-green { border-left: 3px solid var(--green); background: var(--green-light); }
+  .callout-warning { border-left: 3px solid var(--warning); background: var(--warning-light); }
+  .callout-accent { border-left: 3px solid var(--accent); background: var(--accent-light); }
+  .callout-title { font-weight: 600; font-size: 14px; margin-bottom: 4px; }
+  .callout-title.green { color: var(--green); }
+  .callout-title.warning { color: var(--warning); }
+  .callout-title.accent { color: var(--accent); }
+  .callout p { font-size: 13px; }
+
+  .insight-box {
+    background: var(--bg-warm);
+    border: 1px solid var(--border-light);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 12px 0;
+  }
+  .insight-label { font-size: 10px; font-weight: 600; letter-spacing: 1.5px; color: var(--accent); text-transform: uppercase; margin-bottom: 6px; }
+  .insight-box p { margin-bottom: 6px; font-size: 14px; }
+  .insight-box p:last-child { margin-bottom: 0; }
+
+  .formula {
+    background: var(--bg-warm);
+    border: 1px solid var(--border-light);
+    border-radius: 10px;
+    padding: 14px 18px;
+    margin: 8px 0 10px;
+    font-size: 14px;
+    color: var(--text);
+  }
+  .formula .label { font-size: 10px; font-weight: 600; letter-spacing: 1.5px; color: var(--accent); text-transform: uppercase; margin-bottom: 6px; }
+
+  table { width: 100%; border-collapse: collapse; font-size: 14px; margin: 8px 0 14px; }
+  thead th { text-align: left; padding: 8px 12px; background: var(--bg-warm); border-bottom: 1px solid var(--border); font-weight: 600; font-size: 12px; color: var(--text3); text-transform: uppercase; letter-spacing: 0.5px; }
+  tbody td { padding: 8px 12px; border-bottom: 1px solid var(--border-light); color: var(--text2); vertical-align: top; }
+  .table-wrap { border: 1px solid var(--border); border-radius: 10px; overflow: hidden; }
+
+  /* Draft blocks */
+  .draft {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 8px 0 12px;
+  }
+  .draft-label { font-size: 10px; font-weight: 600; letter-spacing: 1.5px; color: var(--accent); text-transform: uppercase; margin-bottom: 8px; }
+  .draft p { font-size: 14px; color: var(--text2); margin-bottom: 6px; }
+  .draft p:last-child { margin-bottom: 0; }
+
+  /* Statement page */
+  .statement-page {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+    padding: 48px 56px;
+    margin: 16px 0;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 14px;
+    line-height: 1.8;
+    color: #1A1A1A;
+    max-width: 680px;
+  }
+  .statement-page p { margin-bottom: 14px; color: #2A2A2A; }
+  .statement-page p:last-child { margin-bottom: 0; }
+  .statement-page .placeholder { color: #9B9B9B; }
+
+  .footer { font-size: 12px; color: var(--text3); margin-top: 28px; padding-top: 16px; border-top: 1px solid var(--border-light); }
+  hr { border: none; border-top: 1px solid var(--border-light); margin: 20px 0; }
+
+  @media (max-width: 600px) {
+    body { padding: 32px 16px 60px; }
+    .statement-page { padding: 28px 24px; }
+  }
+  @media print { body { padding: 20px; } }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="doc-header">
+    <div class="doc-label">Scribed Template — Personal Statement</div>
+    <h1>Personal statement template</h1>
+    <div class="doc-meta">For masters, MBA, and postgraduate applications</div>
+  </div>
+
+  <!-- HOW TO USE -->
+  <div class="how-to-use">
+    <h2>How to use this template</h2>
+    <p>A personal statement answers one question: <strong>"Why should we give you a place on this programme?"</strong> This template breaks it into 5 paragraphs, each with a specific job. Fill in the prompts, write your draft, then cut everything that doesn't make the admissions team want to meet you.</p>
+    <ul>
+      <li><strong>Examples</strong> use a fictional applicant called <strong>Kai Nakamura</strong> applying for an MSc in Data Science at Imperial College London. Delete after use.</li>
+      <li>Most programmes ask for 500-1,000 words. This framework targets 600-800 — tight and focused.</li>
+      <li>Takes 2-3 hours to write properly. If it takes 30 minutes, you haven't thought hard enough.</li>
+    </ul>
+  </div>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- PART 1: STRATEGY                             -->
+  <!-- ═══════════════════════════════════════════ -->
+
+  <h2>Part 1: Before you write</h2>
+
+  <div class="callout callout-accent">
+    <div class="callout-title accent">What admissions teams actually look for</div>
+    <p>They read hundreds of these. They're looking for three things: <strong>(1)</strong> a clear reason why you want this specific programme, <strong>(2)</strong> evidence that you can handle it academically, and <strong>(3)</strong> a sense that you've thought about where it leads. Everything else is noise.</p>
+  </div>
+
+  <h3>The 5-paragraph structure</h3>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Paragraph</th><th>Job</th><th>Length</th></tr></thead>
+      <tbody>
+        <tr><td><strong>1. The hook</strong></td><td>Open with the specific question or moment that made you want to study this. Not "I have always been passionate about..."</td><td>2-3 sentences</td></tr>
+        <tr><td><strong>2. Academic foundation</strong></td><td>Your degree, relevant modules, dissertation/thesis. Prove you can handle the programme.</td><td>3-4 sentences</td></tr>
+        <tr><td><strong>3. Professional experience</strong></td><td>Work experience, internships, research. Show how it connects to the programme.</td><td>3-4 sentences</td></tr>
+        <tr><td><strong>4. Why this programme</strong></td><td>Specific modules, faculty, research groups, or opportunities at this university. Not generic praise.</td><td>2-3 sentences</td></tr>
+        <tr><td><strong>5. Where it leads</strong></td><td>Your career goal and how this programme is the bridge. Be specific.</td><td>2-3 sentences</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Research before you write</h3>
+
+  <div class="prompt">Spend 20 minutes on the programme website answering these. Your personal statement should prove you've done this research.</div>
+
+  <ul>
+    <li><strong>Which specific modules interest you and why?</strong> Name at least two.</li>
+    <li><strong>Is there a faculty member whose research aligns with your interests?</strong></li>
+    <li><strong>What makes this programme different from similar ones?</strong> Industry placements, research focus, teaching style.</li>
+    <li><strong>What career does this programme lead to?</strong> Check the alumni outcomes page.</li>
+  </ul>
+
+  <hr>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- PART 2: PARAGRAPH-BY-PARAGRAPH               -->
+  <!-- ═══════════════════════════════════════════ -->
+
+  <h2>Part 2: Write it paragraph by paragraph</h2>
+
+  <h3>Paragraph 1: The hook</h3>
+
+  <div class="formula">
+    <div class="label">Formula</div>
+    [A specific moment, question, or realisation that sparked your interest in this field.] [One sentence connecting it to the programme you're applying to.]
+  </div>
+
+  <div class="callout callout-warning">
+    <div class="callout-title warning">Never start with</div>
+    <p><strong>"I have always been passionate about..."</strong> — overused and unspecific. Open with something concrete: a project, a question, or a defining moment.</p>
+  </div>
+
+  <div class="draft">
+    <div class="draft-label">Your paragraph 1</div>
+    <p>[Write your opening here. What made you want to study this? Be specific.]</p>
+  </div>
+
+  <div class="example">
+    <div class="example-label">Example — Kai applying to MSc Data Science at Imperial</div>
+    <p style="margin:0;">During my final-year project, I built a model to predict customer churn for a local subscription business. The model worked — 82% accuracy — but when I presented the results, the founder asked a question I couldn't answer: "Which customers should I call first?" I realised I'd optimised for prediction without thinking about decision-making. That gap between building a model and making it useful is exactly what I want to study at Imperial.</p>
+  </div>
+
+  <h3>Paragraph 2: Academic foundation</h3>
+
+  <div class="formula">
+    <div class="label">Formula</div>
+    My degree in [Subject] at [University] gave me [specific foundation]. [Name 1-2 relevant modules or projects and what you learned.] [Your grade/result if strong.]
+  </div>
+
+  <div class="prompt">Only mention modules and projects that are directly relevant to the programme you're applying to. "I enjoyed macroeconomics" is irrelevant for a data science application.</div>
+
+  <div class="draft">
+    <div class="draft-label">Your paragraph 2</div>
+    <p>[Your academic background. Which modules or projects are relevant? What did they teach you?]</p>
+  </div>
+
+  <div class="example">
+    <div class="example-label">Example — Kai</div>
+    <p style="margin:0;">My BSc in Mathematics and Statistics at the University of Birmingham (predicted First, 76%) gave me a strong quantitative foundation — particularly in Bayesian inference, time series analysis, and statistical computing. In my Statistical Learning module, I implemented gradient-boosted trees from scratch and benchmarked them against scikit-learn's implementation, which taught me not just how these algorithms work but where they break. My dissertation applies causal inference methods to A/B testing data from an e-commerce company, supervised by Dr. Sarah Chen.</p>
+  </div>
+
+  <h3>Paragraph 3: Professional experience</h3>
+
+  <div class="formula">
+    <div class="label">Formula</div>
+    Outside the classroom, [describe work experience, internships, or projects]. [What did you do? What did you learn? How does it connect to the programme?]
+  </div>
+
+  <div class="prompt">Work experience doesn't have to be a prestigious internship. Freelance work, society projects, hackathons, and personal projects all count — if you can connect them to the programme.</div>
+
+  <div class="draft">
+    <div class="draft-label">Your paragraph 3</div>
+    <p>[Your relevant experience outside of lectures. What did you build, analyse, or contribute to?]</p>
+  </div>
+
+  <div class="example">
+    <div class="example-label">Example — Kai</div>
+    <p style="margin:0;">Last summer, I interned at a retail analytics startup where I worked on their recommendation engine — cleaning transaction data, running feature selection, and presenting weekly model performance reviews to the product team. The experience showed me how different production data science is from coursework: messy data, unclear requirements, and the constant trade-off between model accuracy and interpretability. It also made me certain that I want to go deeper before going into industry full-time — I want the rigour that a strong masters programme provides.</p>
+  </div>
+
+  <h3>Paragraph 4: Why this programme</h3>
+
+  <div class="formula">
+    <div class="label">Formula</div>
+    I'm applying to [Programme] at [University] specifically because [1-2 concrete reasons — modules, faculty, research focus, industry links]. [How does this connect to your interests?]
+  </div>
+
+  <div class="callout callout-green">
+    <div class="callout-title green">Specificity is the differentiator</div>
+    <p>Most applicants write generic praise: "Imperial is a world-leading institution." The admissions team knows that. Name specific modules, specific faculty, specific research. Demonstrate that you have studied the programme and considered how it aligns with your goals.</p>
+  </div>
+
+  <div class="draft">
+    <div class="draft-label">Your paragraph 4</div>
+    <p>[Why this specific programme at this specific university? Name modules, faculty, or opportunities.]</p>
+  </div>
+
+  <div class="example">
+    <div class="example-label">Example — Kai</div>
+    <p style="margin:0;">I'm drawn to Imperial's MSc specifically because of the emphasis on applied machine learning alongside statistical foundations. The modules in Probabilistic Inference and Deep Learning are directly aligned with my research interests, and I'm particularly interested in Professor James Wilson's work on causal machine learning for healthcare — an area where the "which customers should I call first?" question becomes "which patients should we treat first?" I also value the industry partnership programme, which would give me exposure to real deployment challenges before I graduate.</p>
+  </div>
+
+  <h3>Paragraph 5: Where it leads</h3>
+
+  <div class="formula">
+    <div class="label">Formula</div>
+    After completing this programme, I plan to [specific career goal]. [How does this programme bridge where you are now to where you want to be?]
+  </div>
+
+  <div class="prompt">Be specific but not rigid. "I want to work as a data scientist at a health-tech company" is stronger than "I want to make a difference in the world." Acknowledging that you're weighing two directions can also demonstrate maturity and self-awareness.</div>
+
+  <div class="draft">
+    <div class="draft-label">Your paragraph 5</div>
+    <p>[Where is this going? What career do you want and how does this programme get you there?]</p>
+  </div>
+
+  <div class="example">
+    <div class="example-label">Example — Kai</div>
+    <p style="margin:0;">After graduating, I want to work as a data scientist in health-tech — specifically on problems where predictive models directly inform clinical decisions. Imperial's MSc gives me the statistical depth I'm missing, the applied ML skills I need, and access to a research community that's working on exactly these problems. I see this programme as the bridge between being someone who can build a model and someone who can build a model that changes how decisions are made.</p>
+  </div>
+
+  <hr>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- PART 3: FULL DRAFT                           -->
+  <!-- ═══════════════════════════════════════════ -->
+
+  <h2>Part 3: Your full statement — paste it together</h2>
+
+  <div class="statement-page">
+    <p><span class="placeholder">[Paragraph 1 — The hook. A specific moment or question that sparked your interest.]</span></p>
+    <p><span class="placeholder">[Paragraph 2 — Academic foundation. Your degree, relevant modules, results.]</span></p>
+    <p><span class="placeholder">[Paragraph 3 — Professional experience. Internships, projects, what you learned.]</span></p>
+    <p><span class="placeholder">[Paragraph 4 — Why this programme. Specific modules, faculty, opportunities.]</span></p>
+    <p><span class="placeholder">[Paragraph 5 — Where it leads. Your career goal and how this programme gets you there.]</span></p>
+  </div>
+
+  <hr>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- PART 4: CHECKLIST                            -->
+  <!-- ═══════════════════════════════════════════ -->
+
+  <h2>Part 4: Before you submit — checklist</h2>
+
+  <ul>
+    <li><strong>Programme name and university are correct</strong> — admissions teams see wrong names constantly</li>
+    <li><strong>Paragraph 1 is specific, not generic</strong> — no "I have always been passionate"</li>
+    <li><strong>You name at least one specific module or faculty member</strong></li>
+    <li><strong>Every paragraph connects to the programme</strong> — not just your life story</li>
+    <li><strong>You show evidence, not claims</strong> — "I built a model that predicted X with Y% accuracy" beats "I am analytical"</li>
+    <li><strong>Within the word limit</strong> — if they say 1,000 words, be at 900-1,000. Under 800 looks like you didn't try.</li>
+    <li><strong>Career goal is specific</strong> — not "I want to make a difference"</li>
+    <li><strong>Someone else has read it</strong> — a friend, a lecturer, a career adviser. Fresh eyes catch what you can't.</li>
+    <li><strong>Read it out loud</strong> — if you stumble, rewrite that sentence</li>
+    <li><strong>The tone is confident and professional</strong> — not arrogant, not self-deprecating</li>
+  </ul>
+
+  <div class="insight-box">
+    <div class="insight-label">Remember</div>
+    <p><strong>Admissions teams are looking for reasons to say yes.</strong> Your job is to make it easy for them. Clear structure, specific evidence, genuine enthusiasm for the programme. If they can picture you in the classroom after reading your statement, you've done your job.</p>
+  </div>
+
+  <div class="footer">
+    <p>Scribed — Premium Document Design — scribed.eu</p>
+    <p>This template is licensed for personal and commercial use by the purchaser. Do not redistribute.</p>
+  </div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tech CV Template — Scribed</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #ffffff;
+    --bg-warm: #F7F8FB;
+    --text: #1A1A1A;
+    --text2: #4A4A4A;
+    --text3: #9B9B9B;
+    --accent: #2B4C7E;
+    --accent-light: rgba(43,76,126,0.06);
+    --green: #2D7A4F;
+    --green-light: rgba(45,122,79,0.06);
+    --warning: #B8860B;
+    --warning-light: rgba(184,134,11,0.06);
+    --border: #E0E3E8;
+    --border-light: #ECEEF2;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'DM Sans', system-ui, -apple-system, sans-serif;
+    background: var(--bg-warm);
+    color: var(--text);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── Guide wrapper ── */
+  .guide-wrapper {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 48px 24px 0;
+  }
+
+  /* ── Header / hero ── */
+  .hero {
+    text-align: center;
+    padding: 56px 32px 48px;
+    margin-bottom: 40px;
+    background: var(--bg);
+    border-radius: 16px;
+    border: 1px solid var(--border-light);
+  }
+  .hero-badge {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.6px;
+    color: var(--accent);
+    background: var(--accent-light);
+    padding: 6px 16px;
+    border-radius: 100px;
+    margin-bottom: 20px;
+  }
+  .hero h1 {
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 12px;
+    line-height: 1.2;
+  }
+  .hero p {
+    font-size: 16px;
+    color: var(--text2);
+    max-width: 560px;
+    margin: 0 auto;
+  }
+
+  /* ── Section cards ── */
+  .guide-section {
+    background: var(--bg);
+    border: 1px solid var(--border-light);
+    border-radius: 12px;
+    padding: 32px;
+    margin-bottom: 24px;
+  }
+  .guide-section h2 {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 6px;
+  }
+  .guide-section h3 {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--accent);
+    margin: 20px 0 8px;
+  }
+  .section-subtitle {
+    font-size: 14px;
+    color: var(--text3);
+    margin-bottom: 20px;
+  }
+  .guide-section p, .guide-section li {
+    font-size: 14.5px;
+    color: var(--text2);
+    line-height: 1.7;
+  }
+  .guide-section ul, .guide-section ol {
+    padding-left: 20px;
+    margin: 8px 0 12px;
+  }
+  .guide-section li { margin-bottom: 6px; }
+
+  /* ── Prompt boxes ── */
+  .prompt {
+    background: var(--bg-warm);
+    border: none;
+    border-left: 3px solid var(--accent);
+    border-radius: 0 8px 8px 0;
+    padding: 12px 16px;
+    margin: 8px 0 12px;
+    font-size: 14px;
+    color: var(--text3);
+    font-style: italic;
+  }
+
+  /* ── Tip / do / don't boxes ── */
+  .tip-box {
+    border-radius: 8px;
+    padding: 14px 16px;
+    margin: 12px 0;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  .tip-box.do {
+    background: var(--green-light);
+    border-left: 3px solid var(--green);
+    color: var(--green);
+  }
+  .tip-box.dont {
+    background: var(--warning-light);
+    border-left: 3px solid var(--warning);
+    color: var(--warning);
+  }
+  .tip-box .label {
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 11px;
+    letter-spacing: 1px;
+    display: block;
+    margin-bottom: 4px;
+  }
+  .tip-box ul { padding-left: 18px; margin: 4px 0 0; }
+  .tip-box li { margin-bottom: 2px; }
+
+  .formula {
+    background: var(--accent-light);
+    border-radius: 8px;
+    padding: 14px 20px;
+    margin: 12px 0;
+    font-family: 'DM Sans', monospace;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--accent);
+    text-align: center;
+    letter-spacing: 0.2px;
+  }
+
+  /* ── Divider ── */
+  .section-divider {
+    text-align: center;
+    padding: 28px 0 12px;
+  }
+  .section-divider span {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.6px;
+    color: var(--accent);
+    background: var(--accent-light);
+    padding: 8px 24px;
+    border-radius: 100px;
+  }
+
+  /* ════════════════════════════════════════════
+     CV PAGE — A4 proportioned
+     ════════════════════════════════════════════ */
+  .cv-container {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 24px;
+  }
+  .cv-label {
+    text-align: center;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text3);
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    margin-bottom: 16px;
+  }
+
+  .cv-page {
+    width: 100%;
+    max-width: 794px;   /* A4 at 96dpi */
+    min-height: 1123px;  /* A4 ratio */
+    margin: 0 auto 40px;
+    background: #ffffff;
+    padding: 48px 52px;
+    box-shadow: 0 2px 24px rgba(0,0,0,0.08), 0 0 0 1px rgba(0,0,0,0.04);
+    border-radius: 4px;
+    font-family: 'DM Sans', system-ui, -apple-system, sans-serif;
+    color: #000000;
+    font-size: 10.5pt;
+    line-height: 1.45;
+  }
+
+  /* CV typography */
+  .cv-page .cv-name {
+    font-size: 15pt;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 2px;
+    color: #000;
+    letter-spacing: 0.3px;
+  }
+  .cv-page .cv-contact {
+    text-align: center;
+    font-size: 10pt;
+    color: #333;
+    margin-bottom: 16px;
+  }
+  .cv-page .cv-contact a {
+    color: #333;
+    text-decoration: none;
+  }
+  .cv-page .cv-section-title {
+    font-size: 11pt;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    border-bottom: 1px solid #000;
+    padding-bottom: 2px;
+    margin: 14px 0 8px;
+    color: #000;
+  }
+  .cv-page .cv-entry-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 1px;
+  }
+  .cv-page .cv-entry-title {
+    font-weight: 700;
+    font-size: 10.5pt;
+    color: #000;
+  }
+  .cv-page .cv-entry-right {
+    font-size: 10pt;
+    color: #333;
+    text-align: right;
+    white-space: nowrap;
+  }
+  .cv-page .cv-entry-sub {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-style: italic;
+    font-size: 10pt;
+    color: #333;
+    margin-bottom: 4px;
+  }
+  .cv-page .cv-bullets {
+    padding-left: 18px;
+    margin: 2px 0 8px;
+  }
+  .cv-page .cv-bullets li {
+    font-size: 10.5pt;
+    margin-bottom: 2px;
+    color: #000;
+    line-height: 1.4;
+  }
+  .cv-page .cv-skills-row {
+    font-size: 10.5pt;
+    margin-bottom: 3px;
+    color: #000;
+  }
+  .cv-page .cv-skills-row strong {
+    font-weight: 700;
+  }
+
+  /* Placeholder styling */
+  .placeholder {
+    color: #888;
+    background: #f5f5f5;
+    padding: 0 3px;
+    border-radius: 2px;
+    font-size: inherit;
+  }
+
+  /* ── Footer ── */
+  .site-footer {
+    text-align: center;
+    padding: 40px 24px 48px;
+    font-size: 12px;
+    color: var(--text3);
+    line-height: 1.8;
+  }
+  .site-footer a {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  /* ── Print / PDF ── */
+  @media print {
+    body { background: #fff; }
+    .guide-wrapper, .section-divider, .site-footer, .cv-label { display: none; }
+    .cv-container { padding: 0; }
+    .cv-page {
+      box-shadow: none;
+      border-radius: 0;
+      margin: 0;
+      min-height: auto;
+      padding: 36px 44px;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .guide-wrapper { padding: 24px 12px 0; }
+    .guide-section { padding: 20px 16px; }
+    .hero { padding: 36px 20px 32px; }
+    .hero h1 { font-size: 24px; }
+    .cv-page { padding: 28px 20px; min-height: auto; }
+    .cv-page .cv-entry-header,
+    .cv-page .cv-entry-sub { flex-direction: column; }
+    .cv-page .cv-entry-right { text-align: left; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════
+     PART 1 — STRATEGY GUIDE
+     ═══════════════════════════════════════════ -->
+<div class="guide-wrapper">
+
+  <div class="hero">
+    <div class="hero-badge">Scribed Template</div>
+    <h1>Tech CV</h1>
+    <p>The clean, single-column format used by candidates who land offers at Stripe, Google, and every startup in between. Evidence over aesthetics.</p>
+  </div>
+
+  <!-- ── Why this format works ── -->
+  <div class="guide-section">
+    <h2>Why this format works</h2>
+    <p class="section-subtitle">The "Jake's Resume" layout is the industry standard for software engineering roles.</p>
+    <p>Hiring managers at tech companies spend an average of <strong>7.4 seconds</strong> scanning a CV. This format is optimised for both humans and applicant tracking systems (ATS):</p>
+    <ul>
+      <li><strong>Single column</strong> — ATS parsers can't reliably read two-column or sidebar layouts</li>
+      <li><strong>Standard section headings</strong> — Education, Experience, Projects, Technical Skills — in exactly the order recruiters expect</li>
+      <li><strong>No graphics, no skill bars, no icons</strong> — anything an ATS can't parse is a liability</li>
+      <li><strong>Dense but readable</strong> — you fit maximum evidence into one page without sacrificing scanability</li>
+    </ul>
+    <div class="prompt">This template is designed for software engineering, data science, product, and technical PM roles. For finance or consulting, use a different format.</div>
+  </div>
+
+  <!-- ── Projects > GPA ── -->
+  <div class="guide-section">
+    <h2>Projects matter more than your GPA</h2>
+    <p class="section-subtitle">In tech, demonstrable projects carry more weight than grades alone.</p>
+    <p>Unlike finance CVs where university name and grades dominate, tech CVs are judged on <strong>what you've shipped</strong>. A side project with 200 GitHub stars tells a recruiter more than a first-class degree alone.</p>
+    <p>The Projects section is where you prove you can build things that work. Every project should answer three questions:</p>
+    <ol>
+      <li><strong>What did you build?</strong> — one sentence, plain English</li>
+      <li><strong>What technology did you use?</strong> — the stack, in parentheses</li>
+      <li><strong>What was the result?</strong> — users, stars, performance improvement, award</li>
+    </ol>
+    <div class="formula">[Built X] using [Y technology] that [Z result / metric]</div>
+    <div class="tip-box do">
+      <span class="label">✓ Good example</span>
+      Built a CLI tool for automated database migrations using Go and PostgreSQL; adopted by 3 teams internally, 200+ GitHub stars
+    </div>
+    <div class="tip-box dont">
+      <span class="label">✗ Weak example</span>
+      Created a project using various technologies for my module coursework
+    </div>
+  </div>
+
+  <!-- ── Experience bullets ── -->
+  <div class="guide-section">
+    <h2>How to write experience bullets</h2>
+    <p class="section-subtitle">Every line should prove impact, not just describe responsibilities.</p>
+    <p>Tech recruiters are trained to skip bullets that start with "Responsible for" or "Helped with." Use this formula instead:</p>
+    <div class="formula">[Action verb] + [Technical detail] + [Impact with numbers]</div>
+    <h3>Strong action verbs for tech CVs</h3>
+    <p><strong>Building:</strong> Engineered, Architected, Developed, Implemented, Shipped, Deployed</p>
+    <p><strong>Improving:</strong> Optimised, Refactored, Reduced, Automated, Migrated, Scaled</p>
+    <p><strong>Leading:</strong> Led, Designed, Spearheaded, Mentored, Reviewed, Owned</p>
+    <div class="tip-box do">
+      <span class="label">✓ Good bullet</span>
+      Reduced API response latency by 40% by implementing Redis caching layer across 12 microservices
+    </div>
+    <div class="tip-box dont">
+      <span class="label">✗ Weak bullet</span>
+      Worked on backend improvements and helped the team with various tasks
+    </div>
+  </div>
+
+  <!-- ── The GitHub rule ── -->
+  <div class="guide-section">
+    <h2>The GitHub rule</h2>
+    <p class="section-subtitle">If you mention a project, link to the code.</p>
+    <p>Include your GitHub profile URL in the header. For significant projects, add a direct repo link next to the project name. This signals confidence and invites scrutiny — both of which work in your favour if the code is strong.</p>
+    <p>Before applying, make sure your pinned repos have:</p>
+    <ul>
+      <li>A clear README with setup instructions</li>
+      <li>Consistent commit history (not one massive commit)</li>
+      <li>No secrets, API keys, or <code>.env</code> files committed</li>
+      <li>A live demo link if it's a web project</li>
+    </ul>
+    <div class="prompt">Recruiters will click your GitHub link. Treat your profile as a portfolio — pin your best 4-6 repos and write proper READMEs.</div>
+  </div>
+
+  <!-- ── ATS tips ── -->
+  <div class="guide-section">
+    <h2>ATS-proof your CV</h2>
+    <p class="section-subtitle">Most large tech companies use automated screening before a human ever sees your CV.</p>
+    <ul>
+      <li><strong>Single column only</strong> — multi-column layouts break ATS parsing</li>
+      <li><strong>Standard section headings</strong> — "Experience" not "Where I've Worked"</li>
+      <li><strong>No tables, text boxes, or graphics</strong> — they're invisible to parsers</li>
+      <li><strong>Mirror keywords from the job posting</strong> — if they say "React" and "TypeScript," use those exact words</li>
+      <li><strong>Save as PDF</strong> — preserves formatting across systems</li>
+      <li><strong>File name matters</strong> — use <code>FirstnameLastname-CV.pdf</code></li>
+    </ul>
+  </div>
+
+  <!-- ── What NOT to include ── -->
+  <div class="guide-section">
+    <h2>What to leave off</h2>
+    <p class="section-subtitle">Every line on a one-page CV has to earn its place.</p>
+    <div class="tip-box dont">
+      <span class="label">✗ Remove these</span>
+      <ul>
+        <li>Skill bars or percentage ratings (they're meaningless and ATS-invisible)</li>
+        <li>Photos or headshots (standard in tech to omit)</li>
+        <li>"Proficient in Microsoft Word / Excel" (assumed for any graduate)</li>
+        <li>Full home address (city is enough)</li>
+        <li>References available on request (assumed, wastes a line)</li>
+        <li>Personal statement / objective (your projects speak louder)</li>
+        <li>Graphics, icons, or colour-coded sections</li>
+        <li>Two-column or sidebar layouts</li>
+      </ul>
+    </div>
+  </div>
+
+</div><!-- end guide-wrapper -->
+
+
+<!-- ═══════════════════════════════════════════
+     PART 2A — BLANK CV TEMPLATE
+     ═══════════════════════════════════════════ -->
+<div class="section-divider">
+  <span>Your CV Template — Fill In Below</span>
+</div>
+
+<div class="cv-container">
+  <div class="cv-label">Editable Template — Replace bracketed placeholders with your details</div>
+
+  <div class="cv-page">
+
+    <!-- Header -->
+    <div class="cv-name"><span class="placeholder">[Your Full Name]</span></div>
+    <div class="cv-contact">
+      <span class="placeholder">[Phone Number]</span> |
+      <span class="placeholder">[email@example.com]</span> |
+      <span class="placeholder">[linkedin.com/in/yourname]</span> |
+      <span class="placeholder">[github.com/yourname]</span> |
+      <span class="placeholder">[City, Country]</span>
+    </div>
+
+    <!-- Education -->
+    <div class="cv-section-title">Education</div>
+
+    <div class="cv-entry-header">
+      <span class="cv-entry-title"><span class="placeholder">[University Name]</span></span>
+      <span class="cv-entry-right"><span class="placeholder">[City, Country]</span></span>
+    </div>
+    <div class="cv-entry-sub">
+      <span><span class="placeholder">[Degree Title, e.g. BSc Computer Science]</span></span>
+      <span><span class="placeholder">[Start Date – End Date]</span></span>
+    </div>
+    <ul class="cv-bullets">
+      <li><strong>Grade:</strong> <span class="placeholder">[First Class / 2:1 / GPA — optional in tech]</span></li>
+      <li><strong>Relevant Coursework:</strong> <span class="placeholder">[Data Structures, Algorithms, Databases, Operating Systems, Machine Learning]</span></li>
+    </ul>
+
+    <!-- Experience -->
+    <div class="cv-section-title">Experience</div>
+
+    <!-- Experience 1 -->
+    <div class="cv-entry-header">
+      <span class="cv-entry-title"><span class="placeholder">[Company Name]</span></span>
+      <span class="cv-entry-right"><span class="placeholder">[City, Country]</span></span>
+    </div>
+    <div class="cv-entry-sub">
+      <span><span class="placeholder">[Job Title, e.g. Software Engineering Intern]</span></span>
+      <span><span class="placeholder">[Start – End, e.g. Jun 2025 – Aug 2025]</span></span>
+    </div>
+    <ul class="cv-bullets">
+      <li><span class="placeholder">[Action verb] + [what you built/improved] + [tech used] + [measurable impact]</span></li>
+      <li><span class="placeholder">[Action verb] + [what you built/improved] + [tech used] + [measurable impact]</span></li>
+      <li><span class="placeholder">[Action verb] + [what you built/improved] + [tech used] + [measurable impact]</span></li>
+    </ul>
+
+    <!-- Experience 2 -->
+    <div class="cv-entry-header">
+      <span class="cv-entry-title"><span class="placeholder">[Company Name]</span></span>
+      <span class="cv-entry-right"><span class="placeholder">[City, Country]</span></span>
+    </div>
+    <div class="cv-entry-sub">
+      <span><span class="placeholder">[Job Title]</span></span>
+      <span><span class="placeholder">[Start – End]</span></span>
+    </div>
+    <ul class="cv-bullets">
+      <li><span class="placeholder">[Action verb] + [what you built/improved] + [tech used] + [measurable impact]</span></li>
+      <li><span class="placeholder">[Action verb] + [what you built/improved] + [tech used] + [measurable impact]</span></li>
+    </ul>
+
+    <!-- Projects -->
+    <div class="cv-section-title">Projects</div>
+
+    <!-- Project 1 -->
+    <div class="cv-entry-header">
+      <span class="cv-entry-title"><span class="placeholder">[Project Name]</span> | <em><span class="placeholder">[Tech Stack, e.g. Python, Flask, PostgreSQL]</span></em></span>
+      <span class="cv-entry-right"><span class="placeholder">[github.com/you/project]</span></span>
+    </div>
+    <ul class="cv-bullets">
+      <li><span class="placeholder">[What you built and why — one sentence]</span></li>
+      <li><span class="placeholder">[Technical detail — architecture, algorithm, or integration]</span></li>
+      <li><span class="placeholder">[Result — users, stars, performance metric, award]</span></li>
+    </ul>
+
+    <!-- Project 2 -->
+    <div class="cv-entry-header">
+      <span class="cv-entry-title"><span class="placeholder">[Project Name]</span> | <em><span class="placeholder">[Tech Stack]</span></em></span>
+      <span class="cv-entry-right"><span class="placeholder">[github.com/you/project]</span></span>
+    </div>
+    <ul class="cv-bullets">
+      <li><span class="placeholder">[What you built and why]</span></li>
+      <li><span class="placeholder">[Technical detail]</span></li>
+      <li><span class="placeholder">[Result / metric]</span></li>
+    </ul>
+
+    <!-- Project 3 -->
+    <div class="cv-entry-header">
+      <span class="cv-entry-title"><span class="placeholder">[Project Name]</span> | <em><span class="placeholder">[Tech Stack]</span></em></span>
+      <span class="cv-entry-right"><span class="placeholder">[Link or date]</span></span>
+    </div>
+    <ul class="cv-bullets">
+      <li><span class="placeholder">[What you built and why]</span></li>
+      <li><span class="placeholder">[Technical detail or key feature]</span></li>
+    </ul>
+
+    <!-- Technical Skills -->
+    <div class="cv-section-title">Technical Skills</div>
+    <div class="cv-skills-row"><strong>Languages:</strong> <span class="placeholder">[Python, JavaScript, TypeScript, Java, Go, SQL, HTML/CSS]</span></div>
+    <div class="cv-skills-row"><strong>Frameworks:</strong> <span class="placeholder">[React, Node.js, Express, Next.js, Flask, Django, Spring Boot]</span></div>
+    <div class="cv-skills-row"><strong>Developer Tools:</strong> <span class="placeholder">[Git, Docker, VS Code, Postman, Jira, Figma, Linux]</span></div>
+    <div class="cv-skills-row"><strong>Platforms:</strong> <span class="placeholder">[AWS, GCP, Azure, Vercel, Heroku, Firebase]</span></div>
+
+  </div><!-- end cv-page -->
+</div><!-- end cv-container -->
+
+
+<!-- ═══════════════════════════════════════════
+     PART 2B — FILLED-IN EXAMPLE: CASEY LIN
+     ═══════════════════════════════════════════ -->
+<div class="section-divider">
+  <span>Filled-In Example — Casey Lin</span>
+</div>
+
+<div class="cv-container">
+  <div class="cv-label">Example — A strong tech CV, fully completed</div>
+
+  <div class="cv-page">
+
+    <!-- Header -->
+    <div class="cv-name">Casey Lin</div>
+    <div class="cv-contact">
+      +44 7700 123456 |
+      <a href="mailto:casey.lin@bristol.ac.uk">casey.lin@bristol.ac.uk</a> |
+      <a href="#">linkedin.com/in/caseylin</a> |
+      <a href="#">github.com/caseylin</a> |
+      Bristol, UK
+    </div>
+
+    <!-- Education -->
+    <div class="cv-section-title">Education</div>
+
+    <div class="cv-entry-header">
+      <span class="cv-entry-title">University of Bristol</span>
+      <span class="cv-entry-right">Bristol, UK</span>
+    </div>
+    <div class="cv-entry-sub">
+      <span>BSc Computer Science</span>
+      <span>Sep 2023 – Jun 2027</span>
+    </div>
+    <ul class="cv-bullets">
+      <li><strong>Predicted Grade:</strong> First Class Honours (76% average)</li>
+      <li><strong>Relevant Coursework:</strong> Data Structures &amp; Algorithms, Distributed Systems, Database Management, Machine Learning, Software Engineering Project</li>
+    </ul>
+
+    <!-- Experience -->
+    <div class="cv-section-title">Experience</div>
+
+    <!-- Stripe -->
+    <div class="cv-entry-header">
+      <span class="cv-entry-title">Stripe</span>
+      <span class="cv-entry-right">Dublin, Ireland</span>
+    </div>
+    <div class="cv-entry-sub">
+      <span>Software Engineering Intern</span>
+      <span>Jun 2026 – Aug 2026</span>
+    </div>
+    <ul class="cv-bullets">
+      <li>Engineered a real-time fraud detection dashboard using React, TypeScript, and D3.js, processing 50K+ transactions daily with sub-200ms rendering latency</li>
+      <li>Developed anomaly detection API endpoints in Python (FastAPI) that reduced false-positive fraud flags by 23%, saving the review team ~15 hours per week</li>
+      <li>Wrote comprehensive integration tests (pytest) achieving 94% code coverage; participated in 30+ code reviews across the Payments Risk team</li>
+    </ul>
+
+    <!-- University role -->
+    <div class="cv-entry-header">
+      <span class="cv-entry-title">University of Bristol — Computer Science Department</span>
+      <span class="cv-entry-right">Bristol, UK</span>
+    </div>
+    <div class="cv-entry-sub">
+      <span>Undergraduate Teaching Assistant — Algorithms &amp; Data Structures</span>
+      <span>Jan 2026 – May 2026</span>
+    </div>
+    <ul class="cv-bullets">
+      <li>Led weekly lab sessions for 45 students, covering graph algorithms, dynamic programming, and complexity analysis; achieved 4.7/5.0 student feedback rating</li>
+      <li>Created supplementary problem sets and walkthroughs in Python that were adopted as official course resources by the department</li>
+    </ul>
+
+    <!-- Projects -->
+    <div class="cv-section-title">Projects</div>
+
+    <!-- Project 1 -->
+    <div class="cv-entry-header">
+      <span class="cv-entry-title">dbmigrate</span> | <em>Go, PostgreSQL, Docker</em>
+      <span class="cv-entry-right"><a href="#" style="color:#333;">github.com/caseylin/dbmigrate</a></span>
+    </div>
+    <ul class="cv-bullets">
+      <li>Built an open-source CLI tool for automated, version-controlled database schema migrations with rollback support and dry-run previews</li>
+      <li>Implemented a directed acyclic graph (DAG) dependency resolver to safely order concurrent migrations across multi-service architectures</li>
+      <li>Reached 200+ GitHub stars and 40+ forks; featured in Go Weekly newsletter and adopted by 3 open-source projects</li>
+    </ul>
+
+    <!-- Project 2 -->
+    <div class="cv-entry-header">
+      <span class="cv-entry-title">MealMap</span> | <em>TypeScript, React Native, Node.js, MongoDB</em>
+      <span class="cv-entry-right"><a href="#" style="color:#333;">github.com/caseylin/mealmap</a></span>
+    </div>
+    <ul class="cv-bullets">
+      <li>Developed a meal planning app that generates weekly plans based on dietary requirements, budget, and local supermarket prices using a constraint-satisfaction algorithm</li>
+      <li>Integrated Tesco API for real-time pricing and built a React Native frontend with offline-first architecture using WatermelonDB</li>
+      <li>Won "Best Hack" at HackBristol 2025 (120 participants); 500+ downloads on TestFlight beta</li>
+    </ul>
+
+    <!-- Project 3 -->
+    <div class="cv-entry-header">
+      <span class="cv-entry-title">Distributed Key-Value Store</span> | <em>Rust, gRPC, Raft Consensus</em>
+      <span class="cv-entry-right">University Project — Dec 2025</span>
+    </div>
+    <ul class="cv-bullets">
+      <li>Implemented a fault-tolerant distributed key-value store using the Raft consensus protocol with leader election, log replication, and snapshotting</li>
+      <li>Achieved 12K reads/sec and 8K writes/sec across a 5-node cluster; passed all Jepsen-style linearizability tests with injected network partitions</li>
+    </ul>
+
+    <!-- Technical Skills -->
+    <div class="cv-section-title">Technical Skills</div>
+    <div class="cv-skills-row"><strong>Languages:</strong> Python, TypeScript, Go, Rust, Java, SQL, HTML/CSS</div>
+    <div class="cv-skills-row"><strong>Frameworks:</strong> React, React Native, Next.js, FastAPI, Node.js, Express, Flask</div>
+    <div class="cv-skills-row"><strong>Developer Tools:</strong> Git, Docker, PostgreSQL, MongoDB, Redis, pytest, GitHub Actions, VS Code, Linux</div>
+    <div class="cv-skills-row"><strong>Platforms:</strong> AWS (EC2, S3, Lambda, RDS), Vercel, Firebase, Heroku</div>
+
+  </div><!-- end cv-page -->
+</div><!-- end cv-container -->
+
+
+<!-- ── Footer ── -->
+<footer class="site-footer">
+  <a href="https://scribed.eu">Scribed</a> — Premium Document Design — scribed.eu<br>
+  This template is licensed for personal and commercial use by the purchaser. Do not redistribute.
+</footer>
+
+</body>
+</html>

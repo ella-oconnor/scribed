@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Startup MVP Document — Scribed Template</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  /*
+   * COLOUR THEME — uncomment ONE block below.
+   * ─────────────────────────────────────────
+   * Theme 1: Navy (default)
+   * Theme 2: Sage
+   * Theme 3: Charcoal
+   */
+
+  /* Theme 1: Navy */
+  :root {
+    --bg: #ffffff;
+    --bg-warm: #F7F8FB;
+    --text: #1A1A1A;
+    --text2: #4A4A4A;
+    --text3: #9B9B9B;
+    --accent: #2B4C7E;
+    --accent-light: rgba(43,76,126,0.06);
+    --green: #2D7A4F;
+    --green-light: rgba(45,122,79,0.06);
+    --warning: #B8860B;
+    --warning-light: rgba(184,134,11,0.06);
+    --danger: #C03030;
+    --danger-light: rgba(192,48,48,0.06);
+    --border: #E0E3E8;
+    --border-light: #ECEEF2;
+  }
+
+  /* Theme 2: Sage — uncomment below and comment out Theme 1
+  :root {
+    --bg: #ffffff;
+    --bg-warm: #F5F7F4;
+    --text: #1A1A1A;
+    --text2: #4A4A4A;
+    --text3: #9B9B9B;
+    --accent: #4A7C59;
+    --accent-light: rgba(74,124,89,0.06);
+    --green: #2D7A4F;
+    --green-light: rgba(45,122,79,0.06);
+    --warning: #B8860B;
+    --warning-light: rgba(184,134,11,0.06);
+    --danger: #C03030;
+    --danger-light: rgba(192,48,48,0.06);
+    --border: #DEE3DC;
+    --border-light: #EAEDE8;
+  }
+  */
+
+  /* Theme 3: Charcoal — uncomment below and comment out Theme 1
+  :root {
+    --bg: #ffffff;
+    --bg-warm: #F5F5F5;
+    --text: #1A1A1A;
+    --text2: #4A4A4A;
+    --text3: #9B9B9B;
+    --accent: #3D3D3D;
+    --accent-light: rgba(61,61,61,0.05);
+    --green: #2D7A4F;
+    --green-light: rgba(45,122,79,0.06);
+    --warning: #B8860B;
+    --warning-light: rgba(184,134,11,0.06);
+    --danger: #C03030;
+    --danger-light: rgba(192,48,48,0.06);
+    --border: #E0E0E0;
+    --border-light: #EBEBEB;
+  }
+  */
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    padding: 48px 24px 80px;
+    -webkit-font-smoothing: antialiased;
+  }
+  .container { max-width: 720px; margin: 0 auto; }
+
+  /* Header */
+  .doc-header { margin-bottom: 32px; padding-bottom: 20px; border-bottom: 1px solid var(--border); }
+  .doc-label { font-size: 11px; font-weight: 600; letter-spacing: 2.5px; color: var(--accent); text-transform: uppercase; margin-bottom: 8px; }
+  h1 { font-family: 'Instrument Serif', Georgia, serif; font-size: 36px; font-weight: 400; line-height: 1.2; margin-bottom: 6px; }
+  .doc-meta { font-size: 13px; color: var(--text3); }
+
+  /* How to use */
+  .how-to-use { background: var(--bg-warm); border: 1px solid var(--border-light); border-radius: 12px; padding: 20px 24px; margin-bottom: 28px; }
+  .how-to-use h2 { font-family: 'Instrument Serif', Georgia, serif; font-size: 20px; font-weight: 400; margin-bottom: 12px; color: var(--text); }
+  .how-to-use p { font-size: 14px; color: var(--text2); margin-bottom: 8px; }
+  .how-to-use p:last-child { margin-bottom: 0; }
+  .how-to-use ul { font-size: 14px; color: var(--text2); padding-left: 20px; margin: 8px 0; }
+  .how-to-use li { margin-bottom: 4px; }
+
+  /* Sections */
+  h2 { font-family: 'Instrument Serif', Georgia, serif; font-size: 22px; font-weight: 400; margin: 28px 0 10px; padding-top: 20px; border-top: 1px solid var(--border-light); }
+  h2:first-of-type { border-top: none; padding-top: 0; }
+  h3 { font-size: 15px; font-weight: 600; margin: 16px 0 6px; }
+  p { color: var(--text2); font-size: 15px; margin-bottom: 8px; }
+  p strong { color: var(--text); }
+  ul, ol { color: var(--text2); font-size: 15px; padding-left: 24px; margin-bottom: 10px; }
+  li { margin-bottom: 4px; }
+  li strong { color: var(--text); }
+
+  /* One-liner */
+  .one-liner {
+    font-family: 'Instrument Serif', Georgia, serif;
+    font-size: 20px;
+    font-weight: 400;
+    color: var(--text);
+    line-height: 1.4;
+    margin: 16px 0;
+    padding: 16px 20px;
+    background: var(--bg-warm);
+    border-left: 3px solid var(--accent);
+    border-radius: 0 10px 10px 0;
+  }
+
+  /* Prompt boxes */
+  .prompt {
+    background: var(--bg-warm);
+    border: none;
+    border-left: 3px solid var(--accent);
+    border-radius: 0 8px 8px 0;
+    padding: 12px 16px;
+    margin: 8px 0 12px;
+    font-size: 14px;
+    color: var(--text3);
+    font-style: italic;
+  }
+
+  /* Example boxes */
+  .example {
+    background: #F8F6F3;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 14px 18px;
+    margin: 8px 0 12px;
+    font-size: 14px;
+    color: var(--text2);
+  }
+  .example-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  /* Insight boxes */
+  .insight-box {
+    background: var(--bg-warm);
+    border: 1px solid var(--border-light);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 12px 0;
+  }
+  .insight-label { font-size: 10px; font-weight: 600; letter-spacing: 1.5px; color: var(--accent); text-transform: uppercase; margin-bottom: 8px; }
+  .insight-box p { margin-bottom: 8px; font-size: 14px; }
+  .insight-box p:last-child { margin-bottom: 0; }
+
+  /* Callouts */
+  .callout { padding: 12px 16px; border-radius: 0 10px 10px 0; margin: 10px 0; }
+  .callout-green { border-left: 3px solid var(--green); background: var(--green-light); }
+  .callout-warning { border-left: 3px solid var(--warning); background: var(--warning-light); }
+  .callout-danger { border-left: 3px solid var(--danger); background: var(--danger-light); }
+  .callout-accent { border-left: 3px solid var(--accent); background: var(--accent-light); }
+  .callout-title { font-weight: 600; font-size: 14px; margin-bottom: 4px; }
+  .callout-title.green { color: var(--green); }
+  .callout-title.warning { color: var(--warning); }
+  .callout-title.danger { color: var(--danger); }
+  .callout-title.accent { color: var(--accent); }
+  .callout p { font-size: 14px; }
+
+  /* Tables */
+  table { width: 100%; border-collapse: collapse; font-size: 14px; margin: 12px 0 20px; }
+  thead th { text-align: left; padding: 10px 14px; background: var(--bg-warm); border-bottom: 1px solid var(--border); font-weight: 600; font-size: 12px; color: var(--text3); text-transform: uppercase; letter-spacing: 0.5px; }
+  tbody td { padding: 10px 14px; border-bottom: 1px solid var(--border-light); color: var(--text2); vertical-align: top; }
+  .table-wrap { border: 1px solid var(--border); border-radius: 10px; overflow: hidden; }
+
+  /* Flow steps */
+  .flow-step { display: flex; gap: 14px; margin-bottom: 14px; }
+  .flow-num { min-width: 32px; height: 32px; background: var(--accent); color: #fff; font-weight: 600; font-size: 14px; display: flex; align-items: center; justify-content: center; border-radius: 50%; margin-top: 2px; }
+  .flow-content { flex: 1; }
+  .flow-content h4 { font-size: 15px; font-weight: 600; margin-bottom: 4px; }
+  .flow-content p { font-size: 14px; }
+
+  /* Metrics */
+  .metric-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 10px 0; }
+  .metric { background: var(--bg-warm); border: 1px solid var(--border-light); border-radius: 10px; padding: 16px; text-align: center; }
+  .metric-val { font-family: 'Instrument Serif', Georgia, serif; font-size: 28px; }
+  .metric-val.accent { color: var(--accent); }
+  .metric-val.green { color: var(--green); }
+  .metric-val.warning { color: var(--warning); }
+  .metric-lbl { font-size: 12px; color: var(--text3); margin-top: 2px; }
+
+  /* Tiers */
+  .tier { background: var(--bg-warm); border: 1px solid var(--border-light); border-radius: 10px; padding: 20px 24px; margin-bottom: 12px; }
+  .tier-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 10px; }
+  .tier-name { font-family: 'Instrument Serif', Georgia, serif; font-size: 18px; }
+  .tier-price { font-size: 16px; font-weight: 600; color: var(--accent); }
+  .tier.featured { border-color: var(--accent); }
+  .tier ul { margin-bottom: 0; }
+
+  /* Footer */
+  .footer { font-size: 12px; color: var(--text3); margin-top: 28px; padding-top: 16px; border-top: 1px solid var(--border-light); }
+
+  hr { border: none; border-top: 1px solid var(--border-light); margin: 20px 0; }
+
+  @media (max-width: 600px) {
+    .metric-grid { grid-template-columns: 1fr; }
+    body { padding: 32px 16px 60px; }
+  }
+
+  @media print {
+    body { padding: 20px; }
+    .how-to-use { break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="doc-header">
+    <div class="doc-label">Scribed Template — MVP Product Document</div>
+    <h1>[Your Product Name]</h1>
+    <div class="doc-meta">v1.0 — [Month Year] — [Your Name] — Confidential</div>
+  </div>
+
+  <!-- HOW TO USE -->
+  <div class="how-to-use">
+    <h2>How to use this template</h2>
+    <p>This document is a complete MVP product framework. It covers the 10 sections that investors, co-founders, and teams need to take your idea seriously.</p>
+    <ul>
+      <li><strong>Prompts</strong> (dashed boxes) tell you what to write. Delete them once you've filled in your content.</li>
+      <li><strong>Examples</strong> (shaded boxes labelled "Example") show what good looks like using a fictional company called <strong>Glassbox</strong> — an AI contract review tool. Use them as a reference, then delete.</li>
+      <li>Every section includes strategic guidance — not just "insert text here."</li>
+      <li>Spend 2–4 hours filling this in. If a section takes longer than 30 minutes, your thinking isn't clear enough yet — simplify.</li>
+    </ul>
+  </div>
+
+  <!-- ONE-LINER -->
+  <div class="one-liner">[One sentence that describes your product. This should be so clear that someone who has never heard of your company understands exactly what you do and who it's for.]</div>
+
+  <div class="example">
+    <div class="example-label">Example — Glassbox</div>
+    <p>AI contract review that finds the clauses lawyers miss — in 90 seconds, not 3 billable hours.</p>
+  </div>
+
+  <!-- ───── 1. THE PROBLEM ───── -->
+
+  <h2>1. The problem</h2>
+
+  <p>Describe the problem your product solves. Be specific about what your customer does today and why current solutions fall short.</p>
+
+  <div class="prompt">What does your customer currently do to solve this problem? List 3–5 alternatives (including "do nothing") and explain why each one fails. Use the table below.</div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Current option</th><th>Why it fails</th></tr></thead>
+      <tbody>
+        <tr><td><strong>[Option 1 — e.g. "Do nothing"]</strong></td><td>[Why this doesn't work]</td></tr>
+        <tr><td><strong>[Option 2]</strong></td><td>[Why this doesn't work]</td></tr>
+        <tr><td><strong>[Option 3]</strong></td><td>[Why this doesn't work]</td></tr>
+        <tr><td><strong>[Option 4]</strong></td><td>[Why this doesn't work]</td></tr>
+        <tr><td><strong>[Option 5 — e.g. "Hire a consultant"]</strong></td><td>[Why this doesn't work]</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="example">
+    <div class="example-label">Example — Glassbox</div>
+    <table>
+      <thead><tr><th>Current option</th><th>Why it fails</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Read it yourself</strong></td><td>Non-lawyers miss indemnity clauses, auto-renewals, and IP assignments. 68% of SMEs have signed contracts with terms they didn't understand.</td></tr>
+        <tr><td><strong>Hire a lawyer</strong></td><td>£300–£600/hour. A single contract review costs £1,500–£3,000. Most startups skip it entirely below Series A.</td></tr>
+        <tr><td><strong>Use a template</strong></td><td>Templates don't review incoming contracts from the other party. If a supplier sends you their terms, a template is useless.</td></tr>
+        <tr><td><strong>Ask ChatGPT</strong></td><td>No legal training data, hallucinated clause references, no liability. Would you bet a £2M contract on a chatbot?</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="insight-box">
+    <div class="insight-label">Core insight</div>
+    <p><strong>[What is the deeper reason this problem persists? Go beyond surface-level causes like cost or speed. What structural or psychological barrier prevents people from solving it?]</strong></p>
+  </div>
+
+  <div class="example">
+    <div class="example-label">Example — Glassbox</div>
+    <div class="insight-box" style="margin: 0;">
+      <div class="insight-label">Core insight</div>
+      <p><strong>Contract risk is invisible until it's catastrophic.</strong> A bad clause costs nothing on the day you sign it. It costs everything on the day it triggers. That's why people skip reviews — the pain is deferred, so the urgency is zero. Glassbox makes the risk visible <em>before</em> you sign.</p>
+    </div>
+  </div>
+
+  <!-- ───── 2. CUSTOMER ───── -->
+
+  <h2>2. The customer</h2>
+
+  <h3>Primary customer</h3>
+
+  <div class="prompt">Who is your primary customer? Be specific: job title, company size, industry, stage. Then describe when they feel the pain most acutely — what triggers them to seek a solution?</div>
+
+  <p><strong>[Job title / role] at [company type] ([size, stage])</strong></p>
+
+  <p>[2–3 sentences describing who they are and why they care.]</p>
+
+  <p><strong>When do they feel the pain?</strong></p>
+  <ul>
+    <li><strong>[Trigger 1]</strong> — [What happens and why it hurts]</li>
+    <li><strong>[Trigger 2]</strong> — [What happens and why it hurts]</li>
+    <li><strong>[Trigger 3]</strong> — [What happens and why it hurts]</li>
+    <li><strong>[Trigger 4]</strong> — [What happens and why it hurts]</li>
+  </ul>
+
+  <div class="example">
+    <div class="example-label">Example — Glassbox</div>
+    <p><strong>Founders and ops leads at startups (Seed to Series B, 5–80 people)</strong></p>
+    <p>They sign 10–30 contracts per quarter: vendor agreements, NDAs, partnership terms, customer contracts. They don't have in-house legal. They either skip the review or pay for an external lawyer once the contract value is high enough to justify the cost.</p>
+    <p><strong>When do they feel the pain?</strong></p>
+    <ul>
+      <li><strong>New vendor onboarding</strong> — "This SaaS vendor sent their terms. I need to sign by Friday. I'm not paying a lawyer £2K to review a £500/month tool."</li>
+      <li><strong>Fundraising</strong> — "My SAFE has clauses I don't fully understand and I don't want to look stupid asking my investor to explain."</li>
+      <li><strong>Enterprise customer</strong> — "A big customer sent their MSA. It's 40 pages. I have no idea what I'm agreeing to."</li>
+    </ul>
+  </div>
+
+  <div class="callout callout-accent">
+    <div class="callout-title accent">Who is NOT your customer (yet)?</div>
+    <p>[Describe who you're deliberately excluding from v1 and why. This shows strategic focus.]</p>
+  </div>
+
+  <h3>Expansion customer</h3>
+  <p>[Who is the next customer segment after you've nailed the primary? Why do they come second?]</p>
+
+  <!-- ───── 3. PRODUCT ───── -->
+
+  <h2>3. The product</h2>
+
+  <p>[One sentence: what does the product do?]</p>
+
+  <h3>How it works</h3>
+
+  <div class="prompt">Walk through the user journey step by step. Use the numbered flow format below. Be specific — what does the user see, do, and get at each step?</div>
+
+  <div class="flow-step">
+    <div class="flow-num">1</div>
+    <div class="flow-content">
+      <h4>[Step 1 title — e.g. "User uploads a contract"]</h4>
+      <p>[What happens. What the user does. What data is captured. How long it takes.]</p>
+    </div>
+  </div>
+
+  <div class="flow-step">
+    <div class="flow-num">2</div>
+    <div class="flow-content">
+      <h4>[Step 2 title]</h4>
+      <p>[What happens behind the scenes. What the user sees.]</p>
+    </div>
+  </div>
+
+  <div class="flow-step">
+    <div class="flow-num">3</div>
+    <div class="flow-content">
+      <h4>[Step 3 title]</h4>
+      <p>[What the product does.]</p>
+    </div>
+  </div>
+
+  <div class="flow-step">
+    <div class="flow-num">4</div>
+    <div class="flow-content">
+      <h4>[Step 4 title — e.g. "Output: the deliverable"]</h4>
+      <p>[What the user receives. What format. What they can do with it.]</p>
+    </div>
+  </div>
+
+  <h3>What makes this different from [obvious alternative]</h3>
+
+  <div class="prompt">Compare your product to the most obvious alternative (usually a generic AI tool or a manual process). Use the table to make the difference concrete.</div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th></th><th>[Alternative]</th><th>[Your Product]</th></tr></thead>
+      <tbody>
+        <tr><td><strong>[Dimension 1]</strong></td><td>[How the alternative does it]</td><td>[How yours is better]</td></tr>
+        <tr><td><strong>[Dimension 2]</strong></td><td>[How the alternative does it]</td><td>[How yours is better]</td></tr>
+        <tr><td><strong>[Dimension 3]</strong></td><td>[How the alternative does it]</td><td>[How yours is better]</td></tr>
+        <tr><td><strong>[Dimension 4]</strong></td><td>[How the alternative does it]</td><td>[How yours is better]</td></tr>
+        <tr><td><strong>[Dimension 5]</strong></td><td>[How the alternative does it]</td><td>[How yours is better]</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ───── 4. COMPETITION ───── -->
+
+  <h2>4. Competition</h2>
+
+  <div class="prompt">List every alternative your customer has — including "do nothing." For each one, explain what they do, why they exist, and why your product wins.</div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Alternative</th><th>What they do</th><th>Why you win</th></tr></thead>
+      <tbody>
+        <tr><td><strong>[Competitor / alternative 1]</strong></td><td>[Description]</td><td>[Your advantage]</td></tr>
+        <tr><td><strong>[Competitor / alternative 2]</strong></td><td>[Description]</td><td>[Your advantage]</td></tr>
+        <tr><td><strong>[Competitor / alternative 3]</strong></td><td>[Description]</td><td>[Your advantage]</td></tr>
+        <tr><td><strong>[Competitor / alternative 4]</strong></td><td>[Description]</td><td>[Your advantage]</td></tr>
+        <tr><td><strong>[Do nothing / status quo]</strong></td><td>[What people currently do]</td><td>[Why that's not good enough]</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="insight-box">
+    <div class="insight-label">Competitive moat</div>
+    <p><strong>[What is your moat? Being first to market is not sufficient. What is structurally hard to replicate? Data? Methodology? Network effects? Regulatory advantage?]</strong></p>
+  </div>
+
+  <!-- ───── 5. PRODUCT DETAIL ───── -->
+
+  <h2>5. Product elements in detail</h2>
+
+  <div class="prompt">Break your product into its key components. For each one, describe what it is, why it matters, and how it works. This section shows you've thought beyond the demo.</div>
+
+  <h3>5a. [Component 1 — e.g. "The input experience"]</h3>
+  <p>[What it is. Why it's designed this way. What the user sees.]</p>
+
+  <h3>5b. [Component 2 — e.g. "The processing / analysis layer"]</h3>
+  <p>[What happens behind the scenes. Why this approach was chosen.]</p>
+
+  <h3>5c. [Component 3 — e.g. "The output / deliverable"]</h3>
+  <p>[What the user gets. What format. What they can do with it.]</p>
+  <ul>
+    <li><strong>[Feature 1]</strong> — [Description]</li>
+    <li><strong>[Feature 2]</strong> — [Description]</li>
+    <li><strong>[Feature 3]</strong> — [Description]</li>
+  </ul>
+
+  <h3>5d. [Component 4 — e.g. "Sharing / collaboration"]</h3>
+  <p>[How the output is shared. Who sees it. What access controls exist.]</p>
+
+  <!-- ───── 6. PRICING ───── -->
+
+  <h2>6. Pricing</h2>
+
+  <div class="prompt">Show your pricing tiers. For each tier, explain what's included and the strategic logic behind the price point. If you're unsure, say so — "draft" is fine.</div>
+
+  <div class="tier">
+    <div class="tier-header">
+      <span class="tier-name">[Free / Starter]</span>
+      <span class="tier-price">[Price]</span>
+    </div>
+    <ul>
+      <li>[What's included]</li>
+      <li>[What's included]</li>
+      <li>[Strategic logic — why this tier exists]</li>
+    </ul>
+  </div>
+
+  <div class="tier featured">
+    <div class="tier-header">
+      <span class="tier-name">[Pro / Core]</span>
+      <span class="tier-price">[Price]</span>
+    </div>
+    <ul>
+      <li>[What's included]</li>
+      <li>[What's included]</li>
+      <li>[What's included]</li>
+    </ul>
+  </div>
+
+  <div class="tier">
+    <div class="tier-header">
+      <span class="tier-name">[Team / Enterprise]</span>
+      <span class="tier-price">[Price]</span>
+    </div>
+    <ul>
+      <li>[What's included]</li>
+      <li>[Note if this tier is aspirational / not built yet]</li>
+    </ul>
+  </div>
+
+  <div class="callout callout-warning">
+    <div class="callout-title warning">Pricing note</div>
+    <p>[What assumptions is this pricing based on? What would make you change it? What are you testing?]</p>
+  </div>
+
+  <!-- ───── 7. SUCCESS METRICS ───── -->
+
+  <h2>7. What product-market fit looks like</h2>
+
+  <p>[Complete this sentence: "The MVP succeeds if and only if it can consistently do one thing: ___"]</p>
+
+  <div class="metric-grid">
+    <div class="metric"><div class="metric-val accent">[X%]</div><div class="metric-lbl">[Key metric 1]</div></div>
+    <div class="metric"><div class="metric-val green">[X%]</div><div class="metric-lbl">[Key metric 2]</div></div>
+    <div class="metric"><div class="metric-val warning">[X+]</div><div class="metric-lbl">[Key metric 3]</div></div>
+  </div>
+
+  <h3>Signals that it's working</h3>
+  <ul>
+    <li>[Behaviour that proves users love it]</li>
+    <li>[Behaviour that proves users love it]</li>
+    <li>[Behaviour that proves users love it]</li>
+    <li>[Behaviour that proves users love it]</li>
+  </ul>
+
+  <h3>Signals that it's NOT working</h3>
+  <ul>
+    <li>[Behaviour that proves users don't care]</li>
+    <li>[Behaviour that proves users don't care]</li>
+    <li>[Behaviour that proves users don't care]</li>
+  </ul>
+
+  <!-- ───── 8. FIRST USERS ───── -->
+
+  <h2>8. Getting the first 100 users</h2>
+
+  <div class="prompt">Focus on the first 100 people who will love this, not on scaling. Where are they? How do you reach them? What will make them try it?</div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Channel</th><th>Why this works</th><th>Approach</th></tr></thead>
+      <tbody>
+        <tr><td><strong>[Channel 1]</strong></td><td>[Why your users are here]</td><td>[Specific action you'll take]</td></tr>
+        <tr><td><strong>[Channel 2]</strong></td><td>[Why your users are here]</td><td>[Specific action you'll take]</td></tr>
+        <tr><td><strong>[Channel 3]</strong></td><td>[Why your users are here]</td><td>[Specific action you'll take]</td></tr>
+        <tr><td><strong>[Channel 4]</strong></td><td>[Why your users are here]</td><td>[Specific action you'll take]</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout callout-green">
+    <div class="callout-title green">Lead with a demo, not a deck</div>
+    <p>[What is the "aha moment" that will make someone try your product? How can you deliver it in under 60 seconds?]</p>
+  </div>
+
+  <!-- ───── 9. BUILD PLAN ───── -->
+
+  <h2>9. What needs to be built</h2>
+
+  <h3>Already built</h3>
+  <ul>
+    <li>[Feature / component that exists]</li>
+    <li>[Feature / component that exists]</li>
+    <li>[Feature / component that exists]</li>
+  </ul>
+
+  <h3>Needs improvement for MVP</h3>
+  <ul>
+    <li><strong>[Area]</strong> — [What needs to change and why]</li>
+    <li><strong>[Area]</strong> — [What needs to change and why]</li>
+    <li><strong>[Area]</strong> — [What needs to change and why]</li>
+  </ul>
+
+  <h3>Not needed for MVP</h3>
+  <ul>
+    <li>[Feature you're deliberately not building yet]</li>
+    <li>[Feature you're deliberately not building yet]</li>
+    <li>[Feature you're deliberately not building yet]</li>
+  </ul>
+
+  <!-- ───── 10. RISKS ───── -->
+
+  <h2>10. Risks to this plan</h2>
+
+  <div class="prompt">Be honest. What could kill this? List your biggest risks by severity. Investors and team members will trust you more for acknowledging what could go wrong.</div>
+
+  <div class="callout callout-danger">
+    <div class="callout-title danger">Existential: [Your biggest risk]</div>
+    <p>[What would kill the product entirely? Why? What would you do if this happened?]</p>
+  </div>
+
+  <div class="callout callout-warning">
+    <div class="callout-title warning">Severe: [Second biggest risk]</div>
+    <p>[What would seriously hurt the business? Why? How do you mitigate it?]</p>
+  </div>
+
+  <div class="callout callout-warning">
+    <div class="callout-title warning">Severe: [Third risk]</div>
+    <p>[Describe and explain.]</p>
+  </div>
+
+  <div class="callout callout-accent">
+    <div class="callout-title accent">Manageable: [A risk you can handle]</div>
+    <p>[A real risk that you have a plan for.]</p>
+  </div>
+
+  <!-- ───── SUMMARY ───── -->
+
+  <hr>
+
+  <h2>Summary</h2>
+
+  <div class="insight-box">
+    <p><strong>[One sentence: what your product is.]</strong></p>
+    <p>[One sentence: who the customer is.]</p>
+    <p>[One sentence: what the moat is.]</p>
+    <p>[One sentence: how you'll grow.]</p>
+    <p>[One sentence: the single question that determines success.]</p>
+  </div>
+
+  <div class="example">
+    <div class="example-label">Example — Glassbox</div>
+    <div class="insight-box" style="margin: 0;">
+      <p><strong>Glassbox is AI contract review that finds the clauses lawyers miss — in 90 seconds, not 3 billable hours.</strong></p>
+      <p>The customer is a startup founder or ops lead who signs 10–30 contracts per quarter without in-house legal.</p>
+      <p>The moat is a clause-level risk database trained on 50,000 real contract disputes — not a generic language model.</p>
+      <p>Growth comes from 100 founders who love it so much they forward the report to their lawyer and say "why didn't you catch this?"</p>
+      <p>The single question: <strong>does Glassbox consistently find a clause the user missed?</strong></p>
+    </div>
+  </div>
+
+  <div class="footer">
+    <p>Scribed — Premium Document Design — scribed.eu</p>
+    <p>This template is licensed for personal and commercial use by the purchaser. Do not redistribute.</p>
+  </div>
+
+</div>
+</body>
+</html>
