@@ -19,11 +19,40 @@ const dmSans = DM_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Scribed — Premium Document Design",
+  metadataBase: new URL("https://scribed.eu"),
+  title: {
+    default: "Scribed — Premium Document Design",
+    template: "%s — Scribed",
+  },
   description:
     "Strategy-grade document templates for founders, graduates, and teams. Ready in seconds, not weeks.",
   openGraph: {
+    type: "website",
+    locale: "en_IE",
+    url: "https://scribed.eu",
+    siteName: "Scribed",
+    title: "Scribed — Premium Document Design",
+    description:
+      "Strategy-grade document templates for founders, graduates, and teams. Ready in seconds, not weeks.",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Scribed — Premium Document Design",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Scribed — Premium Document Design",
+    description:
+      "Strategy-grade document templates for founders, graduates, and teams.",
     images: ["/og-image.png"],
+  },
+  icons: {
+    icon: "/icon-s.png",
+    apple: "/icon-s.png",
   },
 };
 
